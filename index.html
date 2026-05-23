@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lina Convites</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --gold:#b8924a;--gold2:#d4ac6e;--gold-light:#e8d5b0;--gold-pale:#f5ede0;
+  --dark:#12090a;--dark2:#1e1010;--cream:#faf6f0;--cream2:#f3ede4;
+  --text:#2a1f1f;--muted:#7a6a5a;--muted2:#a0907f;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.5}
+.topbar{position:relative;z-index:2;height:4px;background:linear-gradient(90deg,#e8c9a0 0%,var(--gold) 25%,var(--gold2) 50%,#6b3a1a 75%,#e8c9a0 100%)}
+.hero{position:relative;z-index:1;text-align:center;padding:56px 28px 52px;background:var(--cream);overflow:hidden}
+.hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold-light),transparent)}
+.corner{position:absolute;width:60px;height:60px}
+.corner-tl{top:22px;left:22px;border-top:1px solid var(--gold-light);border-left:1px solid var(--gold-light)}
+.corner-tr{top:22px;right:22px;border-top:1px solid var(--gold-light);border-right:1px solid var(--gold-light)}
+.corner-bl{bottom:22px;left:22px;border-bottom:1px solid var(--gold-light);border-left:1px solid var(--gold-light)}
+.corner-br{bottom:22px;right:22px;border-bottom:1px solid var(--gold-light);border-right:1px solid var(--gold-light)}
+.photo-wrap{position:relative;display:inline-block;margin-bottom:32px}
+.photo-wrap::before{content:'';position:absolute;inset:-10px;border-radius:50%;border:1px solid var(--gold-light);animation:spin 20s linear infinite}
+.photo-wrap::after{content:'';position:absolute;inset:-18px;border-radius:50%;border:1px dashed rgba(184,146,74,0.25)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.photo{width:120px;height:120px;border-radius:50%;border:2px solid var(--gold);object-fit:cover;display:block;position:relative;z-index:1}
+.brand{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;font-weight:300}
+.hero-name{font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:300;color:var(--dark);letter-spacing:4px;line-height:1.2;margin-bottom:4px}
+.ornament{display:flex;align-items:center;justify-content:center;gap:14px;margin:20px auto}
+.ornament::before,.ornament::after{content:'';flex:1;max-width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.ornament::after{background:linear-gradient(90deg,var(--gold),transparent)}
+.ornament-diamond{width:6px;height:6px;background:var(--gold);transform:rotate(45deg);flex-shrink:0}
+.hero-bio{font-size:13px;color:var(--muted);line-height:1.9;max-width:300px;margin:0 auto 32px;font-weight:300;letter-spacing:.5px}
+.hero-stats{display:flex;justify-content:center;border:1px solid var(--gold-light);border-radius:14px;overflow:hidden;background:white;max-width:280px;margin:0 auto}
+.stat{flex:1;padding:16px 12px;position:relative}
+.stat+.stat::before{content:'';position:absolute;left:0;top:20%;bottom:20%;width:1px;background:var(--gold-light)}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--dark);display:block;line-height:1;margin-bottom:4px}
+.stat-label{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted2)}
+.sec-head{text-align:center;padding:52px 28px 28px;position:relative;z-index:1}
+.sec-tag{font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);font-weight:400;margin-bottom:10px;display:block}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:2.1rem;font-weight:300;color:var(--dark)}
+.links-wrap{padding:0 20px 52px;display:flex;flex-direction:column;gap:10px;position:relative;z-index:1}
+.group-label{display:flex;align-items:center;gap:10px;margin-top:10px;margin-bottom:2px}
+.group-label span{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted2)}
+.group-label::after{content:'';flex:1;height:1px;background:var(--gold-light)}
+.lk{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:16px;text-decoration:none;color:inherit;transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s;position:relative;overflow:hidden}
+.lk:active{transform:scale(0.98)!important}
+.lk-form{background:white;border:1px solid var(--gold-light)}
+.lk-form:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(184,146,74,0.12);border-color:var(--gold2)}
+.lk-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;background:var(--gold-pale);border:1px solid var(--gold-light)}
+.lk-body{flex:1}
+.lk-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;color:var(--dark);line-height:1.2}
+.lk-sub{font-size:10px;color:var(--muted2);margin-top:2px;letter-spacing:1.5px;text-transform:uppercase}
+.lk-arrow{width:32px;height:32px;border-radius:50%;border:1px solid var(--gold-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .25s,border-color .25s;position:relative;z-index:1}
+.lk-arrow svg{width:14px;height:14px;stroke:var(--gold);fill:none;stroke-width:2;transition:stroke .25s}
+.lk-form:hover .lk-arrow{background:var(--gold);border-color:var(--gold)}
+.lk-form:hover .lk-arrow svg{stroke:white}
+.lk-wpp{background:linear-gradient(135deg,#1db954 0%,#128c7e 100%);border:none}
+.lk-wpp:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(19,185,84,0.28)}
+.lk-wpp .lk-icon{background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.2)}
+.lk-wpp .lk-title,.lk-wpp .lk-sub{color:white}
+.lk-wpp .lk-arrow{border-color:rgba(255,255,255,0.3)}
+.lk-wpp .lk-arrow svg{stroke:white}
+.lk-wpp:hover .lk-arrow{background:rgba(255,255,255,0.2)}
+.lk-ig{background:linear-gradient(135deg,#f58529 0%,#dd2a7b 40%,#8134af 80%,#515bd4 100%);border:none}
+.lk-ig:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(221,42,123,0.28)}
+.lk-ig .lk-icon{background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.2)}
+.lk-ig .lk-title,.lk-ig .lk-sub{color:white}
+.lk-ig .lk-arrow{border-color:rgba(255,255,255,0.3)}
+.lk-ig .lk-arrow svg{stroke:white}
+.lk-ig:hover .lk-arrow{background:rgba(255,255,255,0.2)}
+
+/* ══ POR QUE A LINA ══ */
+.pq-lina{position:relative;z-index:1;background:linear-gradient(155deg,#3d2010 0%,#1a0f09 55%,#3d2010 100%);padding:60px 24px 56px;overflow:hidden}
+.pq-lina-top,.pq-lina-bottom{display:block;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.pq-lina-top{margin-bottom:48px}
+.pq-lina-bottom{margin-top:48px}
+.pq-head{text-align:center;margin-bottom:36px}
+.pq-tag{font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px}
+.pq-title{font-family:'Cormorant Garamond',serif;font-size:2.3rem;font-weight:300;color:rgba(255,255,255,0.92);line-height:1.2}
+.pq-statement{text-align:center;margin:0 auto 40px;max-width:320px}
+.pq-statement-big{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-style:italic;color:rgba(255,255,255,0.8);line-height:1.7;font-weight:300}
+.pq-statement-big strong{font-style:normal;color:var(--gold2);font-weight:600}
+.pq-divider{display:block;width:36px;height:1px;background:var(--gold);margin:18px auto 0}
+.pq-vs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:32px}
+.pq-col{border-radius:16px;padding:20px 14px;position:relative;overflow:hidden}
+.pq-col-bad{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08)}
+.pq-col-good{background:rgba(184,146,74,0.1);border:1px solid rgba(184,146,74,0.28)}
+.pq-col-good::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold2))}
+.pq-col-label{font-size:9px;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;display:block}
+.pq-col-bad .pq-col-label{color:rgba(255,255,255,0.28)}
+.pq-col-good .pq-col-label{color:var(--gold2)}
+.pq-col-title{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:400;margin-bottom:14px;line-height:1.4}
+.pq-col-bad .pq-col-title{color:rgba(255,255,255,0.45)}
+.pq-col-good .pq-col-title{color:rgba(255,255,255,0.9)}
+.pq-item{display:flex;align-items:flex-start;gap:8px;margin-bottom:9px;font-size:11px;line-height:1.5;letter-spacing:.3px}
+.pq-col-bad .pq-item{color:rgba(255,255,255,0.32)}
+.pq-col-good .pq-item{color:rgba(255,255,255,0.72)}
+.pq-dot{width:14px;height:14px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:8px;flex-shrink:0;margin-top:1px;font-weight:700}
+.pq-dot-bad{background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.22)}
+.pq-dot-good{background:var(--gold);color:white}
+.pq-pilares{display:flex;flex-direction:column;gap:10px}
+.pilar{display:flex;align-items:flex-start;gap:16px;padding:18px 16px;border-radius:14px;background:rgba(255,255,255,0.03);border:1px solid rgba(184,146,74,0.13)}
+.pilar-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:rgba(184,146,74,0.28);line-height:1;flex-shrink:0;min-width:26px}
+.pilar-title{font-family:'Cormorant Garamond',serif;font-size:1.08rem;font-weight:600;color:var(--gold2);margin-bottom:4px}
+.pilar-text{font-size:11.5px;color:rgba(255,255,255,0.48);line-height:1.7;font-weight:300}
+
+/* ══ COMO FUNCIONA ══ */
+.processo{position:relative;z-index:1;padding:56px 24px 52px;background:linear-gradient(180deg,var(--cream2) 0%,var(--cream) 100%)}
+.processo-divider{display:block;height:1px;background:linear-gradient(90deg,transparent,var(--gold-light),transparent);margin-bottom:44px}
+.processo-head{text-align:center;margin-bottom:32px}
+.processo-steps{display:flex;flex-direction:column}
+.step{display:flex;align-items:flex-start;gap:16px;padding:18px 0;position:relative}
+.step:not(:last-child)::after{content:'';position:absolute;left:19px;top:54px;width:1px;bottom:0;background:linear-gradient(180deg,var(--gold-light),transparent)}
+.step-num{width:40px;height:40px;border-radius:50%;border:1px solid var(--gold-light);background:white;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:300;color:var(--gold);position:relative;z-index:1}
+.step-title{font-family:'Cormorant Garamond',serif;font-size:1.12rem;font-weight:400;color:var(--dark);margin-bottom:4px;padding-top:8px}
+.step-text{font-size:12px;color:var(--muted);line-height:1.7;font-weight:300}
+
+/* ══ CTA URGÊNCIA ══ */
+.cta-urgencia{position:relative;z-index:1;margin:0 20px;padding:34px 26px;background:white;border:1.5px solid var(--gold-light);border-radius:20px;text-align:center;overflow:hidden;box-shadow:0 8px 40px rgba(184,146,74,0.13)}
+.cta-urgencia::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#e8c9a0,var(--gold2),var(--gold),#6b3a1a,var(--gold2))}
+.cta-urgencia-icon{font-size:24px;display:block;margin-bottom:12px}
+.cta-urgencia-title{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:300;color:var(--dark);margin-bottom:8px;line-height:1.3}
+.cta-urgencia-text{font-size:12px;color:var(--muted);line-height:1.85;margin-bottom:22px;font-weight:300}
+.cta-urgencia-text strong{color:var(--gold);font-weight:500}
+
+/* ══ DIFERENCIAL ══ */
+.diferencial{position:relative;z-index:1;margin:18px 20px 0;padding:32px 28px;background:white;border:1px solid var(--gold-light);border-radius:20px;text-align:center;overflow:hidden}
+.diferencial::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),var(--gold2),var(--gold),transparent)}
+.diferencial-icon{font-size:28px;margin-bottom:14px;display:block}
+.diferencial-text{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-style:italic;color:var(--text);line-height:1.9;font-weight:300}
+.diferencial-text strong{font-style:normal;color:var(--gold);font-weight:600}
+
+/* ══ DEPOIMENTOS ══ */
+.depos{background:linear-gradient(160deg,#1a0f09 0%,#3d2010 100%);padding:52px 24px;position:relative;z-index:1;margin-top:36px}
+.depos-top,.depos-bottom{display:block;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.depos-top{margin-bottom:48px}
+.depos-bottom{margin-top:48px}
+.depos .sec-head{padding:0 0 28px}
+.depos .sec-tag{color:var(--gold2)}
+.depos .sec-title{color:rgba(255,255,255,0.9)}
+.depo-list{display:flex;flex-direction:column;gap:14px}
+.depo{padding:24px;border-radius:16px;background:rgba(255,255,255,0.05);border:1px solid rgba(184,146,74,0.2);position:relative;overflow:hidden}
+.depo::before{content:'❝';font-family:'Cormorant Garamond',serif;font-size:5rem;font-weight:300;color:rgba(184,146,74,0.08);position:absolute;top:-10px;right:14px;line-height:1}
+.depo-category{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold2);margin-bottom:8px;display:block}
+.stars{color:var(--gold2);font-size:12px;letter-spacing:3px;margin-bottom:12px}
+.depo-text{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;color:rgba(255,255,255,0.8);line-height:1.75;margin-bottom:16px;position:relative;z-index:1}
+.depo-author{display:flex;align-items:center;gap:10px}
+.ava{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold2));display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;color:white;flex-shrink:0;letter-spacing:.5px}
+.ava-name{font-size:12px;font-weight:500;color:rgba(255,255,255,0.85)}
+.ava-evt{font-size:10px;color:rgba(255,255,255,0.4);letter-spacing:1.5px;text-transform:uppercase;margin-top:1px}
+
+/* ══ CTA DÚVIDA ══ */
+.cta-duvida{position:relative;z-index:1;background:linear-gradient(135deg,#3d2010 0%,#1a0f09 100%);padding:48px 28px;text-align:center;overflow:hidden}
+.cta-duvida-top{display:block;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin-bottom:44px}
+.cta-duvida-icon{font-size:26px;display:block;margin-bottom:14px}
+.cta-duvida-title{font-family:'Cormorant Garamond',serif;font-size:1.75rem;font-weight:300;color:rgba(255,255,255,0.92);margin-bottom:10px;line-height:1.3}
+.cta-duvida-text{font-size:12px;color:rgba(255,255,255,0.43);line-height:1.95;margin-bottom:26px;font-weight:300;max-width:290px;margin-left:auto;margin-right:auto}
+.cta-duvida-text strong{color:var(--gold2);font-weight:400}
+.btn-outline-gold{display:inline-flex;align-items:center;gap:10px;padding:14px 30px;background:transparent;border:1px solid var(--gold);color:var(--gold2);border-radius:50px;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none;font-weight:500;transition:background .25s,color .25s,transform .25s}
+.btn-outline-gold:hover{background:var(--gold);color:white;transform:translateY(-2px)}
+
+/* ══ CTA FINAL ══ */
+.cta{padding:60px 28px;text-align:center;background:var(--cream);position:relative;z-index:1}
+.cta-inner{max-width:340px;margin:0 auto}
+.cta .sec-tag{display:block;margin-bottom:10px}
+.cta-title{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--dark);margin-bottom:10px}
+.cta-sub{font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:32px;font-weight:300}
+.btn-gold{display:inline-flex;align-items:center;gap:10px;padding:15px 34px;background:linear-gradient(135deg,var(--gold) 0%,#6b3a1a 100%);color:white;border-radius:50px;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none;font-weight:500;transition:opacity .25s,transform .25s,box-shadow .25s;box-shadow:0 6px 28px rgba(123,45,85,0.35)}
+.btn-gold:hover{opacity:.88;transform:translateY(-2px);box-shadow:0 14px 40px rgba(123,45,85,0.45)}
+footer{background:linear-gradient(135deg,#120a05 0%,#1a0f09 100%);padding:40px 24px 36px;text-align:center;border-radius:28px 28px 0 0;position:relative;z-index:1}
+.ft-brand{margin:0 auto 20px}
+.ft-brand .ft-lina{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-style:italic;font-weight:600;color:var(--gold2);letter-spacing:2px}
+.ft-brand .ft-convites{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:300;color:rgba(255,255,255,0.4);letter-spacing:5px;text-transform:uppercase;display:block;margin-top:2px}
+footer p{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);line-height:2.2}
+footer strong{color:var(--gold2);font-weight:400}
+</style>
+</head>
+<body>
+
+<div class="topbar"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="corner corner-tl"></div><div class="corner corner-tr"></div>
+  <div class="corner corner-bl"></div><div class="corner corner-br"></div>
+  <div class="photo-wrap">
+    <img class="photo" src="https://i.ibb.co/tPcbHg0J/Lina-14.png" alt="Ruth Carolina">
+  </div>
+  <p class="brand">Lina Convites</p>
+  <h1 class="hero-name">Ruth Carolina</h1>
+  <div class="ornament"><div class="ornament-diamond"></div></div>
+  <p class="hero-bio">28 anos, Bacharel em Administração <br>Graduada em Design e Apaixonada por arte.<br>Crio para traduzir sentimentos <br>e marcar momentos inesquecíveis.</p>
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-num">4</span>
+      <span class="stat-label">Anos de experiência<br>no design</span>
+    </div>
+  </div>
+</section>
+
+<!-- LINKS -->
+<div class="sec-head">
+  <span class="sec-tag">Por onde prefere?</span>
+  <h2 class="sec-title">Fale comigo</h2>
+</div>
+<main class="links-wrap">
+  <a href="https://wa.me/5511953520254" class="lk lk-wpp">
+    <div class="lk-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
+    <div class="lk-body"><div class="lk-title">Falar com a Lina no WhatsApp</div><div class="lk-sub">Atendimento personalizado</div></div>
+    <div class="lk-arrow"><svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg></div>
+  </a>
+  <div class="group-label"><span>Instagram</span></div>
+  <a href="https://instagram.com/linaconvitess" class="lk lk-ig">
+    <div class="lk-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
+    <div class="lk-body"><div class="lk-title">Casamentos &amp; Eventos</div><div class="lk-sub">Ver portfólio</div></div>
+    <div class="lk-arrow"><svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg></div>
+  </a>
+  <a href="https://instagram.com/linaconvites" class="lk lk-ig">
+    <div class="lk-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
+    <div class="lk-body"><div class="lk-title">Infantil &amp; Debutantes</div><div class="lk-sub">Ver portfólio</div></div>
+    <div class="lk-arrow"><svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg></div>
+  </a>
+  <div class="group-label"><span>Pedir pelo formulário</span></div>
+  <a href="https://linaconvites-formulario-infantil.pages.dev/" class="lk lk-form">
+    <div class="lk-icon">🎈</div><div class="lk-body"><div class="lk-title">Convite Infantil</div><div class="lk-sub">Preencher formulário</div></div>
+    <div class="lk-arrow"><svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg></div>
+  </a>
+  <a href="https://linaconvites-formulario-15anos.pages.dev/" class="lk lk-form">
+    <div class="lk-icon">👑</div><div class="lk-body"><div class="lk-title">Debutantes — 15 anos</div><div class="lk-sub">Preencher formulário</div></div>
+    <div class="lk-arrow"><svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg></div>
+  </a>
+  <a href="https://linaconvites-formulario-casamento.pages.dev/" class="lk lk-form">
+    <div class="lk-icon">💍</div><div class="lk-body"><div class="lk-title">Casamento</div><div class="lk-sub">Preencher formulário</div></div>
+    <div class="lk-arrow"><svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg></div>
+  </a>
+  <a href="https://linaconvites-formulario-evento.pages.dev/" class="lk lk-form">
+    <div class="lk-icon">🥂</div><div class="lk-body"><div class="lk-title">Eventos</div><div class="lk-sub">Preencher formulário</div></div>
+    <div class="lk-arrow"><svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg></div>
+  </a>
+</main>
+
+<!-- ══ CTA 1: POR QUE A LINA ══ -->
+<section class="pq-lina">
+  <span class="pq-lina-top"></span>
+  <div class="pq-head">
+    <span class="pq-tag">A diferença que você sente</span>
+    <h2 class="pq-title">Por que a Lina?</h2>
+  </div>
+  <div class="pq-statement">
+    <p class="pq-statement-big">Não trabalho com modelos prontos.<br><strong>Trabalho com experiências.</strong></p>
+    <span class="pq-divider"></span>
+  </div>
+  <div class="pq-vs">
+    <div class="pq-col pq-col-bad">
+      <span class="pq-col-label">Os outros</span>
+      <p class="pq-col-title">Template pronto, troca de cor e nome</p>
+      <div class="pq-item"><span class="pq-dot pq-dot-bad">✕</span><span>Modelo comprado e revendido</span></div>
+      <div class="pq-item"><span class="pq-dot pq-dot-bad">✕</span><span>Igual ao de outra festa</span></div>
+      <div class="pq-item"><span class="pq-dot pq-dot-bad">✕</span><span>Sem ouvir você de verdade</span></div>
+      <div class="pq-item"><span class="pq-dot pq-dot-bad">✕</span><span>Entrega fria, sem alma</span></div>
+    </div>
+    <div class="pq-col pq-col-good">
+      <span class="pq-col-label">Com a Lina</span>
+      <p class="pq-col-title">100% único para aquele momento</p>
+      <div class="pq-item"><span class="pq-dot pq-dot-good">✓</span><span>Criado do zero para você</span></div>
+      <div class="pq-item"><span class="pq-dot pq-dot-good">✓</span><span>Reflete a sua história</span></div>
+      <div class="pq-item"><span class="pq-dot pq-dot-good">✓</span><span>Ouço, entendo e crio</span></div>
+      <div class="pq-item"><span class="pq-dot pq-dot-good">✓</span><span>Convite com emoção e identidade</span></div>
+    </div>
+  </div>
+  <div class="pq-pilares">
+    <div class="pilar">
+      <span class="pilar-num">01</span>
+      <div><p class="pilar-title">Escuta antes de criar</p><p class="pilar-text">Cada projeto começa com perguntas. Quero entender o evento, o seu gosto e o que você quer sentir quando ver o resultado.</p></div>
+    </div>
+    <div class="pilar">
+      <span class="pilar-num">02</span>
+      <div><p class="pilar-title">Zero repetição</p><p class="pilar-text">Nenhum convite que já criei será igual ao seu. Cada projeto começa do zero, pensado exclusivamente para aquela celebração.</p></div>
+    </div>
+    <div class="pilar">
+      <span class="pilar-num">03</span>
+      <div><p class="pilar-title">Design com intenção</p><p class="pilar-text">Cada cor, fonte e elemento tem um motivo. Não é decoração — é a linguagem visual do seu momento mais especial.</p></div>
+    </div>
+    <div class="pilar">
+      <span class="pilar-num">04</span>
+      <div><p class="pilar-title">Cuidado do início ao fim</p><p class="pilar-text">Do primeiro formulário até a entrega final, você não é mais um pedido — é uma história que escolhi contar.</p></div>
+    </div>
+  </div>
+  <span class="pq-lina-bottom"></span>
+</section>
+
+<!-- ══ CTA 2: COMO FUNCIONA ══ -->
+<section class="processo">
+  <span class="processo-divider"></span>
+  <div class="processo-head">
+    <span class="sec-tag">Simples assim</span>
+    <h2 class="sec-title">Como funciona</h2>
+  </div>
+  <div class="processo-steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <p class="step-title">Você conta tudo sobre o evento</p>
+        <p class="step-text">Pelo formulário ou WhatsApp — do jeito que preferir. Tema, cores, personalidade, referências. Quanto mais você compartilhar, mais único fica o resultado.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <p class="step-title">Eu escuto e começo a criar</p>
+        <p class="step-text">Nada de banco de templates. Pego tudo que você me contou e começo do zero, pensando em cada detalhe especificamente para você.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <p class="step-title">Você aprova com liberdade de ajustar</p>
+        <p class="step-text">Apresento a proposta, ouço o que achou, ajustamos juntas até ficar exatamente o que você imaginou — ou melhor ainda.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <p class="step-title">Recebe o arquivo pronto para usar</p>
+        <p class="step-text">Entrego no formato ideal para compartilhar digitalmente ou imprimir. Tudo sem complicação.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA 3: AGENDA / URGÊNCIA ══ -->
+<div style="padding:24px 0 0;background:linear-gradient(180deg,var(--cream2),var(--cream));position:relative;z-index:1">
+  <div class="cta-urgencia">
+    <span class="cta-urgencia-icon">🗓️</span>
+    <h3 class="cta-urgencia-title">Agenda com vagas limitadas</h3>
+    <p class="cta-urgencia-text">Cada convite recebe <strong>atenção exclusiva</strong>. Por isso, atendo um número limitado de projetos por mês — para garantir que o seu tenha todo o cuidado que merece.<br><br>Se você tem data marcada, <strong>não deixe para a última hora</strong>.</p>
+    <a href="https://wa.me/5511953520254" class="btn-gold">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Garantir minha vaga
+    </a>
+  </div>
+</div>
+
+<!-- DIFERENCIAL -->
+<div class="diferencial">
+  <span class="diferencial-icon">📝</span>
+  <p class="diferencial-text">O formulário foi pensado para <strong>facilitar a sua vida</strong>. Mas se preferir conversar, meu WhatsApp está sempre aberto. De qualquer forma, prometo a mesma atenção e cuidado do início ao fim. Porque <strong>cada comemoração é única</strong>, e merece um convite à altura.</p>
+</div>
+
+<!-- DEPOIMENTOS -->
+<section class="depos">
+  <span class="depos-top"></span>
+  <div class="sec-head"><span class="sec-tag">O que dizem</span><h2 class="sec-title">Depoimentos</h2></div>
+  <div class="depo-list">
+    <div class="depo"><span class="depo-category">🎈 Festa Infantil</span><div class="stars">★★★★★</div><p class="depo-text">"Eu cheguei sem saber direito o que queria, só sabia que queria algo diferente. A Lina foi me fazendo perguntas, me mostrando referências… e quando vi o resultado chorei! Capturou exatamente o que eu sentia mas não sabia explicar."</p><div class="depo-author"><div class="ava">AP</div><div><p class="ava-name">Ana Paula M.</p><p class="ava-evt">Festa Infantil · 1 aninho</p></div></div></div>
+    <div class="depo"><span class="depo-category">🎈 Festa Infantil</span><div class="stars">★★★★★</div><p class="depo-text">"Além do convite ficar incrível, ela me ajudou a definir até a paleta de cores da festa toda. Muito atenciosa, paciente e criativa. Já indiquei para três amigas!"</p><div class="depo-author"><div class="ava">RC</div><div><p class="ava-name">Renata C.</p><p class="ava-evt">Festa Infantil · 2 aninhos</p></div></div></div>
+    <div class="depo"><span class="depo-category">💍 Casamento</span><div class="stars">★★★★★</div><p class="depo-text">"A gente tinha um tema na cabeça mas não conseguia colocar em palavras. A Lina entendeu tudo, fez perguntas certeiras e entregou um convite que parecia saído de um sonho. Todos os convidados elogiaram!"</p><div class="depo-author"><div class="ava">BT</div><div><p class="ava-name">Bianca & Thiago</p><p class="ava-evt">Casamento · São Paulo</p></div></div></div>
+    <div class="depo"><span class="depo-category">💍 Casamento</span><div class="stars">★★★★★</div><p class="depo-text">"Ela sugeriu detalhes que a gente nem tinha pensado e que fizeram toda a diferença. O convite contou a nossa história de um jeito que nós mesmos não teríamos conseguido."</p><div class="depo-author"><div class="ava">CL</div><div><p class="ava-name">Camila & Lucas</p><p class="ava-evt">Casamento · Campinas</p></div></div></div>
+    <div class="depo"><span class="depo-category">👑 15 Anos</span><div class="stars">★★★★★</div><p class="depo-text">"Eu queria algo sofisticado mas que ainda tivesse a minha cara. A Lina entendeu isso perfeitamente! Me deu opções, explicou cada escolha e o resultado foi além do que eu esperava."</p><div class="depo-author"><div class="ava">VR</div><div><p class="ava-name">Valentina R.</p><p class="ava-evt">15 Anos · Belo Horizonte</p></div></div></div>
+    <div class="depo"><span class="depo-category">👑 15 Anos</span><div class="stars">★★★★★</div><p class="depo-text">"Minha mãe que escolheu a Lina e eu fiquei com medo de não gostar… mas me apaixonei! Ela me ouviu, entendeu meu estilo e fez um convite que todos na festa queriam saber quem tinha criado."</p><div class="depo-author"><div class="ava">MF</div><div><p class="ava-name">Melissa F.</p><p class="ava-evt">15 Anos · Rio de Janeiro</p></div></div></div>
+    <div class="depo"><span class="depo-category">🥂 Evento</span><div class="stars">★★★★★</div><p class="depo-text">"Precisava de um convite corporativo que fosse elegante mas não frio. A Lina equilibrou isso perfeitamente. Criativa, rápida e super atenciosa com cada detalhe."</p><div class="depo-author"><div class="ava">PN</div><div><p class="ava-name">Patrícia N.</p><p class="ava-evt">Evento Corporativo · São Paulo</p></div></div></div>
+    <div class="depo"><span class="depo-category">🥂 Evento</span><div class="stars">★★★★★</div><p class="depo-text">"Organizei um chá revelação e queria algo diferente do que vejo por aí. A Lina trouxe ideias que eu nunca teria pensado e o convite ficou único. Atendimento impecável do início ao fim!"</p><div class="depo-author"><div class="ava">FO</div><div><p class="ava-name">Fernanda O.</p><p class="ava-evt">Chá Revelação · Curitiba</p></div></div></div>
+  </div>
+  <span class="depos-bottom"></span>
+</section>
+
+<!-- ══ CTA 4: AINDA NÃO SEI O QUE QUERO ══ -->
+<section class="cta-duvida">
+  <span class="cta-duvida-top"></span>
+  <span class="cta-duvida-icon">💬</span>
+  <h3 class="cta-duvida-title">Ainda não sabe exatamente o que quer?</h3>
+  <p class="cta-duvida-text">Tudo bem — a maioria das minhas clientes chegam assim.<br><br>É justamente aí que começa o meu trabalho.<br><strong>Me conta o evento, o que sente, o que sonha</strong> — e eu transformo isso em um convite.</p>
+  <a href="https://wa.me/5511953520254" class="btn-outline-gold">Quero conversar com a Lina</a>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta">
+  <div class="cta-inner">
+    <span class="sec-tag">Vamos criar juntas?</span>
+    <h2 class="cta-title">Solicite seu convite</h2>
+    <p class="cta-sub">Atendimento personalizado, do primeiro contato até a entrega do arquivo final. Vamos conversar sobre o seu evento.</p>
+    <a href="https://wa.me/5511953520254" class="btn-gold">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Falar no WhatsApp
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="ft-brand">
+    <span class="ft-lina">Lina</span>
+    <span class="ft-convites">Convites</span>
+  </div>
+  <p>© 2026 <strong>Ruth Carolina</strong></p>
+  <p>Designer especialista em convites digitais</p>
+</footer>
+
+</body>
+</html>

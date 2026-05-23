@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Convite Barbara e Júlio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body, html { width: 100%; background: #000; font-family: sans-serif; overflow-x: hidden; }
+
+        #capa-overlay {
+            position: fixed; inset: 0;
+            background: url('capa.jpg') no-repeat center center;
+            background-size: cover;
+            z-index: 9999; cursor: pointer;
+        }
+
+        #conteudo {
+            position: relative;
+            width: 100%;
+            max-width: 1366px;
+            margin: 0 auto;
+        }
+
+        .img-principal { width: 100%; height: auto; display: block; }
+
+        .area-link { position: absolute; z-index: 1000; cursor: pointer; }
+        #btn-localizacao { left: 15.5%; top: 59.8%; width: 33%; height: 2.8%; }
+        #btn-confirmar   { left: 51.5%; top: 59.8%; width: 33%; height: 2.8%; }
+        #btn-manual      { left: 15.5%; top: 65.4%; width: 33%; height: 2.8%; }
+        #btn-presentes   { left: 51.5%; top: 65.4%; width: 33%; height: 2.8%; }
+
+        /* CONTAGEM */
+        #countdown-wrapper {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #cd-inner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2%;
+            width: 90%;
+        }
+
+        .cd-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cd-num {
+            font-family: 'Cinzel', serif;
+            font-weight: 300;
+            color: #6B1A2A;
+            line-height: 1;
+            letter-spacing: 0.08em;
+        }
+
+        .cd-num.seg { color: #C0392B; }
+
+        .cd-sep {
+            font-family: 'Cinzel', serif;
+            font-weight: 300;
+            color: #6B1A2A;
+            line-height: 1;
+            padding-bottom: 0.7em;
+            flex-shrink: 0;
+        }
+
+        .cd-label {
+            font-family: 'Cinzel', serif;
+            font-weight: 300;
+            letter-spacing: 0.22em;
+            color: #666;
+            text-transform: uppercase;
+            margin-top: 0.35em;
+        }
+
+        /* BOTÃO MÚSICA */
+        #music-control {
+            position: fixed; top: 25px; left: 20px;
+            width: 44px; height: 44px;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 50%; display: none;
+            justify-content: center; align-items: center;
+            z-index: 9000;
+            border: 1px solid rgba(255,255,255,0.2);
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .modal {
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,0.95);
+            z-index: 9500; display: none;
+            justify-content: center; align-items: center;
+        }
+        .modal-container { position: relative; width: 85%; max-width: 420px; }
+        .modal-container img { width: 100%; border-radius: 15px; display: block; }
+        .fechar-modal { position: absolute; top: 10px; right: 15px; color: white; font-size: 40px; cursor: pointer; z-index: 10; }
+        #pix-area { position: absolute; bottom: 5%; left: 10%; width: 80%; height: 20%; cursor: pointer; }
+
+        #toast {
+            position: fixed; bottom: 50px; left: 50%; transform: translateX(-50%);
+            background: #fff; padding: 10px 20px; border-radius: 20px; z-index: 9999; display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div id="toast">Chave Pix copiada!</div>
+<div id="capa-overlay" onclick="iniciar()"></div>
+<audio id="bg-music" loop><source src="lovemelikeyoudoinstrumental.mp3" type="audio/mpeg"></audio>
+
+<div id="music-control" onclick="toggleMusic()">
+    <svg viewBox="0 0 24 24" width="24" fill="white">
+        <path d="M14,3.23V5.29C16.89,6.15 19,8.83 19,12C19,15.17 16.89,17.85 14,18.71V20.77C18.07,19.86 21,16.28 21,12C21,7.72 18.07,4.14 14,3.23M16.5,12C16.5,10.23 15.5,8.71 14,7.97V16.02C15.5,15.29 16.5,13.77 16.5,12M3,9V15H7L12,20V4L7,9H3Z"/>
+    </svg>
+</div>
+
+<div id="conteudo">
+    <img src="convite.jpg" class="img-principal" id="img-principal">
+
+    <div id="countdown-wrapper">
+        <div id="cd-inner">
+            <div class="cd-block">
+                <span class="cd-num" id="cd-dias">766</span>
+                <span class="cd-label">DIAS</span>
+            </div>
+            <span class="cd-sep" id="sep1">:</span>
+            <div class="cd-block">
+                <span class="cd-num" id="cd-horas">00</span>
+                <span class="cd-label">HORAS</span>
+            </div>
+            <span class="cd-sep" id="sep2">:</span>
+            <div class="cd-block">
+                <span class="cd-num" id="cd-min">00</span>
+                <span class="cd-label">MINUTOS</span>
+            </div>
+            <span class="cd-sep" id="sep3">:</span>
+            <div class="cd-block">
+                <span class="cd-num seg" id="cd-seg">00</span>
+                <span class="cd-label">SEGUNDOS</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="btn-localizacao" class="area-link" onclick="abrirLink('https://share.google/t7GQdYwXTLKt8jM6H')"></div>
+    <div id="btn-confirmar"   class="area-link" onclick="abrirLink('https://wa.me/5511953520254?text=Olá!')"></div>
+    <div id="btn-manual"      class="area-link" onclick="abrirModal('modal-manual')"></div>
+    <div id="btn-presentes"   class="area-link" onclick="abrirModal('modal-presentes')"></div>
+</div>
+
+<div id="modal-manual" class="modal" onclick="fecharModal('modal-manual')">
+    <div class="modal-container" onclick="event.stopPropagation()">
+        <span class="fechar-modal" onclick="fecharModal('modal-manual')">&times;</span>
+        <img src="manual.jpg">
+    </div>
+</div>
+
+<div id="modal-presentes" class="modal" onclick="fecharModal('modal-presentes')">
+    <div class="modal-container" onclick="event.stopPropagation()">
+        <span class="fechar-modal" onclick="fecharModal('modal-presentes')">&times;</span>
+        <img src="presentes.jpg">
+        <div id="pix-area" onclick="copiarPix('11944457518')"></div>
+    </div>
+</div>
+
+<script>
+    const audio = document.getElementById('bg-music');
+
+    function iniciar() {
+        document.getElementById('capa-overlay').style.display = 'none';
+        document.getElementById('music-control').style.display = 'flex';
+        audio.play().catch(e => {});
+        window.scrollTo(0, 0);
+    }
+    function toggleMusic() { if (audio.paused) audio.play(); else audio.pause(); }
+    function abrirModal(id) { document.getElementById(id).style.display = 'flex'; }
+    function fecharModal(id) { document.getElementById(id).style.display = 'none'; }
+    function abrirLink(url) { window.location.href = url; }
+    function copiarPix(chave) {
+        navigator.clipboard.writeText(chave).then(() => {
+            const t = document.getElementById('toast');
+            t.style.display = 'block';
+            setTimeout(() => t.style.display = 'none', 2500);
+        });
+    }
+
+    (function () {
+        var evento = new Date('2028-06-10T18:30:00');
+
+        var TOPO  = 0.762;
+        var FUNDO = 0.818;
+
+        function posicionar() {
+            var img     = document.getElementById('img-principal');
+            var wrapper = document.getElementById('countdown-wrapper');
+            var h       = img.offsetHeight;
+            var inicio  = h * TOPO;
+            var altura  = (h * FUNDO) - inicio;
+
+            wrapper.style.top    = inicio + 'px';
+            wrapper.style.height = altura + 'px';
+
+            // Números finos: 42% da altura da barra
+            var fs      = Math.max(10, Math.floor(altura * 0.32));
+            var fsSep   = Math.max(10, Math.floor(altura * 0.28));
+            var fsLabel = Math.max(4,  Math.floor(altura * 0.09));
+
+            document.querySelectorAll('.cd-num').forEach(function(el) {
+                el.style.fontSize = fs + 'px';
+            });
+            document.querySelectorAll('.cd-sep').forEach(function(el) {
+                el.style.fontSize = fsSep + 'px';
+            });
+            document.querySelectorAll('.cd-label').forEach(function(el) {
+                el.style.fontSize = fsLabel + 'px';
+            });
+        }
+
+        function atualizar() {
+            var diff = Math.max(0, evento - new Date());
+            var dias    = Math.floor(diff / 86400000);
+            var horas   = Math.floor((diff % 86400000) / 3600000);
+            var minutos = Math.floor((diff % 3600000)  / 60000);
+            var seg     = Math.floor((diff % 60000)    / 1000);
+
+            document.getElementById('cd-dias').textContent  = String(dias).padStart(3,'0');
+            document.getElementById('cd-horas').textContent = String(horas).padStart(2,'0');
+            document.getElementById('cd-min').textContent   = String(minutos).padStart(2,'0');
+            document.getElementById('cd-seg').textContent   = String(seg).padStart(2,'0');
+        }
+
+        var img = document.getElementById('img-principal');
+        img.addEventListener('load', posicionar);
+        if (img.complete) posicionar();
+        window.addEventListener('resize', posicionar);
+
+        atualizar();
+        setInterval(atualizar, 1000);
+    })();
+</script>
+</body>
+</html>

@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing · Lina Convites · Corporativo & Eventos</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>emailjs.init('_h-hdh6FVGUaySUV1');</script>
+<style>
+:root{
+  /* ── Paleta dark (HTML 2) ── */
+  --black:#0a0a0a;
+  --charcoal:#141414;
+  --graphite:#1e1e1e;
+  --graphite-mid:#252525;
+  --graphite-soft:#3a3a3a;
+  --smoke:#6b6b6b;
+  --silver:#a8a8a8;
+  --silver-light:#d4d4d4;
+  --gold:#c9972a;
+  --gold-shine:#e8b84b;
+  --gold-pale:#f5e6b8;
+  --gold-dim:rgba(201,151,42,0.12);
+  --white:#ffffff;
+  --off-white:#f8f6f2;
+  --border:rgba(201,151,42,0.2);
+  --border-s:rgba(201,151,42,0.45);
+  --shadow:rgba(0,0,0,0.6);
+  --r:12px;
+  --r-sm:7px;
+  --grad-gold:linear-gradient(135deg,#e8b84b 0%,#c9972a 50%,#a07820 100%);
+  --mint:#4ade80;
+
+  /* aliases para compatibilidade com HTML 1 */
+  --ink:var(--white);
+  --text:var(--silver-light);
+  --muted:var(--smoke);
+  --ivory:var(--charcoal);
+  --cream:var(--graphite);
+  --linen:var(--graphite-mid);
+  --champagne:var(--graphite-soft);
+  --gold-lt:var(--gold-shine);
+  --gold-dk:var(--gold-shine);
+  --blue:var(--graphite);
+  --blue-mid:var(--graphite-mid);
+  --gold-pale-alias:var(--gold-dim);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--charcoal);color:var(--text);min-height:100vh;overflow-x:hidden;padding-bottom:80px;-webkit-font-smoothing:antialiased;}
+
+/* ── BG GRID ── */
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:linear-gradient(rgba(201,151,42,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,151,42,0.03) 1px,transparent 1px);
+  background-size:60px 60px;
+}
+body::after{
+  content:'';position:fixed;top:-200px;left:50%;transform:translateX(-50%);
+  width:900px;height:500px;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse,rgba(201,151,42,0.06) 0%,transparent 70%);
+}
+
+/* ── TOAST ── */
+.toast-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:9000;align-items:center;justify-content:center;backdrop-filter:blur(6px);}
+.toast-overlay.show{display:flex;animation:toastOverlayIn 0.2s ease both;}
+@keyframes toastOverlayIn{from{opacity:0;}to{opacity:1;}}
+.toast-box{background:var(--graphite);border:1.5px solid var(--border-s);border-radius:var(--r);padding:28px 28px 22px;max-width:340px;width:90%;text-align:center;box-shadow:0 12px 48px rgba(0,0,0,0.5);animation:toastIn 0.3s cubic-bezier(0.34,1.56,0.64,1) both;}
+@keyframes toastIn{from{opacity:0;transform:scale(0.88) translateY(16px);}to{opacity:1;transform:scale(1) translateY(0);}}
+.toast-emoji{font-size:36px;margin-bottom:12px;}
+.toast-title{font-family:'DM Serif Display',serif;font-size:20px;font-weight:400;color:var(--white);margin-bottom:8px;}
+.toast-msg{font-size:13px;color:var(--silver);line-height:1.6;margin-bottom:18px;}
+.toast-btn{display:inline-flex;align-items:center;justify-content:center;padding:11px 32px;background:var(--grad-gold);border:none;border-radius:100px;color:var(--black);font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(201,151,42,0.3);}
+
+/* ── PARTICLES ── */
+#particles{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
+.spark{position:absolute;border-radius:50%;pointer-events:none;animation:spark-float var(--dur) ease-in-out infinite var(--delay);}
+@keyframes spark-float{0%{transform:translateY(0) scale(1);opacity:var(--op);}50%{transform:translateY(-18px) scale(1.1);opacity:calc(var(--op)*1.5);}100%{transform:translateY(0) scale(1);opacity:var(--op);}}
+.star-shape{position:absolute;pointer-events:none;animation:star-twinkle var(--dur) ease-in-out infinite var(--delay);color:var(--color);}
+@keyframes star-twinkle{0%,100%{transform:scale(0.7);opacity:calc(var(--op)*0.5);}50%{transform:scale(1.3);opacity:var(--op);}}
+.cursor-dust{position:fixed;pointer-events:none;z-index:9999;border-radius:50%;animation:dust-fade 0.7s ease forwards;}
+@keyframes dust-fade{0%{transform:scale(1.5) translateY(0);opacity:0.9;}100%{transform:scale(0) translateY(-28px);opacity:0;}}
+
+/* ── PROFILE ── */
+.profile-area{position:relative;z-index:10;display:flex;justify-content:center;padding-top:52px;}
+.profile-ring{position:relative;width:120px;height:120px;}
+.profile-ring::before{content:'';position:absolute;inset:-3px;border-radius:50%;background:conic-gradient(var(--gold-shine),var(--gold),var(--gold-pale),var(--gold-shine),var(--gold));animation:ring-spin 5s linear infinite;z-index:0;}
+@keyframes ring-spin{to{transform:rotate(360deg);}}
+.profile-ring::after{content:'';position:absolute;inset:-1px;border-radius:50%;background:var(--charcoal);z-index:1;}
+.profile-img-wrap{position:absolute;inset:0;z-index:2;border-radius:50%;overflow:hidden;border:2px solid var(--gold);box-shadow:0 0 0 4px rgba(201,151,42,0.1),0 8px 30px var(--shadow);}
+.profile-img-wrap img{width:100%;height:100%;object-fit:cover;}
+
+/* ── HERO ── */
+.hero{position:relative;z-index:10;padding:22px 24px 32px;text-align:center;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(201,151,42,0.08);border:1px solid var(--border-s);padding:6px 22px;border-radius:2px;font-size:9px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold-shine);margin-bottom:18px;}
+.hero-badge::before,.hero-badge::after{content:'✦';font-size:11px;color:var(--gold);}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.8rem,8vw,4.2rem);font-weight:400;line-height:0.95;letter-spacing:2px;color:var(--white);margin-bottom:8px;}
+.hero h1 em{font-style:normal;display:block;background:linear-gradient(135deg,var(--gold-pale),var(--gold-shine),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-sub{font-size:clamp(12px,2vw,14px);color:var(--silver);font-weight:300;line-height:1.7;margin-bottom:24px;}
+.hero-divider{display:flex;align-items:center;justify-content:center;gap:12px;}
+.hero-divider::before,.hero-divider::after{content:'';width:50px;height:1px;background:linear-gradient(90deg,transparent,var(--gold));}
+.hero-divider span{color:var(--gold);font-size:9px;letter-spacing:4px;text-transform:uppercase;}
+
+/* ── GREETING ── */
+.greeting{display:none;position:relative;z-index:10;max-width:640px;margin:0 auto;padding:0 20px;}
+.greeting.show{display:block;}
+.greeting-inner{background:rgba(201,151,42,0.05);border:1px solid var(--border);border-radius:var(--r);padding:16px 20px;backdrop-filter:blur(8px);}
+.greeting-name{font-family:'DM Serif Display',serif;font-size:20px;color:var(--white);margin-bottom:2px;font-weight:400;}
+.greeting-sub{font-size:13px;color:var(--silver);font-weight:300;}
+
+/* ── CTA ── */
+.cta-wrap{position:relative;z-index:10;max-width:640px;margin:32px auto 0;padding:0 20px;text-align:center;}
+.btn-cta{display:inline-flex;align-items:center;gap:10px;padding:16px 40px;background:var(--grad-gold);border:none;border-radius:2px;color:var(--black);font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer;letter-spacing:1.5px;text-transform:uppercase;box-shadow:0 6px 28px rgba(201,151,42,0.3);transition:transform 0.2s,opacity 0.2s;animation:ctaPulse 2.5s ease-in-out infinite;}
+.btn-cta:hover{transform:translateY(-3px);opacity:0.9;}
+@keyframes ctaPulse{0%,100%{box-shadow:0 6px 28px rgba(201,151,42,0.3);}50%{box-shadow:0 6px 36px rgba(232,184,75,0.5);}}
+.cta-sub{font-size:12px;color:var(--smoke);margin-top:10px;font-weight:300;}
+
+/* ── CALC FLOAT ── */
+.calc-float{position:fixed;bottom:0;left:0;right:0;z-index:999;pointer-events:none;}
+.calc-inner{background:rgba(14,14,14,0.97);border-top:1px solid var(--border-s);backdrop-filter:blur(20px);box-shadow:0 -4px 32px rgba(0,0,0,0.5);pointer-events:auto;}
+.calc-toggle{display:flex;align-items:center;justify-content:space-between;padding:10px 20px;cursor:pointer;gap:12px;max-width:640px;margin:0 auto;}
+.calc-toggle-left{display:flex;align-items:center;gap:8px;}
+.calc-toggle-emoji{font-size:14px;color:var(--gold);}
+.calc-toggle-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--smoke);}
+.calc-toggle-right{display:flex;align-items:center;gap:10px;}
+.calc-total-value{font-size:20px;font-weight:700;background:linear-gradient(135deg,var(--gold-pale),var(--gold-shine));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.calc-total-value.placeholder{font-size:14px;font-weight:500;background:none;-webkit-background-clip:unset;-webkit-text-fill-color:var(--smoke);color:var(--smoke);}
+.calc-total-value.bump{animation:priceBump 0.4s cubic-bezier(0.34,1.56,0.64,1);}
+@keyframes priceBump{0%{transform:scale(1);}40%{transform:scale(1.12);}100%{transform:scale(1);}}
+.calc-chevron{transition:transform 0.3s;color:var(--smoke);}
+.calc-chevron.open{transform:rotate(180deg);color:var(--gold);}
+.calc-panel{display:none;border-top:1px solid var(--border);padding:10px 20px 14px;max-width:640px;margin:0 auto;}
+.calc-panel.open{display:block;animation:slideUp 0.25s ease both;}
+@keyframes slideUp{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+.calc-rows{display:flex;flex-direction:column;gap:4px;}
+.calc-row{display:flex;justify-content:space-between;font-size:12px;color:var(--smoke);font-weight:500;padding:3px 0;}
+.calc-row.hidden{display:none;}
+.calc-row.appearing{animation:rowAppear 0.35s cubic-bezier(0.34,1.56,0.64,1) both;}
+@keyframes rowAppear{from{opacity:0;transform:translateX(-8px);}to{opacity:1;transform:none;}}
+.calc-row span:last-child{color:var(--gold-shine);font-weight:700;}
+.calc-total-confirm{font-size:10px;color:var(--smoke);margin-top:6px;text-align:right;font-style:italic;}
+
+/* ── STEPPER ── */
+.stepper-wrap{position:relative;z-index:10;max-width:640px;margin:28px auto 0;padding:0 20px 80px;}
+.step-indicator{display:flex;align-items:center;justify-content:center;margin-bottom:28px;background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:2px;padding:6px 10px;backdrop-filter:blur(10px);}
+.si-step{display:flex;align-items:center;gap:6px;padding:4px 10px;border-radius:2px;cursor:pointer;transition:all 0.25s;user-select:none;}
+.si-step.active{background:linear-gradient(135deg,var(--gold-shine),var(--gold));}
+.si-step.done{background:rgba(201,151,42,0.1);}
+.si-num{width:22px;height:22px;border-radius:50%;background:rgba(201,151,42,0.15);color:var(--smoke);font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.si-step.active .si-num{background:rgba(0,0,0,0.25);color:var(--black);}
+.si-step.done .si-num{background:rgba(201,151,42,0.2);color:var(--gold-shine);}
+.si-label{font-size:10px;font-weight:700;color:var(--smoke);white-space:nowrap;letter-spacing:0.5px;}
+.si-step.active .si-label{color:var(--black);}
+.si-step.done .si-label{color:var(--gold-shine);}
+.si-sep{width:16px;height:1px;background:rgba(201,151,42,0.15);flex-shrink:0;}
+@media(max-width:500px){.si-label{display:none;}.si-step{padding:4px 6px;}}
+
+.prog-bar-wrap{height:2px;background:rgba(201,151,42,0.1);border-radius:2px;margin-bottom:24px;overflow:hidden;}
+.prog-bar{height:100%;background:linear-gradient(90deg,var(--gold-shine),var(--gold));border-radius:2px;transition:width 0.4s cubic-bezier(0.4,0,0.2,1);}
+
+/* ── CARD ── */
+.card{background:var(--graphite);border:1px solid var(--border);border-radius:var(--r);padding:22px;margin-bottom:14px;position:relative;overflow:hidden;}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,151,42,0.35),transparent);}
+.card-title{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-shine);margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.card-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(201,151,42,0.3),transparent);margin-left:4px;}
+.gold-accent{height:1px;background:linear-gradient(90deg,var(--gold-shine),transparent);margin-bottom:18px;opacity:0.3;}
+
+/* ── FORM FIELDS ── */
+.field{margin-bottom:14px;}
+.field:last-child{margin-bottom:0;}
+.lbl{display:block;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--smoke);margin-bottom:5px;}
+.req{color:var(--gold-shine);}
+.hint{font-size:11px;color:var(--smoke);margin-top:5px;line-height:1.5;font-weight:300;}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+@media(max-width:480px){.row2{grid-template-columns:1fr;}}
+
+.inp,.txa,.sel{width:100%;padding:11px 13px;background:var(--graphite-mid);border:1px solid var(--border);border-radius:var(--r-sm);color:var(--white);font-family:'DM Sans',sans-serif;font-size:13px;outline:none;transition:border-color 0.2s,background 0.2s;}
+.inp:focus,.txa:focus,.sel:focus{border-color:var(--border-s);background:#1f1a0d;}
+.inp::placeholder,.txa::placeholder{color:var(--smoke);font-weight:300;}
+.txa{resize:vertical;min-height:72px;}
+.sel{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23e8b84b' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;background-color:var(--graphite-mid);padding-right:36px;}
+.sel option{background:var(--graphite-mid);color:var(--white);}
+
+.opts{display:flex;flex-direction:column;gap:6px;}
+.opt{display:flex;align-items:center;gap:9px;padding:10px 13px;border:1px solid var(--border);border-radius:var(--r-sm);cursor:pointer;background:var(--graphite-mid);transition:all 0.18s;}
+.opt:hover{border-color:var(--border-s);background:rgba(201,151,42,0.05);}
+.opt input{accent-color:var(--gold);width:15px;height:15px;flex-shrink:0;}
+.opt-text{font-size:13px;color:var(--silver-light);flex:1;font-weight:400;}
+.opt-price{font-size:11px;font-weight:700;color:var(--gold-shine);white-space:nowrap;}
+
+.tipo-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.tipo-pill{display:flex;flex-direction:column;gap:3px;padding:14px;border:1.5px solid var(--border);border-radius:var(--r-sm);cursor:pointer;background:var(--graphite-mid);transition:all 0.2s;position:relative;overflow:hidden;}
+.tipo-pill input{position:absolute;opacity:0;width:0;height:0;}
+.tipo-pill::before{content:'';position:absolute;top:0;left:0;bottom:0;width:2px;background:var(--gold-shine);opacity:0;transition:opacity 0.2s;}
+.tipo-pill.selected{border-color:var(--border-s);background:rgba(201,151,42,0.07);box-shadow:0 0 0 1px rgba(201,151,42,0.2);}
+.tipo-pill.selected::before{opacity:1;}
+.tipo-pill-emoji{font-size:18px;}
+.tipo-pill-label{font-size:12px;font-weight:700;color:var(--white);}
+.tipo-pill-desc{font-size:10px;color:var(--smoke);line-height:1.4;}
+.tipo-pill-price{font-size:13px;font-weight:700;color:var(--gold-shine);margin-top:2px;}
+
+.pills{display:flex;gap:7px;flex-wrap:wrap;}
+.pill{display:flex;align-items:center;gap:5px;padding:7px 14px;border:1px solid var(--border);border-radius:2px;cursor:pointer;background:var(--graphite-mid);transition:all 0.2s;}
+.pill:hover{border-color:var(--border-s);}
+.pill input{accent-color:var(--gold);width:13px;height:13px;}
+.pill span{font-size:13px;color:var(--silver-light);font-weight:500;}
+
+.subopts-wrap{background:rgba(201,151,42,0.04);border:1px solid var(--border);border-radius:var(--r-sm);padding:14px;margin-top:12px;animation:fadeIn 0.3s ease both;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-4px);}to{opacity:1;transform:none;}}
+.subopts-title{font-size:9.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-shine);margin-bottom:10px;}
+
+/* ── FOTO HINT ── */
+.foto-whats-hint{display:flex;align-items:flex-start;gap:10px;background:rgba(37,211,102,0.05);border:1px solid rgba(37,211,102,0.2);border-radius:var(--r-sm);padding:12px 14px;margin-top:10px;animation:fadeIn 0.3s ease both;}
+.foto-whats-hint-icon{font-size:20px;flex-shrink:0;margin-top:1px;}
+.foto-whats-hint-text{font-size:11px;color:#7ecf9e;line-height:1.6;font-weight:300;}
+.foto-whats-hint-text strong{font-weight:700;color:#4ade80;}
+
+/* ── PIX ── */
+.pix-box{background:var(--black);border:1.5px dashed rgba(201,151,42,0.35);border-radius:var(--r-sm);padding:16px 18px;margin-top:14px;}
+.pix-lbl{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-shine);margin-bottom:8px;}
+.pix-row{display:flex;align-items:center;gap:10px;background:var(--graphite);border-radius:var(--r-sm);padding:10px 12px;border:1px solid var(--border);}
+.pix-k{font-family:monospace;font-size:15px;font-weight:700;color:var(--gold-shine);flex:1;}
+.cpix{padding:6px 14px;background:var(--grad-gold);border:none;border-radius:4px;color:var(--black);font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;cursor:pointer;}
+.cpix-ok{font-size:11px;color:var(--mint);margin-top:5px;display:none;}
+
+/* ── TOTAL ── */
+.total-box{background:var(--black);border:1px solid var(--border-s);border-radius:var(--r-sm);padding:16px 20px;margin-top:4px;}
+.t-row{display:flex;justify-content:space-between;font-size:13px;color:var(--smoke);margin-bottom:5px;font-weight:400;}
+.t-row.final{margin-top:10px;padding-top:10px;border-top:1px solid var(--border);font-size:17px;font-weight:700;color:var(--gold-shine);margin-bottom:0;}
+.t-row.hide{display:none;}
+
+/* ── EMAIL BADGE ── */
+.sheets-badge{display:none;align-items:center;gap:8px;padding:10px 14px;border-radius:var(--r-sm);margin-top:12px;font-size:12px;font-weight:600;}
+.sheets-badge.sending{display:flex;background:rgba(201,151,42,0.07);border:1px solid var(--border);color:var(--gold-shine);}
+.sheets-badge.success{display:flex;background:rgba(74,222,128,0.08);border:1px solid rgba(74,222,128,0.25);color:#4ade80;}
+.sheets-badge.error{display:flex;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.2);color:#f87171;}
+.sheets-spinner{width:14px;height:14px;border:2px solid rgba(201,151,42,0.2);border-top-color:var(--gold-shine);border-radius:50%;animation:spin 0.7s linear infinite;flex-shrink:0;}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+/* ── NAVS ── */
+.nav-row{display:flex;gap:10px;margin-top:20px;}
+.btn-back{flex:1;padding:14px;background:transparent;border:1px solid var(--border);border-radius:var(--r-sm);color:var(--gold-shine);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all 0.2s;}
+.btn-back:hover{border-color:var(--border-s);background:rgba(201,151,42,0.05);}
+.btn-next{flex:2;padding:14px;background:var(--grad-gold);border:none;border-radius:var(--r-sm);color:var(--black);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;cursor:pointer;position:relative;overflow:hidden;transition:opacity 0.2s,transform 0.2s;box-shadow:0 4px 18px rgba(201,151,42,0.25);letter-spacing:0.5px;}
+.btn-next:hover{opacity:0.9;transform:translateY(-1px);}
+.btn-faq-inline{display:flex;align-items:center;justify-content:center;gap:7px;width:100%;padding:11px;background:transparent;border:1px solid var(--border);border-radius:var(--r-sm);color:var(--smoke);font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;cursor:pointer;transition:all 0.2s;margin-top:10px;}
+.btn-faq-inline:hover{border-color:var(--border-s);color:var(--silver-light);}
+
+.btn-send{width:100%;padding:15px;background:linear-gradient(135deg,#25d366,#128c7e);border:none;border-radius:var(--r-sm);color:#fff;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:9px;box-shadow:0 4px 20px rgba(37,211,102,0.22);transition:all 0.2s;margin-top:20px;letter-spacing:0.5px;}
+.btn-send:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,211,102,0.32);}
+.sub-note{text-align:center;font-size:11px;color:var(--smoke);margin-top:8px;}
+
+/* ── PANELS ── */
+.step-panel{display:none;}
+.step-panel.active{display:block;animation:panelZoomIn 0.45s cubic-bezier(0.34,1.56,0.64,1) both;}
+.step-panel.leaving{animation:panelZoomOut 0.25s ease-in both;}
+@keyframes panelZoomIn{from{opacity:0;transform:scale(0.94) translateY(18px);}to{opacity:1;transform:scale(1) translateY(0);}}
+@keyframes panelZoomOut{from{opacity:1;transform:scale(1) translateY(0);}to{opacity:0;transform:scale(0.96) translateY(-10px);}}
+
+/* ── SUCCESS ── */
+.success-screen{display:none;text-align:center;padding:60px 24px;}
+.success-screen.show{display:block;}
+.success-screen .big-emoji{font-size:56px;margin-bottom:20px;}
+.success-screen h2{font-family:'DM Serif Display',serif;font-size:2rem;font-weight:400;color:var(--white);margin-bottom:12px;}
+.success-screen p{font-size:14px;color:var(--silver);line-height:1.7;max-width:360px;margin:0 auto;font-weight:300;}
+
+/* ── FAQ OVERLAY ── */
+.faq-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:2000;align-items:flex-end;justify-content:center;backdrop-filter:blur(8px);}
+.faq-overlay.open{display:flex;animation:overlayIn 0.25s ease both;}
+@keyframes overlayIn{from{opacity:0;}to{opacity:1;}}
+.faq-modal{background:var(--graphite);border:1px solid var(--border-s);border-radius:16px 16px 0 0;width:100%;max-width:640px;max-height:90vh;overflow-y:auto;padding:28px 22px 44px;position:relative;animation:modalUp 0.35s cubic-bezier(0.34,1.56,0.64,1) both;}
+@keyframes modalUp{from{opacity:0;transform:translateY(60px);}to{opacity:1;transform:none;}}
+.faq-handle{width:36px;height:3px;background:rgba(201,151,42,0.3);border-radius:2px;margin:0 auto 22px;}
+.faq-modal-title{font-family:'DM Serif Display',serif;font-size:1.6rem;font-weight:400;color:var(--white);text-align:center;margin-bottom:4px;}
+.faq-modal-sub{font-size:12px;color:var(--smoke);text-align:center;margin-bottom:22px;}
+.faq-close{position:absolute;top:20px;right:20px;width:30px;height:30px;border-radius:50%;background:rgba(201,151,42,0.1);border:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--gold-shine);transition:background 0.2s;}
+.faq-close:hover{background:rgba(201,151,42,0.2);}
+.trust-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px;}
+@media(max-width:400px){.trust-grid{grid-template-columns:1fr;}}
+.trust-card{background:var(--graphite-mid);border:1px solid var(--border);border-radius:var(--r-sm);padding:12px 14px;display:flex;align-items:flex-start;gap:10px;}
+.trust-icon{width:32px;height:32px;border-radius:4px;background:var(--grad-gold);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:14px;}
+.trust-card h4{font-size:11px;font-weight:700;color:var(--white);margin-bottom:2px;}
+.trust-card p{font-size:11px;color:var(--smoke);line-height:1.4;font-weight:300;}
+.faq-section-title{font-size:9.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-shine);margin:18px 0 10px;display:flex;align-items:center;gap:8px;}
+.faq-section-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(201,151,42,0.3),transparent);}
+.faq-list{display:flex;flex-direction:column;gap:6px;}
+.faq-item{background:var(--graphite-mid);border:1px solid var(--border);border-radius:var(--r-sm);overflow:hidden;transition:border-color 0.25s;}
+.faq-item:hover{border-color:var(--border-s);}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px 16px;background:none;border:none;cursor:pointer;text-align:left;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;color:var(--silver-light);transition:color 0.2s;}
+.faq-q:hover,.faq-q.open{color:var(--gold-shine);}
+.faq-q.open .faq-chevron{transform:rotate(180deg);color:var(--gold-shine);}
+.faq-chevron{flex-shrink:0;transition:transform 0.3s;color:var(--smoke);}
+.faq-a{display:none;padding:0 16px 13px;border-top:1px solid var(--border);}
+.faq-a.open{display:block;}
+.faq-a p{font-size:12px;color:var(--silver);line-height:1.75;padding-top:10px;font-weight:300;}
+.faq-a p strong{color:var(--gold-shine);}
+.faq-cta{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:14px;background:var(--grad-gold);border:none;border-radius:var(--r-sm);color:var(--black);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;cursor:pointer;margin-top:22px;letter-spacing:1px;text-transform:uppercase;transition:opacity 0.2s;}
+.faq-cta:hover{opacity:0.9;}
+
+/* ── RESUMO ── */
+#resumoContent .resumo-row{display:flex;gap:8px;margin-bottom:6px;padding-bottom:6px;border-bottom:1px solid rgba(201,151,42,0.12);}
+#resumoContent .resumo-key{font-weight:600;color:var(--gold-shine);min-width:150px;flex-shrink:0;font-size:12px;}
+#resumoContent .resumo-val{font-size:12px;color:var(--silver-light);}
+
+/* ── SUCCESS cards ── */
+.success-card-pix{display:flex;align-items:flex-start;gap:12px;background:var(--graphite);border:1px solid rgba(201,151,42,0.3);border-radius:var(--r);padding:14px 16px;text-align:left;}
+.success-card-pix .sc-emoji{font-size:24px;flex-shrink:0;}
+.success-card-pix .sc-title{font-size:12px;font-weight:700;color:var(--gold-shine);margin-bottom:3px;}
+.success-card-pix .sc-desc{font-size:11px;color:var(--smoke);line-height:1.5;font-weight:300;}
+.success-card-wpp{display:flex;align-items:flex-start;gap:12px;background:rgba(37,211,102,0.05);border:1px solid rgba(37,211,102,0.2);border-radius:var(--r);padding:14px 16px;text-align:left;}
+.success-card-wpp .sc-title{font-size:12px;font-weight:700;color:#4ade80;margin-bottom:3px;}
+.success-card-wpp .sc-desc{font-size:11px;color:#7ecf9e;line-height:1.5;font-weight:300;}
+
+@media(max-width:520px){.stepper-wrap{padding:0 12px 60px;}.card{padding:16px 14px;}.tipo-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<!-- TOAST -->
+<div class="toast-overlay" id="toastOverlay">
+  <div class="toast-box">
+    <div class="toast-emoji">⚠️</div>
+    <div class="toast-title" id="toastTitle">Campo obrigatório</div>
+    <div class="toast-msg" id="toastMsg">Por favor, preencha este campo para continuar.</div>
+    <button class="toast-btn" onclick="closeToast()">Entendido ✦</button>
+  </div>
+</div>
+
+<div id="particles"></div>
+
+<!-- PROFILE -->
+<div class="profile-area">
+  <div class="profile-ring">
+    <div class="profile-img-wrap">
+      <img src="https://i.ibb.co/rRJt5yNT/PERF-INFANT-4.png" alt="Lina Convites">
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">Briefing · Corporativo &amp; Eventos</div>
+  <h1>Seu evento dos<br><em>Sonhos</em></h1>
+  <p class="hero-sub">Preencha os detalhes para que a Lina crie o convite perfeito para a sua ocasião especial.</p>
+  <div class="hero-divider"><span>✦ &nbsp; L I N A &nbsp; C O N V I T E S &nbsp; ✦</span></div>
+</section>
+
+<div class="greeting" id="greetingBanner">
+  <div class="greeting-inner">
+    <div class="greeting-name" id="greetingName"></div>
+    <div class="greeting-sub" id="greetingSub"></div>
+  </div>
+</div>
+
+<div class="cta-wrap" id="ctaWrap">
+  <button class="btn-cta" onclick="document.getElementById('stepperWrap').scrollIntoView({behavior:'smooth',block:'start'})">
+    ✦ Começar meu briefing →
+  </button>
+  <p class="cta-sub">Leva menos de 3 minutos para preencher ✦</p>
+</div>
+
+<!-- CALC FLOAT -->
+<div class="calc-float">
+  <div class="calc-inner">
+    <div class="calc-toggle" onclick="toggleCalcPanel()">
+      <div class="calc-toggle-left"><span class="calc-toggle-emoji">✦</span><span class="calc-toggle-label">Valor do pedido</span></div>
+      <div class="calc-toggle-right">
+        <span class="calc-total-value placeholder" id="calcTotal">Valor Total</span>
+        <svg class="calc-chevron" id="calcChevron" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+    </div>
+    <div class="calc-panel" id="calcPanel">
+      <div class="calc-rows">
+        <div class="calc-row hidden" id="cr-base"><span>✦ Convite base</span><span id="cr-base-val"></span></div>
+        <div class="calc-row hidden" id="cr-musica"><span>🎵 Trilha sonora</span><span>+ R$ 5,00</span></div>
+        <div class="calc-row hidden" id="cr-logo"><span>🖼️ Inserção de logotipo</span><span>+ R$ 10,00</span></div>
+        <div class="calc-row hidden" id="cr-google"><span>📋 Formulário Google</span><span>+ R$ 15,00</span></div>
+        <div class="calc-row hidden" id="cr-sistema"><span>📊 Sistema de convidados</span><span>+ R$ 29,90</span></div>
+        <div class="calc-row hidden" id="cr-urg"><span>⚡ Urgência 24h</span><span>+ R$ 30,00</span></div>
+      </div>
+      <div class="calc-total-confirm" id="calcTotalNote">Selecione o tipo de convite para ver o preço ✦</div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ MODAL -->
+<div class="faq-overlay" id="faqOverlay" onclick="closeFaqOutside(event)">
+  <div class="faq-modal">
+    <div class="faq-handle"></div>
+    <button class="faq-close" onclick="closeFaq()">✕</button>
+    <div class="faq-modal-title">Dúvidas Frequentes</div>
+    <p class="faq-modal-sub">Tudo o que você precisa saber antes de solicitar ✦</p>
+    <div class="trust-grid">
+      <div class="trust-card"><div class="trust-icon">⚡</div><div><h4>Entrega ágil</h4><p>Pronto em até 3 dias úteis ou 24h com urgência.</p></div></div>
+      <div class="trust-card"><div class="trust-icon">🔄</div><div><h4>2 revisões grátis</h4><p>Ajustes de texto, cor ou detalhes sem custo extra.</p></div></div>
+      <div class="trust-card"><div class="trust-icon">💬</div><div><h4>Suporte WhatsApp</h4><p>Acompanhe seu pedido com atenção e carinho.</p></div></div>
+      <div class="trust-card"><div class="trust-icon">💳</div><div><h4>Pagamento fácil</h4><p>Exclusivamente via PIX. Simples e seguro.</p></div></div>
+    </div>
+    <div class="faq-section-title">Entrega e prazos</div>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaqItem(this)"><span>Qual é o prazo de entrega?</span><svg class="faq-chevron" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>O prazo padrão é de <strong>até 3 dias úteis</strong> após confirmação do pagamento. Com urgência, entregamos em até <strong>24 horas</strong> com taxa adicional de R$30,00.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaqItem(this)"><span>Como recebo o convite pronto?</span><svg class="faq-chevron" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>Diretamente pelo <strong>WhatsApp</strong> — em PNG, vídeo MP4, PDF interativo ou link, dependendo do modelo escolhido.</p></div></div>
+    </div>
+    <div class="faq-section-title">Revisões e personalização</div>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaqItem(this)"><span>Posso solicitar alterações?</span><svg class="faq-chevron" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>Sim! Você pode solicitar <strong>até 2 revisões gratuitas</strong> — ajustes de texto, cor ou pequenos detalhes. Alterações de layout completo podem ter custo adicional.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaqItem(this)"><span>Posso adicionar o logotipo da empresa?</span><svg class="faq-chevron" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>Sim! Selecione a opção no formulário (+R$10,00) e envie o arquivo pelo WhatsApp após o briefing. Prefira PNG com fundo transparente ou SVG.</p></div></div>
+    </div>
+    <div class="faq-section-title">Pagamento e suporte</div>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaqItem(this)"><span>Como realizar o pagamento?</span><svg class="faq-chevron" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>Exclusivamente via <strong>PIX</strong>. Após preencher o formulário você recebe a chave e envia o comprovante pelo WhatsApp. Simples e seguro.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaqItem(this)"><span>Posso criar um convite exclusivo do zero?</span><svg class="faq-chevron" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>Sim! Fale pelo WhatsApp e descreva a identidade visual do seu evento. Criamos algo totalmente exclusivo para a sua marca.</p></div></div>
+    </div>
+    <button class="faq-cta" onclick="closeFaq();setTimeout(()=>document.getElementById('stepperWrap').scrollIntoView({behavior:'smooth',block:'start'}),200)">✦ Começar meu briefing</button>
+  </div>
+</div>
+
+<!-- STEPPER -->
+<div class="stepper-wrap" id="stepperWrap" style="scroll-margin-top:16px;">
+  <div class="step-indicator">
+    <div class="si-step active" data-step="0" onclick="goToStep(0)"><div class="si-num">1</div><div class="si-label">Solicitante</div></div>
+    <div class="si-sep"></div>
+    <div class="si-step" data-step="1" onclick="goToStep(1)"><div class="si-num">2</div><div class="si-label">Evento</div></div>
+    <div class="si-sep"></div>
+    <div class="si-step" data-step="2" onclick="goToStep(2)"><div class="si-num">3</div><div class="si-label">Convite</div></div>
+    <div class="si-sep"></div>
+    <div class="si-step" data-step="3" onclick="goToStep(3)"><div class="si-num">4</div><div class="si-label">Extras</div></div>
+    <div class="si-sep"></div>
+    <div class="si-step" data-step="4" onclick="goToStep(4)"><div class="si-num">5</div><div class="si-label">Resumo</div></div>
+  </div>
+  <div class="prog-bar-wrap"><div class="prog-bar" id="progBar" style="width:20%"></div></div>
+
+  <!-- ── ETAPA 1 — SOLICITANTE ── -->
+  <div class="step-panel active" id="panel0">
+    <div class="card">
+      <div class="card-title">👤 Quem está solicitando</div>
+      <div class="gold-accent"></div>
+      <div class="field"><label class="lbl">Seu nome completo <span class="req">*</span></label><input class="inp" id="fNomePed" placeholder="Como devo te chamar?"></div>
+      <div class="field"><label class="lbl">WhatsApp <span class="req">*</span></label><input class="inp" id="fWhats" type="tel" placeholder="(11) 99999-9999"><p class="hint">Enviaremos o convite pronto por aqui 💌</p></div>
+      <div class="field"><label class="lbl">E-mail (opcional)</label><input class="inp" id="fEmail" type="email" placeholder="seu@empresa.com.br"></div>
+      <div class="field">
+        <label class="lbl">Você representa</label>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="representa" value="empresa" checked onchange="toggleEmpresa()"><span class="opt-text">🏢 Empresa / Organização</span></label>
+          <label class="opt"><input type="radio" name="representa" value="pessoal" onchange="toggleEmpresa()"><span class="opt-text">👤 Pessoa física</span></label>
+        </div>
+      </div>
+      <div id="empresaWrap">
+        <div class="field"><label class="lbl">Nome da empresa / organização</label><input class="inp" id="fEmpresa" placeholder="Ex: Acme Solutions, Comissão de Formatura USP..."></div>
+        <div class="row2">
+          <div class="field"><label class="lbl">Cargo / Função</label><input class="inp" id="fCargo" placeholder="Ex: Diretor de Marketing"></div>
+          <div class="field"><label class="lbl">Setor / Área</label><input class="inp" id="fSetor" placeholder="Ex: Tecnologia, Saúde..."></div>
+        </div>
+      </div>
+      <div class="field" style="margin-top:4px">
+        <label class="lbl">Como ficou sabendo da Lina?</label>
+        <select class="sel" id="fComoSoube">
+          <option value="">Prefiro não informar</option>
+          <option value="Instagram">Instagram</option>
+          <option value="Indicação de amigo(a)">Indicação de amigo(a)</option>
+          <option value="Google">Google</option>
+          <option value="TikTok">TikTok</option>
+          <option value="WhatsApp">WhatsApp</option>
+          <option value="Outro">Outro</option>
+        </select>
+      </div>
+    </div>
+    <div class="nav-row"><button class="btn-next" style="flex:1" onclick="nextStep(0)">Próximo: Dados do evento →</button></div>
+    <button class="btn-faq-inline" onclick="openFaq()">💬 Perguntas frequentes</button>
+  </div>
+
+  <!-- ── ETAPA 2 — EVENTO ── -->
+  <div class="step-panel" id="panel1">
+    <div class="card">
+      <div class="card-title">🎯 Tipo de evento</div>
+      <div class="gold-accent"></div>
+      <div class="field">
+        <label class="lbl">Categoria <span class="req">*</span></label>
+        <select class="sel" id="fCategoria" onchange="onCategoriaChange()">
+          <option value="">Selecione a categoria</option>
+          <option value="Formatura / Colação de Grau">🎓 Formatura / Colação de Grau</option>
+          <option value="Corporativo / Empresarial">💼 Corporativo / Empresarial</option>
+          <option value="Premiação / Gala">🏆 Premiação / Gala</option>
+          <option value="Congresso / Conferência">🎙️ Congresso / Conferência</option>
+          <option value="Lançamento de Produto / Inauguração">🚀 Lançamento / Inauguração</option>
+          <option value="Confraternização">🤝 Confraternização</option>
+          <option value="Réveillon / Festa de fim de ano">🥂 Réveillon / Festa de fim de ano</option>
+          <option value="Outro">✦ Outro</option>
+        </select>
+      </div>
+      <div id="outroWrap" style="display:none">
+        <div class="field"><label class="lbl">Descreva o tipo de evento <span class="req">*</span></label><input class="inp" id="fOutro" placeholder="Ex: Jantar de premiação anual, Coquetel de networking..."></div>
+      </div>
+      <div id="formaturaFields" style="display:none">
+        <div class="row2">
+          <div class="field"><label class="lbl">Curso <span class="req">*</span></label><input class="inp" id="fCurso" placeholder="Ex: Direito, Medicina..."></div>
+          <div class="field"><label class="lbl">Turma / Ano</label><input class="inp" id="fTurma" placeholder="Ex: Turma 2025.1"></div>
+        </div>
+        <div class="field"><label class="lbl">Instituição de ensino</label><input class="inp" id="fInstituicao" placeholder="Ex: USP, PUC-SP, FGV..."></div>
+      </div>
+      <div id="congressoFields" style="display:none">
+        <div class="field"><label class="lbl">Nome do congresso / conferência</label><input class="inp" id="fNomeCongresso" placeholder="Ex: Summit Inovação 2025..."></div>
+        <div class="field"><label class="lbl">Tema central / Edição</label><input class="inp" id="fTemaCongresso" placeholder="Ex: IA no Futuro do Trabalho · 12ª Edição"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">📋 Dados do evento</div>
+      <div class="gold-accent"></div>
+      <div class="field"><label class="lbl">Título / Nome no convite <span class="req">*</span></label><input class="inp" id="fTitulo" placeholder="Ex: Colação de Grau Direito USP 2025 · Gala Awards Night..."></div>
+      <div class="field"><label class="lbl">Como assinar o convite</label><input class="inp" id="fAssinatura" placeholder="Ex: A Diretoria · Comissão de Formatura · A Organização"><p class="hint">Como o remetente deve aparecer no convite.</p></div>
+      <div class="row2">
+        <div class="field"><label class="lbl">Data do evento <span class="req">*</span></label><input class="inp" id="fData" type="date"></div>
+        <div class="field"><label class="lbl">Horário <span class="req">*</span></label><input class="inp" id="fHorario" type="time"></div>
+      </div>
+      <div class="field"><label class="lbl">Local / Espaço <span class="req">*</span></label><input class="inp" id="fLocal" placeholder="Ex: Hotel Grand Hyatt SP · Teatro Municipal..."></div>
+      <div class="field"><label class="lbl">Endereço completo</label><input class="inp" id="fEndereco" placeholder="Ex: Av. das Nações Unidas, 13301 — Brooklin, São Paulo"></div>
+      <div class="field">
+        <label class="lbl">Haverá cerimônia / missa separada?</label>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="cerimonia" value="nao" checked onchange="toggleCerimonia()"><span class="opt-text">Não / mesmo local</span></label>
+          <label class="opt"><input type="radio" name="cerimonia" value="sim" onchange="toggleCerimonia()"><span class="opt-text">Sim, cerimônia em local diferente</span></label>
+        </div>
+      </div>
+      <div id="cerWrap" style="display:none">
+        <div class="row2">
+          <div class="field"><label class="lbl">Data da cerimônia</label><input class="inp" id="fDataCer" type="date"></div>
+          <div class="field"><label class="lbl">Horário da cerimônia</label><input class="inp" id="fHorarioCer" type="time"></div>
+        </div>
+        <div class="field"><label class="lbl">Local da cerimônia</label><input class="inp" id="fLocalCer" placeholder="Ex: Igreja, Teatro, Auditório..."></div>
+        <div class="field"><label class="lbl">Endereço da cerimônia</label><input class="inp" id="fEnderecoCer" placeholder="Rua, número, bairro, cidade"></div>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label class="lbl">Dress code / Traje</label>
+          <select class="sel" id="fDressCode" onchange="toggleDressCode()">
+            <option value="">Sem dress code / A definir</option>
+            <option>Black Tie</option><option>White Tie</option><option>Esporte Fino</option>
+            <option>Business Formal</option><option>Business Casual</option><option>Smart Casual</option>
+            <option>Garden Party</option><option value="Personalizado">Personalizado</option>
+          </select>
+        </div>
+        <div class="field">
+          <label class="lbl">Nº de convidados estimado</label>
+          <select class="sel" id="fQtdConv">
+            <option value="">Não informar</option>
+            <option>Até 50</option><option>50 a 100</option><option>100 a 200</option>
+            <option>200 a 500</option><option>Mais de 500</option>
+          </select>
+        </div>
+      </div>
+      <div id="dressCodeDescWrap" style="display:none;margin-top:8px">
+        <textarea class="txa" id="fDressCodeDesc" placeholder="Descreva o dress code personalizado..."></textarea>
+      </div>
+      <div class="field" style="margin-top:10px;margin-bottom:0">
+        <label class="lbl">Há cores que os convidados não devem usar?</label>
+        <div class="opts" style="margin-bottom:0">
+          <label class="opt"><input type="radio" name="coresProib" value="nao" checked onchange="toggleCoresProib()"><span class="opt-text">Não há restrição de cores</span></label>
+          <label class="opt"><input type="radio" name="coresProib" value="sim" onchange="toggleCoresProib()"><span class="opt-text">⚠️ Sim, há cores que não devem ser usadas</span></label>
+        </div>
+        <div id="coresProibWrap" style="display:none;margin-top:8px;animation:fadeIn 0.3s ease both">
+          <input class="inp" id="fCoresProib" placeholder="Ex: branco, preto, vermelho">
+          <p class="hint" style="margin-bottom:10px;margin-top:6px">Essas cores serão mencionadas no convite para orientar os convidados.</p>
+          <label class="lbl">Tem foto ou cartela de cores para enviar?</label>
+          <div class="opts" style="margin-bottom:0">
+            <label class="opt"><input type="radio" name="fotoCoresProib" value="nao" checked onchange="toggleFotoHint('hintCoresProib',this)"><span class="opt-text">Não tenho foto</span></label>
+            <label class="opt"><input type="radio" name="fotoCoresProib" value="sim" onchange="toggleFotoHint('hintCoresProib',this)"><span class="opt-text">📸 Tenho foto das cores proibidas</span></label>
+          </div>
+          <div class="foto-whats-hint" id="hintCoresProib" style="display:none;margin-top:8px">
+            <span class="foto-whats-hint-icon">📲</span>
+            <span class="foto-whats-hint-text"><strong>Ótimo!</strong> Após enviar o briefing, mande a foto ou cartela de cores pelo WhatsApp.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">🎨 Identidade visual</div>
+      <div class="gold-accent"></div>
+      <div class="field">
+        <label class="lbl">Cores do evento / decoração</label>
+        <input class="inp" id="fCoresEvento" placeholder="Ex: azul marinho, dourado e branco">
+        <p class="hint">As cores que predominam na decoração ou tema do evento.</p>
+        <div class="field" style="margin-top:10px;margin-bottom:0">
+          <label class="lbl">Tem foto ou referência da paleta do evento?</label>
+          <div class="opts" style="margin-bottom:0">
+            <label class="opt"><input type="radio" name="fotoPaletaEvento" value="nao" checked onchange="toggleFotoHint('hintPaletaEvento',this)"><span class="opt-text">Não tenho foto</span></label>
+            <label class="opt"><input type="radio" name="fotoPaletaEvento" value="sim" onchange="toggleFotoHint('hintPaletaEvento',this)"><span class="opt-text">📸 Tenho foto para enviar</span></label>
+          </div>
+          <div class="foto-whats-hint" id="hintPaletaEvento" style="display:none">
+            <span class="foto-whats-hint-icon">📲</span>
+            <span class="foto-whats-hint-text"><strong>Ótimo!</strong> Após enviar o briefing, mande a foto da paleta pelo WhatsApp.</span>
+          </div>
+        </div>
+      </div>
+      <div class="field" style="margin-top:14px;margin-bottom:0">
+        <label class="lbl">Cores desejadas para o convite</label>
+        <input class="inp" id="fCoresConvite" placeholder="Ex: tons de azul petróleo com detalhes em dourado">
+        <p class="hint">Se quiser algo diferente da decoração ou tiver uma referência específica.</p>
+        <div class="field" style="margin-top:10px;margin-bottom:0">
+          <label class="lbl">Tem referência visual para o convite?</label>
+          <div class="opts" style="margin-bottom:0">
+            <label class="opt"><input type="radio" name="fotoPaletaConvite" value="nao" checked onchange="toggleFotoHint('hintPaletaConvite',this)"><span class="opt-text">Não tenho referência</span></label>
+            <label class="opt"><input type="radio" name="fotoPaletaConvite" value="sim" onchange="toggleFotoHint('hintPaletaConvite',this)"><span class="opt-text">📸 Tenho referência para enviar</span></label>
+          </div>
+          <div class="foto-whats-hint" id="hintPaletaConvite" style="display:none">
+            <span class="foto-whats-hint-icon">📲</span>
+            <span class="foto-whats-hint-text"><strong>Perfeito!</strong> Após enviar o briefing, mande a referência pelo WhatsApp para que a Lina capte exatamente o estilo que você imagina.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">📅 Programação do evento</div>
+      <div class="gold-accent"></div>
+      <div class="field">
+        <label class="lbl">Deseja incluir a programação no convite?</label>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="hasProg" value="nao" checked onchange="toggleProgramacao()"><span class="opt-text">Não incluir programação</span></label>
+          <label class="opt"><input type="radio" name="hasProg" value="sim" onchange="toggleProgramacao()"><span class="opt-text">📅 Sim, quero incluir a programação</span></label>
+        </div>
+      </div>
+      <div id="progWrap" style="display:none;margin-top:8px">
+        <textarea class="txa" id="fProgramacao" style="min-height:100px" placeholder="Ex:&#10;19h00 — Abertura das portas&#10;20h00 — Jantar de gala&#10;22h00 — Cerimônia de premiação&#10;23h00 — Confraternização"></textarea>
+      </div>
+      <div class="field" style="margin-top:12px;margin-bottom:0">
+        <label class="lbl">Patrocinadores / Apoiadores (opcional)</label>
+        <input class="inp" id="fPatrocin" placeholder="Ex: Realização: Empresa X · Apoio: Empresa Y">
+      </div>
+    </div>
+
+    <div class="nav-row">
+      <button class="btn-back" onclick="prevStep(1)">← Voltar</button>
+      <button class="btn-next" onclick="nextStep(1)">Próximo: Tipo de convite →</button>
+    </div>
+    <button class="btn-faq-inline" onclick="openFaq()">💬 Perguntas frequentes</button>
+  </div>
+
+  <!-- ── ETAPA 3 — TIPO CONVITE ── -->
+  <div class="step-panel" id="panel2">
+    <div class="card">
+      <div class="card-title">🎨 Tipo de convite</div>
+      <div class="gold-accent"></div>
+      <div class="field">
+        <label class="lbl">Escolha o formato <span class="req">*</span></label>
+        <div class="tipo-grid">
+          <label class="tipo-pill" id="tipo_digital"><input type="radio" name="tipoConvite" value="Digital Estático" onchange="onTipoChange(this)"><span class="tipo-pill-emoji">🖼️</span><span class="tipo-pill-label">Digital Estático</span><span class="tipo-pill-desc">PNG elegante para envios rápidos</span><span class="tipo-pill-price">R$ 59,90</span></label>
+          <label class="tipo-pill" id="tipo_video"><input type="radio" name="tipoConvite" value="Vídeo Animado" onchange="onTipoChange(this)"><span class="tipo-pill-emoji">🎬</span><span class="tipo-pill-label">Vídeo Animado</span><span class="tipo-pill-desc">Convite em vídeo com trilha e efeitos</span><span class="tipo-pill-price">R$ 69,90</span></label>
+          <label class="tipo-pill" id="tipo_interativo"><input type="radio" name="tipoConvite" value="Interativo PDF" onchange="onTipoChange(this)"><span class="tipo-pill-emoji">🖱️</span><span class="tipo-pill-label">Interativo</span><span class="tipo-pill-desc">Botões de GPS e confirmação de presença</span><span class="tipo-pill-price">R$ 79,90</span></label>
+          <label class="tipo-pill" id="tipo_infinito"><input type="radio" name="tipoConvite" value="Infinito Interativo" onchange="onTipoChange(this)"><span class="tipo-pill-emoji">✨</span><span class="tipo-pill-label">Infinito Interativo</span><span class="tipo-pill-desc">Site com programação, galeria e música</span><span class="tipo-pill-price">R$ 99,90</span></label>
+          <label class="tipo-pill" id="tipo_cineweb" style="grid-column:1/-1"><input type="radio" name="tipoConvite" value="CineWeb" onchange="onTipoChange(this)"><span class="tipo-pill-emoji">🎭</span><span class="tipo-pill-label">CineWeb</span><span class="tipo-pill-desc">Cinema no celular! Abertura animada cinematográfica imersiva</span><span class="tipo-pill-price">R$ 119,90</span></label>
+        </div>
+      </div>
+
+      <div id="musicaWrap" style="display:none">
+        <div class="subopts-wrap">
+          <div class="subopts-title">🎵 Trilha sonora</div>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="musica" value="sem" checked onchange="toggleMusica();recalc()"><span class="opt-text">Sem música</span><span class="opt-price">R$ 0,00</span></label>
+            <label class="opt"><input type="radio" name="musica" value="com" onchange="toggleMusica();recalc()"><span class="opt-text">🎵 Com música personalizada</span><span class="opt-price">+ R$ 5,00</span></label>
+          </div>
+          <div id="musicaDetalheWrap" style="display:none;margin-top:10px">
+            <div class="opts" style="margin-bottom:8px">
+              <label class="opt"><input type="radio" name="musicaOpt" value="lina" checked onchange="toggleMusicaUrl()"><span class="opt-text">Deixar a Lina escolher 🌟</span></label>
+              <label class="opt"><input type="radio" name="musicaOpt" value="indicar" onchange="toggleMusicaUrl()"><span class="opt-text">Quero indicar a música</span></label>
+            </div>
+            <div id="musicaUrlWrap" style="display:none">
+              <input class="inp" id="fMusica" placeholder="Nome e artista ou link do YouTube">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="cinwebWrap" style="display:none;margin-top:12px">
+        <div class="field">
+          <label class="lbl">🎬 Descreva sua visão para o CineWeb <span class="req">*</span></label>
+          <textarea class="txa" id="fCineweb" style="min-height:110px" placeholder="Solte a imaginação! Descreva o clima, abertura, efeitos, cores, estilo visual... 🎭✨"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">✍️ Frase do convite</div>
+      <div class="gold-accent"></div>
+      <p class="hint" style="margin-bottom:10px">Ambas as opções são gratuitas.</p>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="frase" value="lina" checked onchange="toggleFrase()"><span class="opt-text">✨ Deixar a Lina escolher a frase para mim</span></label>
+        <label class="opt"><input type="radio" name="frase" value="personalizar" onchange="toggleFrase()"><span class="opt-text">✍️ Quero escrever minha própria frase</span></label>
+      </div>
+      <div id="fraseWrap" style="display:none;margin-top:8px">
+        <textarea class="txa" id="fFrase" placeholder="Ex: É com grande satisfação que convidamos V.Sa. para..."></textarea>
+      </div>
+    </div>
+
+    <div class="nav-row">
+      <button class="btn-back" onclick="prevStep(2)">← Voltar</button>
+      <button class="btn-next" onclick="nextStep(2)">Próximo: Personalização →</button>
+    </div>
+    <button class="btn-faq-inline" onclick="openFaq()">💬 Perguntas frequentes</button>
+  </div>
+
+  <!-- ── ETAPA 4 — EXTRAS ── -->
+  <div class="step-panel" id="panel3">
+    <div class="card">
+      <div class="card-title">🖼️ Logotipo</div>
+      <div class="gold-accent"></div>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="logo" value="nao" checked onchange="recalc()"><span class="opt-text">Sem logotipo</span><span class="opt-price">R$ 0,00</span></label>
+        <label class="opt"><input type="radio" name="logo" value="sim" onchange="toggleLogoHint();recalc()"><span class="opt-text">🖼️ Inserir logotipo no convite</span><span class="opt-price">+ R$ 10,00</span></label>
+      </div>
+      <div class="foto-whats-hint" id="hintLogo" style="display:none;margin-top:10px">
+        <span class="foto-whats-hint-icon">📲</span>
+        <span class="foto-whats-hint-text"><strong>Ótimo!</strong> Após enviar o briefing, mande o logotipo pelo WhatsApp. Prefira PNG com fundo transparente ou SVG para melhor qualidade.</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">✅ Confirmação de Presença</div>
+      <div class="gold-accent"></div>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="conf" value="whats" checked onchange="recalc()"><span class="opt-text">💬 WhatsApp</span><span class="opt-price">R$ 0,00</span></label>
+        <label class="opt"><input type="radio" name="conf" value="google" onchange="recalc()"><span class="opt-text">📋 Formulário Google</span><span class="opt-price">+ R$ 15,00</span></label>
+        <label class="opt"><input type="radio" name="conf" value="sistema" onchange="recalc()"><span class="opt-text">📊 Sistema com lista + controle de convidados</span><span class="opt-price">+ R$ 29,90</span></label>
+      </div>
+      <div style="margin-top:10px">
+        <label class="lbl">Número ou e-mail para confirmações <span class="req">*</span></label>
+        <input class="inp" id="fNumConf" placeholder="(11) 99999-9999 ou email@empresa.com">
+        <p class="hint">Para onde os convidados devem confirmar presença.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">🔗 Links e informações extras</div>
+      <div class="gold-accent"></div>
+      <div class="field">
+        <label class="lbl">Site ou link do evento</label>
+        <input class="inp" id="fSite" type="url" placeholder="https://...">
+      </div>
+      <div class="field" style="margin-bottom:0">
+        <label class="lbl">Observações ou pedido especial</label>
+        <textarea class="txa" id="fObs" placeholder="Alguma observação sobre fontes, estilo, elementos especiais..."></textarea>
+        <p class="hint">⚠️ Caso não seja compatível com o layout, pode não ser possível adicionar.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">📝 Prazo</div>
+      <div class="gold-accent"></div>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="urg" value="nao" checked onchange="recalc()"><span class="opt-text">⏳ Padrão — até 3 dias úteis</span><span class="opt-price">R$ 0,00</span></label>
+        <label class="opt"><input type="radio" name="urg" value="sim" onchange="recalc()"><span class="opt-text">⚡ Urgente — entrega em até 24 horas</span><span class="opt-price">+ R$ 30,00</span></label>
+      </div>
+    </div>
+
+    <div class="nav-row">
+      <button class="btn-back" onclick="prevStep(3)">← Voltar</button>
+      <button class="btn-next" onclick="nextStep(3)">Próximo: Resumo e envio →</button>
+    </div>
+    <button class="btn-faq-inline" onclick="openFaq()">💬 Perguntas frequentes</button>
+  </div>
+
+  <!-- ── ETAPA 5 — RESUMO ── -->
+  <div class="step-panel" id="panel4">
+    <div class="card">
+      <div class="card-title">📋 Resumo do pedido</div>
+      <div class="gold-accent"></div>
+      <div id="resumoContent" style="font-size:13px;color:var(--silver);line-height:1.9;"></div>
+    </div>
+
+    <div class="total-box">
+      <div class="t-row" id="tBaseRow"><span>✦ Convite base</span><span id="tBaseVal">—</span></div>
+      <div class="t-row hide" id="tMusicaRow"><span>🎵 Trilha sonora</span><span>+ R$ 5,00</span></div>
+      <div class="t-row hide" id="tLogoRow"><span>🖼️ Inserção de logotipo</span><span>+ R$ 10,00</span></div>
+      <div class="t-row hide" id="tGoogleRow"><span>📋 Formulário Google</span><span>+ R$ 15,00</span></div>
+      <div class="t-row hide" id="tSistemaRow"><span>📊 Sistema de convidados</span><span>+ R$ 29,90</span></div>
+      <div class="t-row hide" id="tUrgRow"><span>⚡ Urgência 24h</span><span>+ R$ 30,00</span></div>
+      <div class="t-row final"><span>Total</span><span id="tTotal">—</span></div>
+    </div>
+
+    <div class="pix-box">
+      <div class="pix-lbl">✦ Pagamento via PIX</div>
+      <div class="pix-row"><span class="pix-k">11944457518</span><button class="cpix" onclick="copyPix()">Copiar chave</button></div>
+      <div class="cpix-ok" id="cpixOk">✓ Chave copiada!</div>
+      <p style="font-size:11px;color:var(--smoke);margin-top:8px;line-height:1.6;font-weight:300;">Pague após o envio e envie o comprovante pelo WhatsApp. O convite será iniciado após a confirmação.</p>
+    </div>
+
+    <div class="sheets-badge" id="sheetsBadge">
+      <div class="sheets-spinner" id="sheetsSpinner"></div>
+      <span id="sheetsMsg">Enviando por e-mail…</span>
+    </div>
+
+    <button class="btn-send" id="btnEnviar" onclick="enviar()">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/><path d="M5.007 3h-.008A11.995 11.995 0 0 0 0 12c0 2.117.553 4.104 1.523 5.836L0 24l6.335-1.652A12.007 12.007 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0C9.33 0 6.879.992 5.007 3z"/></svg>
+      Enviar briefing pelo WhatsApp
+    </button>
+    <p class="sub-note">Os dados também serão enviados para alinaconvites@gmail.com automaticamente. ✦</p>
+    <div style="margin-top:12px;text-align:center;"><button class="btn-back" style="font-size:12px;padding:8px 20px;" onclick="prevStep(4)">← Revisar</button></div>
+  </div>
+
+  <!-- SUCCESS -->
+  <div class="success-screen" id="successScreen">
+    <div class="big-emoji">✦</div>
+    <h2>Briefing enviado!</h2>
+    <p>A Lina recebeu todas as informações e entrará em contato em breve pelo WhatsApp. Não esqueça de enviar o comprovante do PIX!</p>
+
+    <div style="margin-top:28px;display:flex;flex-direction:column;gap:12px;max-width:380px;margin-left:auto;margin-right:auto;">
+      <div class="success-card-pix">
+        <span class="sc-emoji">💳</span>
+        <div>
+          <div class="sc-title">Envie o comprovante do PIX</div>
+          <div class="sc-desc">Faça o pagamento via PIX para a chave <strong style="color:var(--gold-shine)">11944457518</strong> e envie o comprovante pelo WhatsApp para a Lina iniciar seu convite.</div>
+        </div>
+      </div>
+      <div class="success-card-wpp">
+        <span class="sc-emoji">📸</span>
+        <div>
+          <div class="sc-title">Não esqueça dos arquivos!</div>
+          <div class="sc-desc" id="successArqMsg">Se tiver logotipo, referência de estilo ou paleta de cores — manda pelo WhatsApp! Arquivos de boa qualidade ajudam a Lina a criar o convite perfeito.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /stepper-wrap -->
+
+<script>
+const PRECOS = {'Digital Estático':59.90,'Vídeo Animado':69.90,'Interativo PDF':79.90,'Infinito Interativo':99.90,'CineWeb':119.90};
+const TOTAL_STEPS = 5;
+let currentStep = 0;
+
+const EJS_SERVICE  = 'service_d70d5ao';
+const EJS_TEMPLATE = 'template_yqs68ul';
+
+// ── TOAST ──
+function showToast(titulo, msg){
+  document.getElementById('toastTitle').textContent = titulo;
+  document.getElementById('toastMsg').textContent = msg;
+  document.getElementById('toastOverlay').classList.add('show');
+}
+function closeToast(){ document.getElementById('toastOverlay').classList.remove('show'); }
+document.getElementById('toastOverlay').addEventListener('click', function(e){ if(e.target===this) closeToast(); });
+
+// ── PARTÍCULAS ──
+(function(){
+  const c = document.getElementById('particles');
+  const colors = ['#e8b84b','#c9972a','#f5e6b8','#a07820','#d4af5a','#8a6a20','#c9b080'];
+  for(let i=0;i<40;i++){
+    const el=document.createElement('div');el.className='spark';
+    const sz=Math.random()*4+2,op=(Math.random()*0.3+0.05).toFixed(2),color=colors[Math.floor(Math.random()*colors.length)];
+    el.style.cssText=`top:${Math.random()*100}%;left:${Math.random()*100}%;width:${sz}px;height:${sz}px;background:radial-gradient(circle,${color} 0%,transparent 70%);box-shadow:0 0 ${sz*2}px ${color};--op:${op};--dur:${(Math.random()*6+4).toFixed(1)}s;--delay:-${(Math.random()*8).toFixed(1)}s;opacity:${op};`;
+    c.appendChild(el);
+  }
+  const stars=['✦','✧','⋆','·'];
+  for(let i=0;i<20;i++){
+    const el=document.createElement('div');el.className='star-shape';
+    const sz=Math.random()*8+5,op=(Math.random()*0.25+0.05).toFixed(2),color=colors[Math.floor(Math.random()*colors.length)];
+    el.textContent=stars[Math.floor(Math.random()*stars.length)];
+    el.style.cssText=`top:${Math.random()*100}%;left:${Math.random()*100}%;font-size:${sz}px;--op:${op};--color:${color};--dur:${(Math.random()*5+3).toFixed(1)}s;--delay:-${(Math.random()*7).toFixed(1)}s;opacity:${op};`;
+    c.appendChild(el);
+  }
+})();
+
+const dustColors=['#e8b84b','#c9972a','#f5e6b8','#a07820','#d4af5a'];
+document.addEventListener('mousemove',e=>{
+  if(Math.random()>0.87){
+    const d=document.createElement('div');d.className='cursor-dust';
+    const color=dustColors[Math.floor(Math.random()*dustColors.length)];
+    d.style.cssText=`left:${e.clientX+(Math.random()-.5)*16}px;top:${e.clientY+(Math.random()-.5)*16}px;background:${color};box-shadow:0 0 6px ${color};width:${Math.random()*4+2}px;height:${Math.random()*4+2}px;`;
+    document.body.appendChild(d);setTimeout(()=>d.remove(),750);
+  }
+});
+
+// ── INIT ──
+(function init(){
+  const p=new URLSearchParams(window.location.search),nome=p.get('cliente')?decodeURIComponent(p.get('cliente')):'';
+  if(nome){
+    document.getElementById('greetingName').textContent='Olá, '+nome+'! ✦';
+    document.getElementById('greetingSub').textContent='Seu convite especial está sendo preparado com todo cuidado';
+    document.getElementById('greetingBanner').classList.add('show');
+  }
+})();
+
+// ── FAQ ──
+function openFaq(){document.getElementById('faqOverlay').classList.add('open');document.body.style.overflow='hidden';}
+function closeFaq(){document.getElementById('faqOverlay').classList.remove('open');document.body.style.overflow='';}
+function closeFaqOutside(e){if(e.target===document.getElementById('faqOverlay'))closeFaq();}
+function toggleFaqItem(btn){
+  const item=btn.closest('.faq-item'),answer=item.querySelector('.faq-a'),isOpen=btn.classList.contains('open');
+  document.querySelectorAll('.faq-q.open').forEach(b=>{b.classList.remove('open');b.closest('.faq-item').querySelector('.faq-a').classList.remove('open');});
+  if(!isOpen){btn.classList.add('open');answer.classList.add('open');}
+}
+function toggleCalcPanel(){
+  const panel=document.getElementById('calcPanel'),chevron=document.getElementById('calcChevron'),isOpen=panel.classList.contains('open');
+  panel.classList.toggle('open',!isOpen);chevron.classList.toggle('open',!isOpen);
+}
+
+// ── STEPPER ──
+function goToStep(n){if(n>currentStep)return;setStep(n);}
+function nextStep(from){if(!validateStep(from))return;if(from===3)buildResumo();setStep(from+1);}
+function prevStep(from){setStep(from-1);}
+
+function setStep(n){
+  const panels=document.querySelectorAll('.step-panel'),current=document.querySelector('.step-panel.active');
+  if(current){current.classList.add('leaving');setTimeout(()=>current.classList.remove('active','leaving'),220);}
+  setTimeout(()=>{
+    currentStep=n;
+    panels.forEach((p,i)=>{if(i===n)p.classList.add('active');else p.classList.remove('active');});
+    document.querySelectorAll('.si-step').forEach((s,i)=>{s.classList.remove('active','done');if(i===n)s.classList.add('active');else if(i<n)s.classList.add('done');});
+    document.getElementById('progBar').style.width=((n+1)/TOTAL_STEPS*100).toFixed(0)+'%';
+    const sw=document.getElementById('stepperWrap'),top=sw.getBoundingClientRect().top+window.scrollY-20;
+    if(window.scrollY>top+60)window.scrollTo({top,behavior:'smooth'});
+    if(n===4)recalc();
+  },230);
+  currentStep=n;
+}
+
+// ── VALIDAÇÃO ──
+function validateStep(step){
+  if(step===0){
+    if(!document.getElementById('fNomePed').value.trim()){showToast('Nome obrigatório 👤','Por favor, informe seu nome completo para continuar.');return false;}
+    if(!document.getElementById('fWhats').value.trim()){showToast('WhatsApp obrigatório 📱','Precisamos do seu WhatsApp para enviar o convite pronto!');return false;}
+  }
+  if(step===1){
+    if(!document.getElementById('fCategoria').value){showToast('Categoria obrigatória 🎯','Selecione a categoria do evento antes de continuar.');return false;}
+    if(document.getElementById('fCategoria').value==='Outro'&&!document.getElementById('fOutro').value.trim()){showToast('Descreva o evento ✦','Por favor, descreva o tipo do seu evento.');return false;}
+    if(!document.getElementById('fTitulo').value.trim()){showToast('Título obrigatório 📝','Informe o título ou nome do evento para continuar.');return false;}
+    if(!document.getElementById('fData').value){showToast('Data obrigatória 📅','Informe a data do grande evento para continuar!');return false;}
+    if(!document.getElementById('fHorario').value){showToast('Horário obrigatório ⏰','Informe o horário do evento para continuar.');return false;}
+    if(!document.getElementById('fLocal').value.trim()){showToast('Local obrigatório 📍','Informe o local onde será realizado o evento.');return false;}
+  }
+  if(step===2){
+    if(!document.querySelector('input[name="tipoConvite"]:checked')){showToast('Escolha o tipo de convite 🎨','Selecione um dos formatos de convite para continuar.');return false;}
+    const tipo=document.querySelector('input[name="tipoConvite"]:checked').value;
+    if(tipo==='CineWeb'&&!document.getElementById('fCineweb').value.trim()){showToast('Descreva sua visão CineWeb 🎭','Conta para a Lina como você imagina a abertura do seu convite CineWeb!');return false;}
+  }
+  if(step===3){
+    if(!document.getElementById('fNumConf').value.trim()){showToast('Número de confirmação obrigatório ✅','Informe um número ou e-mail para onde os convidados devem confirmar presença.');return false;}
+  }
+  return true;
+}
+
+// ── TOGGLES ──
+function toggleFotoHint(hintId, el){ document.getElementById(hintId).style.display=el.value==='sim'?'flex':'none'; }
+function toggleEmpresa(){ document.getElementById('empresaWrap').style.display=document.querySelector('input[name="representa"]:checked').value==='empresa'?'block':'none'; }
+function onCategoriaChange(){
+  const v=document.getElementById('fCategoria').value;
+  document.getElementById('outroWrap').style.display=v==='Outro'?'block':'none';
+  document.getElementById('formaturaFields').style.display=v.includes('Formatura')?'block':'none';
+  document.getElementById('congressoFields').style.display=(v.includes('Congresso')||v.includes('Conferência'))?'block':'none';
+}
+function toggleCerimonia(){ document.getElementById('cerWrap').style.display=document.querySelector('input[name="cerimonia"]:checked').value==='sim'?'block':'none'; }
+function toggleDressCode(){ document.getElementById('dressCodeDescWrap').style.display=document.getElementById('fDressCode').value==='Personalizado'?'block':'none'; }
+function toggleCoresProib(){ document.getElementById('coresProibWrap').style.display=document.querySelector('input[name="coresProib"]:checked').value==='sim'?'block':'none'; }
+function toggleProgramacao(){ document.getElementById('progWrap').style.display=document.querySelector('input[name="hasProg"]:checked').value==='sim'?'block':'none'; }
+function toggleLogoHint(){ document.getElementById('hintLogo').style.display=document.querySelector('input[name="logo"]:checked').value==='sim'?'flex':'none'; }
+function toggleMusica(){ document.getElementById('musicaDetalheWrap').style.display=document.querySelector('input[name="musica"]:checked').value==='com'?'block':'none'; }
+function toggleMusicaUrl(){ document.getElementById('musicaUrlWrap').style.display=document.querySelector('input[name="musicaOpt"]:checked')?.value==='indicar'?'block':'none'; }
+function toggleFrase(){ document.getElementById('fraseWrap').style.display=document.querySelector('input[name="frase"]:checked').value==='personalizar'?'block':'none'; }
+
+function onTipoChange(el){
+  document.querySelectorAll('.tipo-pill').forEach(p=>p.classList.remove('selected'));
+  el.closest('.tipo-pill').classList.add('selected');
+  const v=el.value;
+  const hasMusica=v==='Vídeo Animado'||v==='Interativo PDF'||v==='Infinito Interativo'||v==='CineWeb';
+  document.getElementById('musicaWrap').style.display=hasMusica?'block':'none';
+  document.getElementById('cinwebWrap').style.display=v==='CineWeb'?'block':'none';
+  if(!hasMusica){document.querySelector('input[name="musica"][value="sem"]').checked=true;document.getElementById('musicaDetalheWrap').style.display='none';}
+  recalc();
+}
+
+function getFotoHintInfo(){
+  const paletaEvento=document.querySelector('input[name="fotoPaletaEvento"]:checked')?.value==='sim';
+  const paletaConvite=document.querySelector('input[name="fotoPaletaConvite"]:checked')?.value==='sim';
+  const coresProib=document.querySelector('input[name="fotoCoresProib"]:checked')?.value==='sim';
+  const logo=document.querySelector('input[name="logo"]:checked')?.value==='sim';
+  const fotos=[];
+  if(logo) fotos.push('logotipo');
+  if(paletaEvento) fotos.push('paleta do evento');
+  if(paletaConvite) fotos.push('referência do convite');
+  if(coresProib) fotos.push('cores proibidas');
+  return fotos.length?'📸 Enviar pelo WhatsApp: '+fotos.join(', '):'';
+}
+
+// ── CALC ──
+function toggleCalcRow(id,visible){
+  const row=document.getElementById(id),wasHidden=row.classList.contains('hidden');
+  row.classList.toggle('hidden',!visible);
+  if(visible&&wasHidden){row.classList.add('appearing');setTimeout(()=>row.classList.remove('appearing'),400);}
+}
+function bumpTotal(){const el=document.getElementById('calcTotal');el.classList.remove('bump');void el.offsetWidth;el.classList.add('bump');setTimeout(()=>el.classList.remove('bump'),450);}
+function fmt(n){return'R$ '+n.toFixed(2).replace('.',',');}
+
+function recalc(){
+  const tipoEl=document.querySelector('input[name="tipoConvite"]:checked'),tipo=tipoEl?tipoEl.value:'',basePrice=PRECOS[tipo]||null;
+  const musica=document.querySelector('input[name="musica"]:checked')?.value==='com'?5:0;
+  const logo=document.querySelector('input[name="logo"]:checked')?.value==='sim'?10:0;
+  const conf=document.querySelector('input[name="conf"]:checked')?.value;
+  const google=conf==='google'?15:0,sistema=conf==='sistema'?29.90:0;
+  const urg=document.querySelector('input[name="urg"]:checked')?.value==='sim'?30:0;
+  const extras=musica+logo+google+sistema+urg,total=basePrice!==null?basePrice+extras:null;
+  const baseRow=document.getElementById('cr-base');
+  if(basePrice!==null){baseRow.classList.remove('hidden');document.getElementById('cr-base-val').textContent=fmt(basePrice);}else{baseRow.classList.add('hidden');}
+  toggleCalcRow('cr-musica',!!musica);toggleCalcRow('cr-logo',!!logo);toggleCalcRow('cr-google',!!google);toggleCalcRow('cr-sistema',!!sistema);toggleCalcRow('cr-urg',!!urg);
+  const el=document.getElementById('calcTotal'),prevText=el.textContent;
+  const newText=total!==null?fmt(total):extras>0?fmt(extras):'Valor Total';
+  if(newText!==prevText){el.textContent=newText;if(newText==='Valor Total')el.classList.add('placeholder');else{el.classList.remove('placeholder');bumpTotal();}}
+  document.getElementById('calcTotalNote').textContent=total!==null?'Total estimado (base + adicionais) ✦':extras>0?'Adicionais selecionados · escolha o tipo para ver o total':'Selecione o tipo de convite para ver o preço ✦';
+  if(basePrice!==null){document.getElementById('tBaseVal').textContent=fmt(basePrice);document.getElementById('tBaseRow').classList.remove('hide');}else document.getElementById('tBaseRow').classList.add('hide');
+  document.getElementById('tMusicaRow').classList.toggle('hide',!musica);
+  document.getElementById('tLogoRow').classList.toggle('hide',!logo);
+  document.getElementById('tGoogleRow').classList.toggle('hide',!google);
+  document.getElementById('tSistemaRow').classList.toggle('hide',!sistema);
+  document.getElementById('tUrgRow').classList.toggle('hide',!urg);
+  if(total!==null)document.getElementById('tTotal').textContent=fmt(total);else if(extras>0)document.getElementById('tTotal').textContent=fmt(extras)+' + convite';else document.getElementById('tTotal').textContent='—';
+}
+
+// ── RESUMO ──
+function buildResumo(){
+  const nomePed=document.getElementById('fNomePed').value.trim(),whats=document.getElementById('fWhats').value.trim();
+  const email=document.getElementById('fEmail').value.trim();
+  const repr=document.querySelector('input[name="representa"]:checked').value;
+  const empresa=document.getElementById('fEmpresa').value.trim(),cargo=document.getElementById('fCargo').value.trim();
+  const comoSoube=document.getElementById('fComoSoube').value;
+  const cat=document.getElementById('fCategoria').value;
+  const catFinal=cat==='Outro'?(document.getElementById('fOutro').value.trim()||'Outro'):cat;
+  const titulo=document.getElementById('fTitulo').value.trim();
+  const assinatura=document.getElementById('fAssinatura').value.trim();
+  const data=document.getElementById('fData').value,horario=document.getElementById('fHorario').value;
+  const local=document.getElementById('fLocal').value.trim();
+  const tipoEl=document.querySelector('input[name="tipoConvite"]:checked'),tipo=tipoEl?tipoEl.value:'—';
+  const musica=document.querySelector('input[name="musica"]:checked')?.value==='com';
+  const frase=document.querySelector('input[name="frase"]:checked')?.value,fraseT=document.getElementById('fFrase').value.trim();
+  const conf=document.querySelector('input[name="conf"]:checked')?.value,confMap={whats:'WhatsApp',google:'Formulário Google (+R$15)',sistema:'Sistema com lista (+R$29,90)'};
+  const logo=document.querySelector('input[name="logo"]:checked')?.value==='sim';
+  const urg=document.querySelector('input[name="urg"]:checked')?.value==='sim';
+  const precoBase=PRECOS[tipo]?fmt(PRECOS[tipo]):'—';
+  const coresEvento=document.getElementById('fCoresEvento').value.trim();
+  const coresConvite=document.getElementById('fCoresConvite').value.trim();
+  const coresProibV=document.querySelector('input[name="coresProib"]:checked')?.value==='sim'?(document.getElementById('fCoresProib').value.trim()||'Sim'):'Não';
+  const dressCode=document.getElementById('fDressCode').value;
+  const dressDesc=document.getElementById('fDressCodeDesc').value.trim();
+  const dressLabel=dressCode==='Personalizado'&&dressDesc?'Personalizado: '+dressDesc:(dressCode||'Sem dress code');
+  const fotosInfo=getFotoHintInfo();
+  let dataf=data;if(data){const[y,m,d]=data.split('-');dataf=d+'/'+m+'/'+y;}
+  const rows=[
+    ['👤 Solicitante',nomePed+' · '+whats],
+    email?['📧 E-mail',email]:null,
+    repr==='empresa'&&empresa?['🏢 Empresa',empresa+(cargo?' — '+cargo:'')]:null,
+    comoSoube?['💬 Como soube',comoSoube]:null,
+    ['🎯 Categoria',catFinal],
+    ['📝 Título',titulo],
+    assinatura?['✍️ Assinatura',assinatura]:null,
+    ['📅 Data e horário',dataf+(horario?' às '+horario:'')],
+    ['📍 Local',local],
+    coresEvento?['🎨 Cores do evento',coresEvento]:null,
+    coresConvite?['🖌️ Cores do convite',coresConvite]:null,
+    fotosInfo?['📸 Arquivos a enviar',fotosInfo]:null,
+    dressLabel!=='Sem dress code'?['👔 Dress code',dressLabel]:null,
+    coresProibV!=='Não'?['🚫 Cores proibidas',coresProibV]:null,
+    ['🎭 Tipo de convite',tipo+' ('+precoBase+')'],
+    ['🎵 Trilha',musica?'Com música personalizada':'Sem música'],
+    logo?['🖼️ Logotipo','Sim (+R$10,00)']:null,
+    ['✍️ Frase',frase==='personalizar'?('"'+fraseT+'"'):'A Lina escolhe'],
+    ['✅ Confirmação',confMap[conf]||'WhatsApp'],
+    ['⏳ Prazo',urg?'Urgente — 24h (+R$30)':'Padrão — 3 dias úteis'],
+  ].filter(Boolean);
+  document.getElementById('resumoContent').innerHTML=rows.map(([k,v])=>`<div style="display:flex;gap:8px;margin-bottom:6px;padding-bottom:6px;border-bottom:1px solid rgba(201,151,42,0.12);"><span style="font-weight:600;color:var(--gold-shine);min-width:150px;flex-shrink:0;font-size:12px;">${k}</span><span style="color:var(--silver-light);font-size:12px;">${v||'—'}</span></div>`).join('');
+  recalc();
+}
+
+// ── COLETA DADOS ──
+function coletarDados(){
+  const nomePed=document.getElementById('fNomePed').value.trim(),whats=document.getElementById('fWhats').value.trim();
+  const email=document.getElementById('fEmail').value.trim();
+  const repr=document.querySelector('input[name="representa"]:checked').value;
+  const empresa=document.getElementById('fEmpresa').value.trim(),cargo=document.getElementById('fCargo').value.trim(),setor=document.getElementById('fSetor').value.trim();
+  const comoSoube=document.getElementById('fComoSoube').value;
+  const cat=document.getElementById('fCategoria').value;
+  const catFinal=cat==='Outro'?(document.getElementById('fOutro').value.trim()||'Outro'):cat;
+  const curso=document.getElementById('fCurso').value.trim(),turma=document.getElementById('fTurma').value.trim(),inst=document.getElementById('fInstituicao').value.trim();
+  const nomeCong=document.getElementById('fNomeCongresso').value.trim(),temaCong=document.getElementById('fTemaCongresso').value.trim();
+  const titulo=document.getElementById('fTitulo').value.trim();
+  const assinatura=document.getElementById('fAssinatura').value.trim();
+  const data=document.getElementById('fData').value,horario=document.getElementById('fHorario').value;
+  const local=document.getElementById('fLocal').value.trim(),endereco=document.getElementById('fEndereco').value.trim();
+  const cerSim=document.querySelector('input[name="cerimonia"]:checked')?.value==='sim';
+  const localCer=document.getElementById('fLocalCer').value.trim(),endCer=document.getElementById('fEnderecoCer').value.trim();
+  const dataCer=document.getElementById('fDataCer').value,horarioCer=document.getElementById('fHorarioCer').value;
+  const dressCode=document.getElementById('fDressCode').value;
+  const dressDesc=document.getElementById('fDressCodeDesc').value.trim();
+  const dressLabel=dressCode==='Personalizado'&&dressDesc?'Personalizado: '+dressDesc:(dressCode||'Sem dress code');
+  const qtd=document.getElementById('fQtdConv').value;
+  const coresProibV=document.querySelector('input[name="coresProib"]:checked')?.value==='sim'?(document.getElementById('fCoresProib').value.trim()||'Sim'):'Não';
+  const coresEvento=document.getElementById('fCoresEvento').value.trim();
+  const coresConvite=document.getElementById('fCoresConvite').value.trim();
+  const hasProg=document.querySelector('input[name="hasProg"]:checked')?.value==='sim';
+  const prog=hasProg?document.getElementById('fProgramacao').value.trim():'Não incluir';
+  const patrocin=document.getElementById('fPatrocin').value.trim();
+  const tipoEl=document.querySelector('input[name="tipoConvite"]:checked'),tipo=tipoEl?tipoEl.value:'Não informado';
+  const musica=document.querySelector('input[name="musica"]:checked')?.value==='com';
+  const musicaOpt=document.querySelector('input[name="musicaOpt"]:checked')?.value;
+  const musicaTxt=document.getElementById('fMusica').value.trim();
+  const cineweb=document.getElementById('fCineweb').value.trim();
+  const frase=document.querySelector('input[name="frase"]:checked')?.value,fraseT=document.getElementById('fFrase').value.trim();
+  const conf=document.querySelector('input[name="conf"]:checked')?.value,confMap={whats:'WhatsApp (grátis)',google:'Formulário Google (+R$15,00)',sistema:'Sistema com lista (+R$29,90)'};
+  const numConf=document.getElementById('fNumConf').value.trim();
+  const logo=document.querySelector('input[name="logo"]:checked')?.value==='sim';
+  const siteEvento=document.getElementById('fSite').value.trim();
+  const obs=document.getElementById('fObs').value.trim();
+  const urg=document.querySelector('input[name="urg"]:checked')?.value==='sim';
+  const fotosInfo=getFotoHintInfo();
+  const totalT=document.getElementById('tTotal').textContent;
+  let dataf=data;if(data){const[y,m,d]=data.split('-');dataf=d+'/'+m+'/'+y;}
+  let dataCerF=dataCer;if(dataCer){const[y,m,d]=dataCer.split('-');dataCerF=d+'/'+m+'/'+y;}
+  const precoBase=PRECOS[tipo]?fmt(PRECOS[tipo]):'—';
+  return{
+    nomePedido:nomePed,whatsapp:whats,email,representa:repr,empresa,cargo,setor,comoSoube,
+    categoriaEvento:catFinal,curso,turma,instituicao:inst,nomeCongresso:nomeCong,temaCongresso:temaCong,
+    tituloEvento:titulo,assinatura:assinatura||(empresa||nomePed),
+    dataEvento:dataf,horario,local,endereco,
+    cerimoniaSeparada:cerSim?'Sim':'Não',localCerimonia:cerSim?localCer:'',enderecoCerimonia:cerSim?endCer:'',
+    dataCerimonia:cerSim?dataCerF:'',horarioCerimonia:cerSim?horarioCer:'',
+    dressCode:dressLabel,qtdConvidados:qtd,coresProibidas:coresProibV,
+    coresEvento,coresConvite,fotosAEnviar:fotosInfo,
+    programacao:prog,patrocinadores:patrocin,
+    tipoConvite:tipo,precoBase,
+    trilha:musica?(musicaOpt==='indicar'&&musicaTxt?'Com música: '+musicaTxt:'Com música — Lina escolhe'):'Sem música',
+    visaoCineweb:cineweb,
+    frase:frase==='personalizar'?'"'+fraseT+'"':'A Lina escolhe',
+    logotipo:logo?'Sim (+R$10,00)':'Não',
+    confirmacao:confMap[conf]||conf,numConfirmacao:numConf,
+    siteEvento,observacoes:obs,
+    prazo:urg?'Urgente — 24h (+R$30)':'Padrão — 3 dias úteis',
+    totalEstimado:totalT
+  };
+}
+
+// ── EMAILJS ──
+async function enviarEmail(dados){
+  const badge=document.getElementById('sheetsBadge'),spinner=document.getElementById('sheetsSpinner'),msg=document.getElementById('sheetsMsg');
+  badge.className='sheets-badge sending';msg.textContent='Enviando e-mail…';spinner.style.display='block';
+  const templateParams={
+    to_email:'alinaconvites@gmail.com',
+    subject:'✦ Novo briefing — '+dados.tituloEvento+' ('+dados.categoriaEvento+')',
+    nome_pedido:dados.nomePedido,whatsapp:dados.whatsapp,email:dados.email||'—',
+    representa:dados.representa,empresa:dados.empresa||'—',cargo:dados.cargo||'—',setor:dados.setor||'—',
+    como_soube:dados.comoSoube||'—',
+    categoria:dados.categoriaEvento,curso:dados.curso||'—',turma:dados.turma||'—',instituicao:dados.instituicao||'—',
+    nome_congresso:dados.nomeCongresso||'—',tema_congresso:dados.temaCongresso||'—',
+    titulo_evento:dados.tituloEvento,assinatura:dados.assinatura,
+    data_evento:dados.dataEvento,horario:dados.horario||'—',local:dados.local,endereco:dados.endereco||'—',
+    cerimonia_separada:dados.cerimoniaSeparada,local_cerimonia:dados.localCerimonia||'—',
+    data_cerimonia:dados.dataCerimonia||'—',horario_cerimonia:dados.horarioCerimonia||'—',
+    dress_code:dados.dressCode,qtd_convidados:dados.qtdConvidados||'—',cores_proibidas:dados.coresProibidas,
+    cores_evento:dados.coresEvento||'—',cores_convite:dados.coresConvite||'—',fotos_enviar:dados.fotosAEnviar||'Nenhuma',
+    programacao:dados.programacao,patrocinadores:dados.patrocinadores||'—',
+    tipo_convite:dados.tipoConvite+' ('+dados.precoBase+')',
+    trilha:dados.trilha,visao_cineweb:dados.visaoCineweb||'—',
+    frase:dados.frase,logotipo:dados.logotipo,
+    confirmacao:dados.confirmacao,numero_confirmacao:dados.numConfirmacao||'—',
+    site_evento:dados.siteEvento||'—',observacoes:dados.observacoes||'—',
+    prazo:dados.prazo,total:dados.totalEstimado,pix_pagamento:'11944457518'
+  };
+  try{
+    const result=await emailjs.send(EJS_SERVICE,EJS_TEMPLATE,templateParams);
+    if(result.status===200){badge.className='sheets-badge success';spinner.style.display='none';msg.textContent='✅ E-mail enviado para alinaconvites@gmail.com!';}
+    else throw new Error('status '+result.status);
+  }catch(err){
+    console.error('EmailJS error:',err);
+    badge.className='sheets-badge error';spinner.style.display='none';msg.textContent='⚠️ Briefing enviado pelo WhatsApp com sucesso ✓';
+  }
+}
+
+// ── WHATSAPP ──
+function montarWhatsApp(d){
+  const linhas=[
+    '✦ *BRIEFING — LINA CONVITES · CORPORATIVO & EVENTOS*','',
+    '👤 *Solicitante:* '+d.nomePedido,
+    '📱 *WhatsApp:* '+d.whatsapp,
+    d.email?'📧 *E-mail:* '+d.email:'',
+    d.empresa?'🏢 *Empresa:* '+d.empresa+(d.cargo?' — '+d.cargo:''):'',
+    d.setor?'⚙️ *Setor:* '+d.setor:'',
+    d.comoSoube?'💬 *Como soube:* '+d.comoSoube:'',
+    '',
+    '🎯 *Categoria:* '+d.categoriaEvento,
+    d.curso?'🎓 *Curso:* '+d.curso+(d.turma?' — '+d.turma:''):'',
+    d.instituicao?'🏫 *Instituição:* '+d.instituicao:'',
+    d.nomeCongresso?'🎙️ *Congresso:* '+d.nomeCongresso:'',
+    d.temaCongresso?'💡 *Tema:* '+d.temaCongresso:'',
+    '',
+    '📝 *Título no convite:* '+d.tituloEvento,
+    '✍️ *Assinatura:* '+d.assinatura,
+    '📅 *Data:* '+d.dataEvento,
+    d.horario?'⏰ *Horário:* '+d.horario:'',
+    '📍 *Local:* '+d.local,
+    d.endereco?'🗺️ *Endereço:* '+d.endereco:'',
+    d.cerimoniaSeparada==='Sim'?'\n⛪ *Cerimônia separada:* '+d.localCerimonia:'',
+    d.cerimoniaSeparada==='Sim'&&d.dataCerimonia?'📅 *Data cerimônia:* '+d.dataCerimonia:'',
+    d.cerimoniaSeparada==='Sim'&&d.horarioCerimonia?'⏰ *Horário cerimônia:* '+d.horarioCerimonia:'',
+    d.qtdConvidados?'👥 *Convidados estimados:* '+d.qtdConvidados:'',
+    '',
+    d.coresEvento?'🎨 *Cores do evento:* '+d.coresEvento:'',
+    d.coresConvite?'🖌️ *Cores do convite:* '+d.coresConvite:'',
+    d.fotosAEnviar?'📸 *Arquivos a enviar:* '+d.fotosAEnviar:'',
+    d.dressCode!=='Sem dress code'?'👔 *Dress code:* '+d.dressCode:'',
+    d.coresProibidas!=='Não'?'🚫 *Cores proibidas:* '+d.coresProibidas:'',
+    d.programacao!=='Não incluir'?'\n📅 *Programação:*\n'+d.programacao:'',
+    d.patrocinadores?'🤝 *Patrocinadores:* '+d.patrocinadores:'',
+    '',
+    '🎭 *Tipo de convite:* '+d.tipoConvite+' ('+d.precoBase+')',
+    '🎵 *Trilha:* '+d.trilha,
+    d.visaoCineweb?'🎬 *Visão CineWeb:* '+d.visaoCineweb:'',
+    '🖼️ *Logotipo:* '+d.logotipo,
+    '✍️ *Frase:* '+d.frase,
+    '✅ *Confirmação:* '+d.confirmacao,
+    d.numConfirmacao?'📞 *Número/e-mail confirmação:* '+d.numConfirmacao:'',
+    d.siteEvento?'🔗 *Site do evento:* '+d.siteEvento:'',
+    d.observacoes?'\n📝 *Obs:* '+d.observacoes:'',
+    '',
+    d.prazo,
+    '',
+    '💰 *Total:* '+d.totalEstimado,
+    '💳 *PIX (pagamento):* 11944457518',
+    '',
+    '_Enviarei o comprovante em seguida._ ✦',
+    '',
+    '━━━━━━━━━━━━━━━━━━━━━━',
+    '📸 *NÃO ESQUEÇA DE ENVIAR OS ARQUIVOS!*',
+    d.fotosAEnviar
+      ? 'Você marcou que tem arquivos para enviar:\n👉 '+d.fotosAEnviar.replace('📸 Enviar pelo WhatsApp: ','')
+      : 'Se tiver logotipo, referência de estilo ou paleta de cores — manda aqui pelo WhatsApp!',
+    '_Arquivos de boa qualidade ajudam a Lina a criar o convite perfeito para o seu evento._ ✦'
+  ].filter(l=>l!==null&&l!=='').join('\n');
+  return 'https://wa.me/5511953520254?text='+encodeURIComponent(linhas);
+}
+
+// ── ENVIO ──
+async function enviar(){
+  const btn=document.getElementById('btnEnviar');
+  btn.disabled=true;
+  btn.innerHTML='<div class="sheets-spinner" style="width:16px;height:16px;border-color:rgba(255,255,255,0.2);border-top-color:#fff;margin:0 auto"></div>';
+  const dados=coletarDados();
+  window.open(montarWhatsApp(dados),'_blank');
+  await enviarEmail(dados);
+  const fotosInfo=dados.fotosAEnviar;
+  const arqMsgEl=document.getElementById('successArqMsg');
+  if(fotosInfo&&arqMsgEl){
+    const lista=fotosInfo.replace('📸 Enviar pelo WhatsApp: ','');
+    arqMsgEl.innerHTML='Você indicou que tem arquivos para enviar: <strong>'+lista+'</strong>. Manda agora pelo WhatsApp para a Lina já começar com tudo!';
+  }
+  setTimeout(()=>{
+    document.querySelector('.step-panel.active').style.display='none';
+    document.getElementById('successScreen').classList.add('show');
+    window.scrollTo({top:0,behavior:'smooth'});
+  },800);
+}
+
+function copyPix(){
+  navigator.clipboard.writeText('11944457518').then(()=>{
+    const ok=document.getElementById('cpixOk');ok.style.display='block';setTimeout(()=>ok.style.display='none',2500);
+  });
+}
+
+recalc();
+</script>
+</body>
+</html>
