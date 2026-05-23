@@ -3,257 +3,222 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Briefing · Lina Convites · Aniversários</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>Briefing · Lina Convites · Festas Infantis</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  /* ── NOVA PALETA: ROXO · LILÁS · CHAMPAGNE · DOURADO ── */
-  --bg-deep:#1a0f2e;
-  --bg-mid:#210d3a;
-  --bg-soft:#2a1248;
-  --card-bg:rgba(255,255,255,0.045);
-
-  --gold:#c9a84c;
-  --gold-lt:#e8c96a;
-  --gold-pale:#f5e8c0;
-  --gold-dim:rgba(201,168,76,0.12);
-
-  --purple:#7c3aed;
-  --purple-lt:#9b59f5;
-  --purple-soft:#a78bfa;
-  --purple-glow:rgba(124,58,237,0.25);
-
-  --lilac:#c4a8f5;
-  --lilac-lt:#d8c5ff;
-  --lilac-dim:rgba(196,168,245,0.12);
-
-  --champ:#f0e6cc;
-  --champ-mid:#e2d0a8;
-  --champ-dim:rgba(240,230,204,0.1);
-
-  --rose:#e8a0b4;
-  --mint:#5dd9a4;
-
-  --text:#efe9ff;
-  --muted:rgba(196,168,245,0.6);
-  --silver:#d4c8f0;
-  --silver-light:#ece5ff;
-
-  --border:rgba(196,168,245,0.18);
-  --border-s:rgba(196,168,245,0.4);
-  --border-gold:rgba(201,168,76,0.25);
-
-  --r:18px;
-  --r-sm:10px;
-  --shadow:0 8px 40px rgba(10,0,30,0.55);
-
-  --grad-gold:linear-gradient(135deg,#e8c96a 0%,#c9a84c 55%,#9a7830 100%);
-  --grad-purple:linear-gradient(135deg,#7c3aed 0%,#a855f7 50%,#c084fc 100%);
-  --grad-champ:linear-gradient(135deg,#f5e8c0 0%,#e2d0a8 50%,#c9a84c 100%);
-  --grad-bg:linear-gradient(160deg,#1a0f2e 0%,#210d3a 35%,#1e0f38 65%,#130826 100%);
+  --ink:#3a1060;
+  --violet:#9b59d0;
+  --violet-dk:#7b3ab0;
+  --rose:#e879a0;
+  --mint:#4dc99a;
+  --gold:#c9973a;
+  --gold-lt:#e8c06a;
+  --bg:#fff9fe;
+  --bg2:#f8f0ff;
+  --border:rgba(180,120,220,0.25);
+  --border-s:rgba(155,89,208,0.5);
+  --text:#2a0a50;
+  --muted:rgba(60,20,100,0.55);
+  --shadow:0 8px 40px rgba(160,100,220,0.12);
+  --r:20px;
+  --r-sm:12px;
+  --grad-magic:linear-gradient(135deg,#c26de0 0%,#e879a0 50%,#f4a261 100%);
+  --grad-gold:linear-gradient(135deg,#c9973a 0%,#e8c06a 50%,#a07828 100%);
+  --grad-bg:linear-gradient(160deg,#fde8ff 0%,#ffd6f0 10%,#ffe0ec 18%,#fff0e0 28%,#fffde0 36%,#e8fde8 45%,#e0f8ff 54%,#e0eeff 62%,#ede0ff 70%,#fde8ff 80%,#ffe0f5 90%,#fde8ff 100%);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:'DM Sans',sans-serif;background:var(--grad-bg);background-attachment:fixed;color:var(--text);min-height:100vh;overflow-x:hidden;padding-bottom:90px;-webkit-font-smoothing:antialiased;}
-
-/* ── BG TEXTURE ── */
-body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
-  background-image:
-    radial-gradient(ellipse 70% 50% at 20% 10%,rgba(124,58,237,0.12) 0%,transparent 60%),
-    radial-gradient(ellipse 60% 40% at 80% 80%,rgba(201,168,76,0.08) 0%,transparent 60%),
-    radial-gradient(ellipse 50% 30% at 50% 50%,rgba(196,168,245,0.05) 0%,transparent 70%),
-    linear-gradient(rgba(196,168,245,0.018) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(196,168,245,0.018) 1px,transparent 1px);
-  background-size:100% 100%,100% 100%,100% 100%,80px 80px,80px 80px;}
+body{font-family:'Nunito',sans-serif;background:var(--grad-bg);background-attachment:fixed;color:var(--text);min-height:100vh;overflow-x:hidden;padding-bottom:80px;}
 
 /* ── TOAST ── */
-.toast-overlay{display:none;position:fixed;inset:0;background:rgba(10,0,25,0.75);z-index:9000;align-items:center;justify-content:center;backdrop-filter:blur(6px);}
+.toast-overlay{display:none;position:fixed;inset:0;background:rgba(58,16,96,0.45);z-index:9000;align-items:center;justify-content:center;backdrop-filter:blur(4px);}
 .toast-overlay.show{display:flex;animation:toastOverlayIn 0.2s ease both;}
 @keyframes toastOverlayIn{from{opacity:0;}to{opacity:1;}}
-.toast-box{background:var(--bg-mid);border:1.5px solid var(--border-s);border-radius:var(--r);padding:28px 28px 22px;max-width:340px;width:90%;text-align:center;box-shadow:0 16px 56px rgba(0,0,0,0.6);animation:toastIn 0.3s cubic-bezier(0.34,1.56,0.64,1) both;}
+.toast-box{background:#fff;border:2px solid var(--rose);border-radius:var(--r);padding:28px 28px 22px;max-width:340px;width:90%;text-align:center;box-shadow:0 12px 48px rgba(232,121,160,0.25);animation:toastIn 0.3s cubic-bezier(0.34,1.56,0.64,1) both;}
 @keyframes toastIn{from{opacity:0;transform:scale(0.88) translateY(16px);}to{opacity:1;transform:scale(1) translateY(0);}}
-.toast-emoji{font-size:32px;margin-bottom:12px;}
-.toast-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--lilac-lt);margin-bottom:8px;}
+.toast-emoji{font-size:36px;margin-bottom:12px;}
+.toast-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--ink);margin-bottom:8px;}
 .toast-msg{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:18px;}
-.toast-btn{display:inline-flex;align-items:center;justify-content:center;padding:11px 32px;background:var(--grad-champ);border:none;border-radius:100px;color:#3d1a0a;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(201,168,76,0.3);}
+.toast-btn{display:inline-flex;align-items:center;justify-content:center;padding:11px 32px;background:var(--grad-magic);border:none;border-radius:100px;color:#fff;font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;cursor:pointer;box-shadow:0 4px 16px rgba(155,89,208,0.3);}
 
 /* ── PARTICLES ── */
 #particles{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
 .spark{position:absolute;border-radius:50%;pointer-events:none;animation:spark-float var(--dur) ease-in-out infinite var(--delay);}
-@keyframes spark-float{0%{transform:translateY(0) scale(1);opacity:var(--op);}50%{transform:translateY(-16px) scale(1.1);opacity:calc(var(--op)*1.6);}100%{transform:translateY(0) scale(1);opacity:var(--op);}}
-.star-shape{position:absolute;pointer-events:none;animation:star-twinkle var(--dur) ease-in-out infinite var(--delay);}
-@keyframes star-twinkle{0%,100%{transform:scale(0.6);opacity:calc(var(--op)*0.4);}50%{transform:scale(1.2);opacity:var(--op);}}
+@keyframes spark-float{0%{transform:translateY(0) scale(1);opacity:var(--op);}50%{transform:translateY(-18px) scale(1.1);opacity:calc(var(--op)*1.5);}100%{transform:translateY(0) scale(1);opacity:var(--op);}}
+.star-shape{position:absolute;pointer-events:none;animation:star-twinkle var(--dur) ease-in-out infinite var(--delay);color:var(--color);}
+@keyframes star-twinkle{0%,100%{transform:scale(0.7);opacity:calc(var(--op)*0.5);}50%{transform:scale(1.3);opacity:var(--op);}}
 .cursor-dust{position:fixed;pointer-events:none;z-index:9999;border-radius:50%;animation:dust-fade 0.7s ease forwards;}
 @keyframes dust-fade{0%{transform:scale(1.5) translateY(0);opacity:0.9;}100%{transform:scale(0) translateY(-28px);opacity:0;}}
 
 /* ── PROFILE ── */
 .profile-area{position:relative;z-index:10;display:flex;justify-content:center;padding-top:52px;}
 .profile-ring{position:relative;width:120px;height:120px;}
-.profile-ring::before{content:'';position:absolute;inset:-3px;border-radius:50%;background:conic-gradient(var(--lilac-lt),var(--gold-lt),var(--champ),var(--purple-soft),var(--lilac-lt),var(--gold-lt),var(--lilac-lt));animation:ring-spin 5s linear infinite;z-index:0;}
+.profile-ring::before{content:'';position:absolute;inset:-4px;border-radius:50%;background:conic-gradient(#fbb6ce,#c084fc,#818cf8,#67e8f9,#86efac,#fde68a,#fca5a5,#fbb6ce,#e8c06a,#c9973a,#fbb6ce);animation:ring-spin 4s linear infinite;z-index:0;}
 @keyframes ring-spin{to{transform:rotate(360deg);}}
-.profile-ring::after{content:'';position:absolute;inset:-1px;border-radius:50%;background:var(--bg-deep);z-index:1;}
-.profile-img-wrap{position:absolute;inset:0;z-index:2;border-radius:50%;overflow:hidden;border:2.5px solid rgba(196,168,245,0.25);box-shadow:0 0 0 4px rgba(196,168,245,0.08),0 8px 32px rgba(0,0,0,0.5);}
+.profile-ring::after{content:'';position:absolute;inset:-2px;border-radius:50%;background:var(--bg);z-index:1;}
+.profile-img-wrap{position:absolute;inset:0;z-index:2;border-radius:50%;overflow:hidden;border:3px solid #fff;box-shadow:0 4px 24px rgba(160,100,220,0.25);}
 .profile-img-wrap img{width:100%;height:100%;object-fit:cover;}
 
 /* ── HERO ── */
-.hero{position:relative;z-index:10;padding:22px 24px 30px;text-align:center;}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(196,168,245,0.07);border:1px solid var(--border-s);padding:6px 22px;border-radius:2px;font-size:9px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--lilac-lt);margin-bottom:18px;}
-.hero-badge::before,.hero-badge::after{content:'✦';font-size:10px;color:var(--lilac);}
-.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,7vw,54px);font-weight:300;line-height:1.1;color:var(--text);margin-bottom:8px;}
-.hero h1 em{font-style:italic;background:var(--grad-champ);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.hero-sub{font-size:clamp(12px,2vw,14px);color:var(--muted);font-weight:300;line-height:1.7;margin-bottom:22px;}
+.hero{position:relative;z-index:10;padding:22px 24px 32px;text-align:center;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.75);border:1.5px solid rgba(180,120,220,0.35);padding:6px 20px;border-radius:100px;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--violet);margin-bottom:18px;backdrop-filter:blur(10px);}
+.hero-badge::before,.hero-badge::after{content:'✦';font-size:9px;color:var(--gold);}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,7vw,58px);font-weight:300;line-height:1.1;color:var(--ink);margin-bottom:8px;}
+.hero h1 em{font-style:italic;background:var(--grad-magic);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-sub{font-size:clamp(13px,2vw,15px);color:var(--muted);margin-bottom:24px;}
 .hero-divider{display:flex;align-items:center;justify-content:center;gap:12px;}
-.hero-divider::before,.hero-divider::after{content:'';width:50px;height:1px;background:linear-gradient(90deg,transparent,var(--lilac));}
-.hero-divider span{color:var(--lilac);font-size:9px;letter-spacing:4px;text-transform:uppercase;}
+.hero-divider::before,.hero-divider::after{content:'';width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold-lt),transparent);}
+.hero-divider span{color:var(--gold);font-size:11px;letter-spacing:3px;}
 
 /* ── GREETING ── */
 .greeting{display:none;position:relative;z-index:10;max-width:640px;margin:0 auto;padding:0 20px;}
 .greeting.show{display:block;}
-.greeting-inner{background:rgba(196,168,245,0.05);border:1px solid var(--border);border-radius:var(--r);padding:16px 20px;backdrop-filter:blur(8px);}
-.greeting-name{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--lilac-lt);margin-bottom:2px;font-weight:600;}
-.greeting-sub{font-size:13px;color:var(--muted);font-weight:300;}
+.greeting-inner{background:linear-gradient(135deg,rgba(240,160,184,0.12),rgba(201,174,240,0.1));border:1.5px solid rgba(201,174,240,0.3);border-radius:var(--r);padding:16px 20px;backdrop-filter:blur(8px);}
+.greeting-name{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--ink);margin-bottom:2px;font-weight:600;}
+.greeting-sub{font-size:13px;color:var(--muted);}
 
 /* ── CTA ── */
 .cta-wrap{position:relative;z-index:10;max-width:640px;margin:32px auto 0;padding:0 20px;text-align:center;}
-.btn-cta{display:inline-flex;align-items:center;gap:10px;padding:15px 40px;background:var(--grad-purple);border:none;border-radius:2px;color:#fff;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer;letter-spacing:1.5px;text-transform:uppercase;box-shadow:0 6px 28px rgba(124,58,237,0.45);transition:transform 0.2s,opacity 0.2s;animation:ctaPulse 2.5s ease-in-out infinite;}
-.btn-cta:hover{transform:translateY(-2px);opacity:0.92;}
-@keyframes ctaPulse{0%,100%{box-shadow:0 6px 28px rgba(124,58,237,0.45);}50%{box-shadow:0 8px 40px rgba(167,85,247,0.65);}}
-.cta-sub{font-size:12px;color:var(--muted);margin-top:10px;font-weight:300;}
+.btn-cta{display:inline-flex;align-items:center;gap:10px;padding:16px 40px;background:var(--grad-magic);border:none;border-radius:100px;color:#fff;font-family:'Nunito',sans-serif;font-size:16px;font-weight:800;cursor:pointer;box-shadow:0 6px 28px rgba(155,89,208,0.35);transition:transform 0.2s;animation:ctaPulse 2.5s ease-in-out infinite;}
+.btn-cta:hover{transform:translateY(-3px);}
+@keyframes ctaPulse{0%,100%{box-shadow:0 6px 28px rgba(155,89,208,0.35);}50%{box-shadow:0 6px 36px rgba(232,121,160,0.55);}}
+.cta-sub{font-size:12px;color:var(--muted);margin-top:10px;}
 
 /* ── CALC FLOAT ── */
 .calc-float{position:fixed;bottom:0;left:0;right:0;z-index:999;pointer-events:none;}
-.calc-inner{background:rgba(20,8,40,0.97);border-top:1px solid var(--border-s);backdrop-filter:blur(20px);box-shadow:0 -4px 32px rgba(0,0,0,0.5);pointer-events:auto;}
+.calc-inner{background:rgba(255,252,255,0.97);border-top:1.5px solid rgba(155,89,208,0.22);backdrop-filter:blur(20px);box-shadow:0 -4px 32px rgba(155,89,208,0.14);pointer-events:auto;}
 .calc-toggle{display:flex;align-items:center;justify-content:space-between;padding:10px 20px;cursor:pointer;gap:12px;max-width:640px;margin:0 auto;}
 .calc-toggle-left{display:flex;align-items:center;gap:8px;}
-.calc-toggle-emoji{font-size:14px;color:var(--lilac);}
-.calc-toggle-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);}
+.calc-toggle-emoji{font-size:16px;}
+.calc-toggle-label{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);}
 .calc-toggle-right{display:flex;align-items:center;gap:10px;}
-.calc-total-value{font-size:20px;font-weight:700;background:var(--grad-champ);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.calc-total-value.placeholder{font-size:14px;font-weight:500;background:none;-webkit-background-clip:unset;-webkit-text-fill-color:var(--muted);color:var(--muted);}
+.calc-total-value{font-size:20px;font-weight:800;background:var(--grad-magic);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.calc-total-value.placeholder{font-size:14px;font-weight:700;background:none;-webkit-background-clip:unset;-webkit-text-fill-color:var(--muted);color:var(--muted);}
 .calc-total-value.bump{animation:priceBump 0.4s cubic-bezier(0.34,1.56,0.64,1);}
 @keyframes priceBump{0%{transform:scale(1);}40%{transform:scale(1.12);}100%{transform:scale(1);}}
 .calc-chevron{transition:transform 0.3s;color:var(--muted);}
-.calc-chevron.open{transform:rotate(180deg);color:var(--lilac);}
-.calc-panel{display:none;border-top:1px solid var(--border);padding:10px 20px 14px;max-width:640px;margin:0 auto;}
+.calc-chevron.open{transform:rotate(180deg);}
+.calc-panel{display:none;border-top:1px solid rgba(155,89,208,0.12);padding:10px 20px 14px;max-width:640px;margin:0 auto;}
 .calc-panel.open{display:block;animation:slideUp 0.25s ease both;}
 @keyframes slideUp{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
 .calc-rows{display:flex;flex-direction:column;gap:4px;}
-.calc-row{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);font-weight:400;padding:3px 0;}
+.calc-row{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);font-weight:500;padding:3px 0;}
 .calc-row.hidden{display:none;}
 .calc-row.appearing{animation:rowAppear 0.35s cubic-bezier(0.34,1.56,0.64,1) both;}
 @keyframes rowAppear{from{opacity:0;transform:translateX(-8px);}to{opacity:1;transform:none;}}
-.calc-row span:last-child{color:var(--champ);font-weight:700;}
-.calc-total-confirm{font-size:10px;color:var(--muted);margin-top:6px;text-align:right;font-style:italic;}
+.calc-row span:last-child{color:var(--violet-dk);font-weight:700;}
+.calc-total-confirm{font-size:10px;color:var(--muted);margin-top:6px;text-align:right;}
 
 /* ── STEPPER ── */
 .stepper-wrap{position:relative;z-index:10;max-width:640px;margin:28px auto 0;padding:0 20px 80px;}
-.step-indicator{display:flex;align-items:center;justify-content:center;margin-bottom:28px;background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:2px;padding:6px 10px;backdrop-filter:blur(8px);}
-.si-step{display:flex;align-items:center;gap:6px;padding:4px 10px;border-radius:2px;cursor:pointer;transition:all 0.25s;user-select:none;}
-.si-step.active{background:var(--grad-purple);}
-.si-step.done{background:rgba(196,168,245,0.1);}
-.si-num{width:22px;height:22px;border-radius:50%;background:rgba(196,168,245,0.12);color:var(--muted);font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.si-step.active .si-num{background:rgba(255,255,255,0.2);color:#fff;}
-.si-step.done .si-num{background:rgba(196,168,245,0.2);color:var(--lilac-lt);}
-.si-label{font-size:10px;font-weight:600;color:var(--muted);white-space:nowrap;letter-spacing:0.5px;}
+.step-indicator{display:flex;align-items:center;justify-content:center;margin-bottom:28px;background:rgba(255,255,255,0.65);border:1.5px solid rgba(180,120,220,0.2);border-radius:100px;padding:6px 10px;backdrop-filter:blur(10px);}
+.si-step{display:flex;align-items:center;gap:6px;padding:4px 10px;border-radius:100px;cursor:pointer;transition:all 0.25s;user-select:none;}
+.si-step.active{background:var(--grad-magic);box-shadow:0 2px 12px rgba(155,89,208,0.3);}
+.si-step.done{background:rgba(155,89,208,0.12);}
+.si-num{width:22px;height:22px;border-radius:50%;background:rgba(180,120,220,0.2);color:var(--muted);font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.si-step.active .si-num{background:rgba(255,255,255,0.35);color:#fff;}
+.si-step.done .si-num{background:rgba(155,89,208,0.25);color:var(--violet);}
+.si-label{font-size:10px;font-weight:700;color:var(--muted);white-space:nowrap;}
 .si-step.active .si-label{color:#fff;}
-.si-step.done .si-label{color:var(--lilac-lt);}
-.si-sep{width:14px;height:1px;background:rgba(196,168,245,0.15);flex-shrink:0;}
+.si-step.done .si-label{color:var(--violet);}
+.si-sep{width:16px;height:1px;background:rgba(180,120,220,0.2);flex-shrink:0;}
 @media(max-width:500px){.si-label{display:none;}.si-step{padding:4px 6px;}}
 
-.prog-bar-wrap{height:2px;background:rgba(196,168,245,0.1);border-radius:2px;margin-bottom:24px;overflow:hidden;}
-.prog-bar{height:100%;background:linear-gradient(90deg,var(--purple),var(--lilac),var(--gold-lt));border-radius:2px;transition:width 0.4s cubic-bezier(0.4,0,0.2,1);}
+.prog-bar-wrap{height:3px;background:rgba(180,120,220,0.15);border-radius:2px;margin-bottom:24px;overflow:hidden;}
+.prog-bar{height:100%;background:var(--grad-magic);border-radius:2px;transition:width 0.4s cubic-bezier(0.4,0,0.2,1);}
 
 /* ── CARD ── */
-.card{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--r);padding:22px;margin-bottom:14px;box-shadow:var(--shadow);backdrop-filter:blur(10px);position:relative;overflow:hidden;}
-.card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(196,168,245,0.45),rgba(201,168,76,0.35),transparent);}
-.card-title{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--lilac-lt);margin-bottom:10px;display:flex;align-items:center;gap:6px;}
-.card-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(196,168,245,0.3),transparent);margin-left:4px;}
-.gold-accent{height:1px;background:linear-gradient(90deg,var(--lilac),var(--gold-lt),transparent);margin-bottom:18px;opacity:0.25;}
+.card{background:#fff;border:1.5px solid rgba(180,120,220,0.2);border-radius:var(--r);padding:24px;margin-bottom:16px;box-shadow:var(--shadow);position:relative;}
+.card::before{content:'';position:absolute;top:0;left:20%;right:20%;height:2px;background:linear-gradient(90deg,transparent,rgba(155,89,208,0.4),transparent);border-radius:2px;}
+.card-title{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--violet);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.card-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(201,151,58,0.3),transparent);margin-left:4px;}
+.gold-accent{height:2px;background:linear-gradient(135deg,#e8c06a,#c9973a,#f5d98a);border-radius:2px;margin-bottom:18px;opacity:0.5;}
 
-/* ── FIELDS ── */
+/* ── FORM FIELDS ── */
 .field{margin-bottom:14px;}
 .field:last-child{margin-bottom:0;}
 .lbl{display:block;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:5px;}
-.req{color:var(--lilac-lt);}
-.hint{font-size:11px;color:var(--muted);margin-top:5px;line-height:1.5;font-weight:300;}
+.req{color:var(--rose);}
+.hint{font-size:11px;color:var(--muted);margin-top:5px;line-height:1.5;}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
 @media(max-width:480px){.row2{grid-template-columns:1fr;}}
 
-.inp,.txa,.sel{width:100%;padding:11px 13px;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:var(--r-sm);color:var(--text);font-family:'DM Sans',sans-serif;font-size:13px;outline:none;transition:border-color 0.2s,background 0.2s;}
-.inp:focus,.txa:focus,.sel:focus{border-color:var(--border-s);background:rgba(196,168,245,0.05);box-shadow:0 0 0 3px rgba(124,58,237,0.12);}
-.inp::placeholder,.txa::placeholder{color:var(--muted);font-weight:300;}
+.inp,.txa,.sel{width:100%;padding:11px 13px;background:#fff;border:1.5px solid rgba(180,120,220,0.2);border-radius:10px;color:var(--text);font-family:'Nunito',sans-serif;font-size:14px;outline:none;transition:border-color 0.2s,background 0.2s;}
+.inp:focus,.txa:focus,.sel:focus{border-color:rgba(155,89,208,0.55);background:#fdf8ff;box-shadow:0 0 0 3px rgba(155,89,208,0.08);}
+.inp::placeholder,.txa::placeholder{color:var(--muted);font-weight:400;}
 .txa{resize:vertical;min-height:72px;}
-.sel{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23c4a8f5' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;padding-right:36px;background-color:rgba(255,255,255,0.04);}
-.sel option{background:#210d3a;color:var(--text);}
+.sel{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239b59d0' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;padding-right:36px;background-color:#fff;}
 
 .opts{display:flex;flex-direction:column;gap:6px;}
-.opt{display:flex;align-items:center;gap:9px;padding:10px 13px;border:1px solid var(--border);border-radius:var(--r-sm);cursor:pointer;background:rgba(255,255,255,0.02);transition:all 0.18s;}
-.opt:hover{border-color:var(--border-s);background:rgba(196,168,245,0.05);}
-.opt input{accent-color:var(--purple-soft);width:15px;height:15px;flex-shrink:0;}
-.opt-text{font-size:13px;color:var(--text);flex:1;font-weight:400;}
-.opt-price{font-size:11px;font-weight:700;color:var(--champ);white-space:nowrap;}
+.opt{display:flex;align-items:center;gap:9px;padding:10px 13px;border:1.5px solid rgba(180,120,220,0.2);border-radius:10px;cursor:pointer;background:#fff;transition:all 0.2s;}
+.opt:hover{border-color:rgba(155,89,208,0.4);background:#fdf8ff;}
+.opt input{accent-color:var(--violet);width:15px;height:15px;flex-shrink:0;}
+.opt-text{font-size:13px;color:var(--text);flex:1;font-weight:500;}
+.opt-price{font-size:11px;font-weight:700;color:var(--violet);white-space:nowrap;}
 
 .tipo-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
-.tipo-pill{display:flex;flex-direction:column;gap:3px;padding:14px;border:1.5px solid var(--border);border-radius:var(--r-sm);cursor:pointer;background:rgba(255,255,255,0.02);transition:all 0.2s;position:relative;overflow:hidden;}
+.tipo-pill{display:flex;flex-direction:column;gap:3px;padding:12px 14px;border:2px solid rgba(180,120,220,0.2);border-radius:12px;cursor:pointer;background:#fff;transition:all 0.2s;position:relative;}
 .tipo-pill input{position:absolute;opacity:0;width:0;height:0;}
-.tipo-pill::before{content:'';position:absolute;top:0;left:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--lilac-lt),var(--gold-lt));opacity:0;transition:opacity 0.2s;}
-.tipo-pill.selected{border-color:var(--border-s);background:rgba(124,58,237,0.09);box-shadow:0 0 0 1px rgba(196,168,245,0.18),0 4px 20px rgba(124,58,237,0.15);}
-.tipo-pill.selected::before{opacity:1;}
+.tipo-pill.selected{border-color:var(--violet);background:linear-gradient(135deg,rgba(155,89,208,0.06),rgba(232,121,160,0.04));box-shadow:0 0 0 3px rgba(155,89,208,0.12);}
 .tipo-pill-emoji{font-size:18px;}
 .tipo-pill-label{font-size:12px;font-weight:700;color:var(--text);}
 .tipo-pill-desc{font-size:10px;color:var(--muted);line-height:1.4;}
-.tipo-pill-price{font-size:13px;font-weight:700;color:var(--champ);margin-top:2px;}
+.tipo-pill-price{font-size:12px;font-weight:800;color:var(--violet);margin-top:2px;}
 
 .pills{display:flex;gap:7px;flex-wrap:wrap;}
-.pill{display:flex;align-items:center;gap:5px;padding:7px 14px;border:1px solid var(--border);border-radius:2px;cursor:pointer;background:rgba(255,255,255,0.02);transition:all 0.2s;}
-.pill:hover{border-color:var(--border-s);}
-.pill input{accent-color:var(--purple-soft);width:13px;height:13px;}
-.pill span{font-size:13px;color:var(--text);font-weight:500;}
+.pill{display:flex;align-items:center;gap:5px;padding:7px 14px;border:1.5px solid rgba(180,120,220,0.22);border-radius:100px;cursor:pointer;background:#fff;transition:all 0.2s;}
+.pill input{accent-color:var(--violet);width:13px;height:13px;}
+.pill span{font-size:13px;color:var(--text);font-weight:600;}
 
-.subopts-wrap{background:rgba(124,58,237,0.05);border:1px solid var(--border);border-radius:var(--r-sm);padding:14px;margin-top:12px;animation:fadeIn 0.3s ease both;}
+.subopts-wrap{background:linear-gradient(135deg,rgba(155,89,208,0.05),rgba(232,121,160,0.03));border:1.5px solid rgba(180,120,220,0.18);border-radius:14px;padding:14px;margin-top:12px;animation:fadeIn 0.3s ease both;}
 @keyframes fadeIn{from{opacity:0;transform:translateY(-4px);}to{opacity:1;transform:none;}}
-.subopts-title{font-size:9.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--lilac-lt);margin-bottom:10px;}
-
-/* ── MARCO GRID ── */
-.marco-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
-.marco-pill{display:flex;align-items:center;gap:10px;padding:11px 13px;border:1.5px solid var(--border);border-radius:var(--r-sm);cursor:pointer;background:rgba(255,255,255,0.02);transition:all 0.2s;position:relative;}
-.marco-pill input{position:absolute;opacity:0;width:0;height:0;}
-.marco-pill.selected{border-color:var(--border-s);background:rgba(124,58,237,0.1);box-shadow:0 0 0 1px rgba(196,168,245,0.18);}
-.marco-num{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--lilac-lt);min-width:38px;text-align:center;line-height:1;}
-.marco-label{font-size:12px;font-weight:600;color:var(--text);}
-
-/* ── FOTO HINT ── */
-.foto-whats-hint{display:flex;align-items:flex-start;gap:10px;background:rgba(37,211,102,0.05);border:1px solid rgba(37,211,102,0.22);border-radius:var(--r-sm);padding:12px 14px;margin-top:10px;animation:fadeIn 0.3s ease both;}
-.foto-whats-hint-icon{font-size:20px;flex-shrink:0;margin-top:1px;}
-.foto-whats-hint-text{font-size:11px;color:#7ecf9e;line-height:1.6;font-weight:300;}
-.foto-whats-hint-text strong{font-weight:700;color:#4ade80;}
+.subopts-title{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--violet);margin-bottom:10px;}
 
 /* ── PIX BLOCK ── */
-.pix-option-block{background:rgba(196,168,245,0.04);border:1px solid var(--border);border-radius:var(--r-sm);padding:12px 14px;margin-top:10px;animation:fadeIn 0.3s ease both;}
+.pix-option-block{background:linear-gradient(135deg,rgba(201,151,58,0.07),rgba(232,200,100,0.04));border:1.5px solid rgba(201,151,58,0.25);border-radius:12px;padding:12px 14px;margin-top:10px;animation:fadeIn 0.3s ease both;}
 
-/* ── TOTAL ── */
-.total-box{background:rgba(124,58,237,0.07);border:1px solid var(--border-s);border-radius:var(--r-sm);padding:16px 20px;margin-top:4px;}
-.t-row{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-bottom:5px;font-weight:400;}
-.t-row.final{margin-top:10px;padding-top:10px;border-top:1px solid var(--border);font-size:17px;font-weight:700;color:var(--champ);margin-bottom:0;}
+/* ── FOTO WHATS HINT ── */
+.foto-whats-hint{display:flex;align-items:flex-start;gap:10px;background:linear-gradient(135deg,rgba(37,211,102,0.07),rgba(18,140,126,0.04));border:1.5px solid rgba(37,211,102,0.25);border-radius:12px;padding:12px 14px;margin-top:10px;animation:fadeIn 0.3s ease both;}
+.foto-whats-hint-icon{font-size:20px;flex-shrink:0;margin-top:1px;}
+.foto-whats-hint-text{font-size:11px;color:#1a6040;line-height:1.6;}
+.foto-whats-hint-text strong{font-weight:700;color:#127a52;}
+
+.presente-inp-wrap{display:flex;align-items:center;gap:7px;margin-bottom:7px;}
+.presente-num{width:22px;height:22px;border-radius:50%;background:var(--grad-magic);color:#fff;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+
+/* ── TOTAL BOX ── */
+.total-box{background:linear-gradient(135deg,rgba(155,89,208,0.07),rgba(232,121,160,0.05));border:1.5px solid rgba(155,89,208,0.2);border-radius:var(--r);padding:16px 20px;margin-top:4px;}
+.t-row{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-bottom:5px;font-weight:500;}
+.t-row.final{margin-top:10px;padding-top:10px;border-top:1px solid rgba(155,89,208,0.18);font-size:17px;font-weight:700;color:var(--violet);margin-bottom:0;}
 .t-row.hide{display:none;}
 
 /* ── PIX BOX ── */
-.pix-box{background:rgba(10,0,25,0.8);border:1.5px dashed rgba(196,168,245,0.3);border-radius:var(--r-sm);padding:16px 18px;margin-top:14px;}
-.pix-lbl{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--lilac-lt);margin-bottom:8px;}
-.pix-row{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.04);border-radius:var(--r-sm);padding:10px 12px;border:1px solid var(--border);}
-.pix-k{font-family:monospace;font-size:15px;font-weight:700;color:var(--champ);flex:1;}
-.cpix{padding:6px 14px;background:var(--grad-champ);border:none;border-radius:4px;color:#3d1a0a;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;cursor:pointer;}
+.pix-box{background:#fff;border:1.5px dashed rgba(201,151,58,0.4);border-radius:var(--r);padding:16px 18px;margin-top:14px;}
+.pix-lbl{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--violet);margin-bottom:8px;}
+.pix-row{display:flex;align-items:center;gap:10px;background:#fdf8ff;border-radius:10px;padding:10px 12px;border:1.5px solid rgba(180,120,220,0.2);}
+.pix-k{font-family:monospace;font-size:15px;font-weight:700;color:var(--violet-dk);flex:1;}
+.cpix{padding:6px 14px;background:var(--grad-magic);border:none;border-radius:8px;color:#fff;font-family:'Nunito',sans-serif;font-size:12px;font-weight:700;cursor:pointer;}
 .cpix-ok{font-size:11px;color:var(--mint);margin-top:5px;display:none;}
+
+/* ── EMAIL BADGE ── */
+.sheets-badge{display:none;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;margin-top:12px;font-size:12px;font-weight:700;}
+.sheets-badge.sending{display:flex;background:rgba(155,89,208,0.08);border:1.5px solid rgba(155,89,208,0.2);color:var(--violet);}
+.sheets-badge.success{display:flex;background:rgba(77,201,154,0.1);border:1.5px solid rgba(77,201,154,0.3);color:#1a7a52;}
+.sheets-badge.error{display:flex;background:rgba(232,121,160,0.1);border:1.5px solid rgba(232,121,160,0.3);color:#a03060;}
+.sheets-spinner{width:14px;height:14px;border:2px solid rgba(155,89,208,0.2);border-top-color:var(--violet);border-radius:50%;animation:spin 0.7s linear infinite;flex-shrink:0;}
+@keyframes spin{to{transform:rotate(360deg);}}
 
 /* ── NAVS ── */
 .nav-row{display:flex;gap:10px;margin-top:20px;}
-.btn-back{flex:1;padding:14px;background:transparent;border:1px solid var(--border);border-radius:var(--r-sm);color:var(--lilac-lt);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all 0.2s;}
-.btn-back:hover{border-color:var(--border-s);background:rgba(196,168,245,0.05);}
-.btn-next{flex:2;padding:14px;background:var(--grad-purple);border:none;border-radius:var(--r-sm);color:#fff;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;cursor:pointer;position:relative;overflow:hidden;transition:opacity 0.2s,transform 0.2s;box-shadow:0 4px 18px rgba(124,58,237,0.35);letter-spacing:0.5px;}
-.btn-next:hover{opacity:0.9;transform:translateY(-1px);}
-.btn-faq-inline{display:flex;align-items:center;justify-content:center;gap:7px;width:100%;padding:11px;background:transparent;border:1px solid var(--border);border-radius:var(--r-sm);color:var(--muted);font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;cursor:pointer;transition:all 0.2s;margin-top:10px;}
-.btn-faq-inline:hover{border-color:var(--border-s);color:var(--silver-light);}
-.btn-send{width:100%;padding:15px;background:linear-gradient(135deg,#25d366,#128c7e);border:none;border-radius:var(--r-sm);color:#fff;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:9px;box-shadow:0 4px 20px rgba(37,211,102,0.22);transition:all 0.2s;margin-top:20px;letter-spacing:0.5px;}
+.btn-back{flex:1;padding:14px;background:#fff;border:1.5px solid rgba(180,120,220,0.3);border-radius:var(--r);color:var(--violet);font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:all 0.2s;}
+.btn-back:hover{background:rgba(155,89,208,0.06);}
+.btn-next{flex:2;padding:14px;background:var(--grad-magic);border:none;border-radius:var(--r);color:#fff;font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;cursor:pointer;position:relative;overflow:hidden;transition:opacity 0.2s,transform 0.2s;box-shadow:0 4px 18px rgba(155,89,208,0.3);}
+.btn-next:hover{opacity:0.92;transform:translateY(-1px);}
+.btn-next::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.15),transparent);pointer-events:none;}
+.btn-faq-inline{display:flex;align-items:center;justify-content:center;gap:7px;width:100%;padding:11px;background:rgba(255,255,255,0.8);border:1.5px solid rgba(180,120,220,0.28);border-radius:var(--r);color:var(--violet);font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;cursor:pointer;backdrop-filter:blur(8px);transition:all 0.2s;margin-top:10px;}
+.btn-faq-inline:hover{background:rgba(155,89,208,0.07);border-color:rgba(155,89,208,0.45);}
+.btn-send{width:100%;padding:15px;background:linear-gradient(135deg,#25d366,#128c7e);border:none;border-radius:var(--r);color:#fff;font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:9px;box-shadow:0 4px 20px rgba(37,211,102,0.28);transition:all 0.2s;margin-top:20px;}
 .btn-send:hover{transform:translateY(-2px);}
 .sub-note{text-align:center;font-size:11px;color:var(--muted);margin-top:8px;}
 
@@ -267,55 +232,53 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 /* ── SUCCESS ── */
 .success-screen{display:none;text-align:center;padding:60px 24px;}
 .success-screen.show{display:block;}
-.success-screen .big-emoji{font-size:52px;margin-bottom:20px;}
-.success-screen h2{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;color:var(--lilac-lt);margin-bottom:12px;}
-.success-screen p{font-size:14px;color:var(--muted);line-height:1.7;max-width:360px;margin:0 auto;font-weight:300;}
+.success-screen .big-emoji{font-size:56px;margin-bottom:20px;}
+.success-screen h2{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:400;color:var(--ink);margin-bottom:12px;}
+.success-screen p{font-size:14px;color:var(--muted);line-height:1.7;max-width:360px;margin:0 auto;}
 
-/* ── FAQ OVERLAY ── */
-.faq-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:2000;align-items:flex-end;justify-content:center;backdrop-filter:blur(8px);}
+/* ── FAQ ── */
+.faq-overlay{display:none;position:fixed;inset:0;background:rgba(58,16,96,0.55);z-index:2000;align-items:flex-end;justify-content:center;backdrop-filter:blur(4px);}
 .faq-overlay.open{display:flex;animation:overlayIn 0.25s ease both;}
 @keyframes overlayIn{from{opacity:0;}to{opacity:1;}}
-.faq-modal{background:var(--bg-mid);border:1px solid var(--border-s);border-radius:16px 16px 0 0;width:100%;max-width:640px;max-height:90vh;overflow-y:auto;padding:28px 22px 44px;position:relative;animation:modalUp 0.35s cubic-bezier(0.34,1.56,0.64,1) both;}
+.faq-modal{background:#fff;border-radius:28px 28px 0 0;width:100%;max-width:640px;max-height:90vh;overflow-y:auto;padding:28px 22px 44px;position:relative;animation:modalUp 0.35s cubic-bezier(0.34,1.56,0.64,1) both;}
 @keyframes modalUp{from{opacity:0;transform:translateY(60px);}to{opacity:1;transform:none;}}
-.faq-handle{width:36px;height:3px;background:rgba(196,168,245,0.3);border-radius:2px;margin:0 auto 22px;}
-.faq-modal-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:400;color:var(--lilac-lt);text-align:center;margin-bottom:4px;}
-.faq-modal-sub{font-size:12px;color:var(--muted);text-align:center;margin-bottom:22px;font-weight:300;}
-.faq-close{position:absolute;top:20px;right:20px;width:30px;height:30px;border-radius:50%;background:rgba(196,168,245,0.1);border:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--lilac-lt);transition:background 0.2s;}
-.faq-close:hover{background:rgba(196,168,245,0.2);}
+.faq-handle{width:40px;height:4px;background:rgba(180,120,220,0.3);border-radius:2px;margin:0 auto 22px;}
+.faq-modal-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--ink);text-align:center;margin-bottom:4px;}
+.faq-modal-sub{font-size:13px;color:var(--muted);text-align:center;margin-bottom:22px;}
+.faq-close{position:absolute;top:20px;right:20px;width:32px;height:32px;border-radius:50%;background:rgba(180,120,220,0.12);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--violet);transition:background 0.2s;}
+.faq-close:hover{background:rgba(155,89,208,0.2);}
 .trust-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px;}
 @media(max-width:400px){.trust-grid{grid-template-columns:1fr;}}
-.trust-card{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:var(--r-sm);padding:12px 14px;display:flex;align-items:flex-start;gap:10px;}
-.trust-icon{width:32px;height:32px;border-radius:4px;background:var(--grad-purple);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:14px;}
-.trust-card h4{font-size:11px;font-weight:700;color:var(--text);margin-bottom:2px;}
-.trust-card p{font-size:11px;color:var(--muted);line-height:1.4;font-weight:300;}
-.faq-section-title{font-size:9.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--lilac-lt);margin:18px 0 10px;display:flex;align-items:center;gap:8px;}
-.faq-section-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(196,168,245,0.3),transparent);}
-.faq-list{display:flex;flex-direction:column;gap:6px;}
-.faq-item{background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:var(--r-sm);overflow:hidden;}
-.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px 16px;background:none;border:none;cursor:pointer;text-align:left;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;color:var(--silver-light);transition:color 0.2s;}
-.faq-q:hover,.faq-q.open{color:var(--lilac-lt);}
-.faq-q.open .faq-chevron{transform:rotate(180deg);color:var(--lilac-lt);}
+.trust-card{background:var(--bg2);border:1.5px solid rgba(180,120,220,0.18);border-radius:var(--r-sm);padding:12px 14px;display:flex;align-items:flex-start;gap:10px;}
+.trust-icon{width:34px;height:34px;border-radius:9px;background:var(--grad-magic);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:15px;}
+.trust-card h4{font-size:11px;font-weight:700;color:var(--violet-dk);margin-bottom:2px;line-height:1.3;}
+.trust-card p{font-size:11px;color:var(--muted);line-height:1.4;}
+.faq-section-title{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--violet);margin:18px 0 10px;display:flex;align-items:center;gap:8px;}
+.faq-section-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(201,151,58,0.3),transparent);}
+.faq-list{display:flex;flex-direction:column;gap:7px;}
+.faq-item{background:var(--bg2);border:1.5px solid rgba(180,120,220,0.18);border-radius:var(--r-sm);overflow:hidden;}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 16px;background:none;border:none;cursor:pointer;text-align:left;font-family:'Nunito',sans-serif;font-size:13px;font-weight:600;color:var(--text);transition:color 0.2s;}
+.faq-q:hover,.faq-q.open{color:var(--violet);}
+.faq-q.open .faq-chevron{transform:rotate(180deg);color:var(--violet);}
 .faq-chevron{flex-shrink:0;transition:transform 0.3s;color:var(--muted);}
-.faq-a{display:none;padding:0 16px 13px;border-top:1px solid var(--border);}
+.faq-a{display:none;padding:0 16px 14px;border-top:1px solid rgba(180,120,220,0.15);}
 .faq-a.open{display:block;}
-.faq-a p{font-size:12px;color:var(--silver);line-height:1.75;padding-top:10px;font-weight:300;}
-.faq-a p strong{color:var(--lilac-lt);}
-.faq-cta{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:14px;background:var(--grad-purple);border:none;border-radius:var(--r-sm);color:#fff;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;cursor:pointer;margin-top:22px;letter-spacing:1px;text-transform:uppercase;transition:opacity 0.2s;}
-.faq-cta:hover{opacity:0.9;}
+.faq-a p{font-size:12px;color:var(--muted);line-height:1.75;padding-top:10px;}
+.faq-cta{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:15px;background:var(--grad-magic);border:none;border-radius:var(--r);color:#fff;font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;cursor:pointer;box-shadow:0 4px 18px rgba(155,89,208,0.3);margin-top:22px;transition:opacity 0.2s,transform 0.2s;}
+.faq-cta:hover{opacity:0.92;transform:translateY(-1px);}
 
-@media(max-width:520px){.stepper-wrap{padding:0 12px 60px;}.card{padding:16px 14px;}.tipo-grid,.marco-grid{grid-template-columns:1fr;}}
-@keyframes spin{to{transform:rotate(360deg);}}
+@media(max-width:520px){.stepper-wrap{padding:0 12px 60px;}.card{padding:16px 14px;}.tipo-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
 
-<!-- TOAST -->
+<!-- TOAST POPUP -->
 <div class="toast-overlay" id="toastOverlay">
   <div class="toast-box">
     <div class="toast-emoji">⚠️</div>
     <div class="toast-title" id="toastTitle">Campo obrigatório</div>
     <div class="toast-msg" id="toastMsg">Por favor, preencha este campo para continuar.</div>
-    <button class="toast-btn" onclick="closeToast()">Entendido ✦</button>
+    <button class="toast-btn" onclick="closeToast()">Entendido 💜</button>
   </div>
 </div>
 
@@ -325,15 +288,15 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 <div class="profile-area">
   <div class="profile-ring">
     <div class="profile-img-wrap">
-      <img src="https://i.ibb.co/rfQHcVTV/PERF-INFANT.jpg" alt="Lina Convites">
+      <img src="https://linaconvites.com/wp-content/uploads/2026/04/PERF-INFANT-1.png" alt="Lina Convites">
     </div>
   </div>
 </div>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-badge">Briefing · Aniversários</div>
-  <h1>Sua celebração<br><em>inesquecível começa aqui</em></h1>
+  <div class="hero-badge">Briefing · Festas Infantis</div>
+  <h1>Seu convite<br><em>especial começa aqui</em></h1>
   <p class="hero-sub">Preencha os detalhes para que a Lina crie o convite perfeito da sua festa.</p>
   <div class="hero-divider"><span>✦ &nbsp; L I N A &nbsp; C O N V I T E S &nbsp; ✦</span></div>
 </section>
@@ -347,16 +310,16 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 
 <div class="cta-wrap">
   <button class="btn-cta" onclick="document.getElementById('stepperWrap').scrollIntoView({behavior:'smooth',block:'start'})">
-    ✦ Começar meu convite →
+    ✨ Começar meu convite →
   </button>
-  <p class="cta-sub">Leva menos de 3 minutos para preencher ✦</p>
+  <p class="cta-sub">Leva menos de 3 minutos para preencher 💜</p>
 </div>
 
 <!-- CALC FLOAT -->
 <div class="calc-float">
   <div class="calc-inner">
     <div class="calc-toggle" onclick="toggleCalcPanel()">
-      <div class="calc-toggle-left"><span class="calc-toggle-emoji">✦</span><span class="calc-toggle-label">Valor do pedido</span></div>
+      <div class="calc-toggle-left"><span class="calc-toggle-emoji">💰</span><span class="calc-toggle-label">Valor do pedido</span></div>
       <div class="calc-toggle-right">
         <span class="calc-total-value placeholder" id="calcTotal">Valor Total</span>
         <svg class="calc-chevron" id="calcChevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
@@ -364,16 +327,17 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     </div>
     <div class="calc-panel" id="calcPanel">
       <div class="calc-rows">
-        <div class="calc-row hidden" id="cr-base"><span>✦ Convite base</span><span id="cr-base-val"></span></div>
-        <div class="calc-row hidden" id="cr-musica"><span>🎵 Música no convite</span><span>+ R$ 5,00</span></div>
-        <div class="calc-row hidden" id="cr-presentes"><span>🎁 Sugestão de presentes</span><span>+ R$ 5,00</span></div>
-        <div class="calc-row hidden" id="cr-foto"><span>📸 Foto do(a) aniversariante</span><span>+ R$ 10,00</span></div>
-        <div class="calc-row hidden" id="cr-filtro"><span>✨ Filtro do Instagram</span><span>+ R$ 10,00</span></div>
+        <div class="calc-row hidden" id="cr-base"><span>🎨 Convite base</span><span id="cr-base-val"></span></div>
+        <div class="calc-row hidden" id="cr-videoOpt"><span id="cr-videoOpt-lbl">📍 Extras vídeo</span><span id="cr-videoOpt-val"></span></div>
+        <div class="calc-row hidden" id="cr-interatMusica"><span>🎵 Música no convite</span><span>+ R$ 5,00</span></div>
+        <div class="calc-row hidden" id="cr-interatPresentes"><span>🎁 Sugestão de presentes</span><span>+ R$ 5,00</span></div>
+        <div class="calc-row hidden" id="cr-foto"><span>📸 Foto da criança</span><span>+ R$ 10,00</span></div>
+        <div class="calc-row hidden" id="cr-filtro"><span>✨ Filtro Instagram</span><span>+ R$ 10,00</span></div>
         <div class="calc-row hidden" id="cr-google"><span>📋 Formulário Google</span><span>+ R$ 15,00</span></div>
         <div class="calc-row hidden" id="cr-sistema"><span>📊 Sistema de convidados</span><span>+ R$ 29,90</span></div>
-        <div class="calc-row hidden" id="cr-urg"><span>⚡ Urgência 24h</span><span>+ R$ 30,00</span></div>
+        <div class="calc-row hidden" id="cr-urg"><span>⚡ Urgência 4h</span><span>+ R$ 10,00</span></div>
       </div>
-      <div class="calc-total-confirm" id="calcTotalNote">Selecione o tipo de convite para ver o preço ✦</div>
+      <div class="calc-total-confirm" id="calcTotalNote">Selecione o tipo de convite para ver o preço ✨</div>
     </div>
   </div>
 </div>
@@ -383,28 +347,29 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   <div class="faq-modal">
     <div class="faq-handle"></div>
     <button class="faq-close" onclick="closeFaq()">✕</button>
-    <div class="faq-modal-title">Dúvidas Frequentes</div>
-    <p class="faq-modal-sub">Tudo o que você precisa saber antes de pedir ✦</p>
+    <div class="faq-modal-title">✨ Dúvidas frequentes</div>
+    <p class="faq-modal-sub">Tudo o que você precisa saber antes de pedir 💜</p>
     <div class="trust-grid">
-      <div class="trust-card"><div class="trust-icon">⚡</div><div><h4>Entrega rápida</h4><p>Pronto em até 3 dias úteis ou em 24h com urgência.</p></div></div>
+      <div class="trust-card"><div class="trust-icon">⚡</div><div><h4>Entrega rápida</h4><p>Pronto em até 3 dias úteis ou em 4h com urgência.</p></div></div>
       <div class="trust-card"><div class="trust-icon">🔄</div><div><h4>2 revisões grátis</h4><p>Ajustes de texto, cor ou detalhes sem custo extra.</p></div></div>
       <div class="trust-card"><div class="trust-icon">💬</div><div><h4>Suporte WhatsApp</h4><p>Tire dúvidas e acompanhe seu pedido com carinho.</p></div></div>
       <div class="trust-card"><div class="trust-icon">💳</div><div><h4>Pagamento fácil</h4><p>Exclusivamente via PIX. Simples e seguro.</p></div></div>
     </div>
-    <div class="faq-section-title">Entrega e prazos</div>
+    <div class="faq-section-title">📦 Entrega e prazos</div>
     <div class="faq-list">
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaqItem(this)"><span>Qual é o prazo de entrega?</span><svg class="faq-chevron" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>O prazo padrão é de <strong>até 3 dias úteis</strong> após confirmação do pagamento. Com urgência, entregamos em até <strong>24 horas</strong> com taxa adicional de R$30,00.</p></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaqItem(this)"><span>Como recebo o convite pronto?</span><svg class="faq-chevron" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>Diretamente pelo <strong>WhatsApp</strong> — em PNG, vídeo MP4 ou link interativo, dependendo do modelo. Pronto para compartilhar!</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaqItem(this)"><span>Qual é o prazo de entrega?</span><svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>O prazo padrão é de <strong>até 3 dias úteis</strong> após confirmação do pagamento. Com urgência, entregamos em até <strong>4 horas</strong> com taxa adicional de R$10,00. ✨</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaqItem(this)"><span>Como recebo o convite pronto?</span><svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>Diretamente pelo <strong>WhatsApp</strong> — em PNG, vídeo MP4 ou link interativo, dependendo do modelo. Pronto para compartilhar! 🎉</p></div></div>
     </div>
-    <div class="faq-section-title">Revisões e personalização</div>
+    <div class="faq-section-title">🔄 Revisões e personalização</div>
     <div class="faq-list">
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaqItem(this)"><span>Posso solicitar alterações?</span><svg class="faq-chevron" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>Sim! Você pode solicitar <strong>até 2 revisões gratuitas</strong> — ajustes de texto, cor ou pequenos detalhes. Alterações de layout completo podem ter custo adicional.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaqItem(this)"><span>Posso solicitar alterações?</span><svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>Sim! Você pode solicitar <strong>até 2 revisões gratuitas</strong> — ajustes de texto, cor ou pequenos detalhes. Alterações de layout completo podem ter custo adicional.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaqItem(this)"><span>Posso adicionar uma foto da criança?</span><svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>Claro! Selecione a opção no formulário (+R$10,00) e envie a foto pelo WhatsApp após o briefing. Prefira fotos com boa iluminação. 📸</p></div></div>
     </div>
-    <div class="faq-section-title">Pagamento</div>
+    <div class="faq-section-title">💳 Pagamento e suporte</div>
     <div class="faq-list">
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaqItem(this)"><span>Como realizar o pagamento?</span><svg class="faq-chevron" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>Exclusivamente via <strong>PIX</strong>. Após preencher o formulário você recebe a chave e envia o comprovante pelo WhatsApp. Simples e seguro!</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaqItem(this)"><span>Como realizar o pagamento?</span><svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>Exclusivamente via <strong>PIX</strong>. Após preencher o formulário você recebe a chave e envia o comprovante pelo WhatsApp. Simples e seguro! 💛</p></div></div>
     </div>
-    <button class="faq-cta" onclick="closeFaq();setTimeout(()=>document.getElementById('stepperWrap').scrollIntoView({behavior:'smooth',block:'start'}),200)">✦ Começar meu convite</button>
+    <button class="faq-cta" onclick="closeFaq();setTimeout(()=>document.getElementById('stepperWrap').scrollIntoView({behavior:'smooth',block:'start'}),200)">✨ Começar meu convite →</button>
   </div>
 </div>
 
@@ -415,101 +380,213 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     <div class="si-sep"></div>
     <div class="si-step" data-step="1" onclick="goToStep(1)"><div class="si-num">2</div><div class="si-label">Festa</div></div>
     <div class="si-sep"></div>
-    <div class="si-step" data-step="2" onclick="goToStep(2)"><div class="si-num">3</div><div class="si-label">Estilo</div></div>
+    <div class="si-step" data-step="2" onclick="goToStep(2)"><div class="si-num">3</div><div class="si-label">Convite</div></div>
     <div class="si-sep"></div>
-    <div class="si-step" data-step="3" onclick="goToStep(3)"><div class="si-num">4</div><div class="si-label">Convite</div></div>
+    <div class="si-step" data-step="3" onclick="goToStep(3)"><div class="si-num">4</div><div class="si-label">Extras</div></div>
     <div class="si-sep"></div>
-    <div class="si-step" data-step="4" onclick="goToStep(4)"><div class="si-num">5</div><div class="si-label">Extras</div></div>
-    <div class="si-sep"></div>
-    <div class="si-step" data-step="5" onclick="goToStep(5)"><div class="si-num">6</div><div class="si-label">Resumo</div></div>
+    <div class="si-step" data-step="4" onclick="goToStep(4)"><div class="si-num">5</div><div class="si-label">Resumo</div></div>
   </div>
-  <div class="prog-bar-wrap"><div class="prog-bar" id="progBar" style="width:16.6%"></div></div>
+  <div class="prog-bar-wrap"><div class="prog-bar" id="progBar" style="width:20%"></div></div>
 
-  <!-- ETAPA 1 -->
+  <!-- ── ETAPA 1 — QUEM PEDE ── -->
   <div class="step-panel active" id="panel0">
     <div class="card">
       <div class="card-title">👤 Quem está pedindo</div>
       <div class="gold-accent"></div>
       <div class="field"><label class="lbl">Seu nome completo <span class="req">*</span></label><input class="inp" id="fNomePed" placeholder="Como devo te chamar?"></div>
       <div class="field"><label class="lbl">WhatsApp <span class="req">*</span></label><input class="inp" id="fWhats" type="tel" placeholder="(11) 99999-9999"><p class="hint">Enviaremos o convite pronto por aqui 💌</p></div>
-      <div class="field">
-        <label class="lbl">Você é</label>
-        <div class="opts">
-          <label class="opt"><input type="radio" name="quemPede" value="proprio" checked><span class="opt-text">O(a) próprio(a) aniversariante</span></label>
-          <label class="opt"><input type="radio" name="quemPede" value="responsavel"><span class="opt-text">Organizador(a) / responsável pela festa</span></label>
-        </div>
-      </div>
     </div>
     <div class="nav-row"><button class="btn-next" style="flex:1" onclick="nextStep(0)">Próximo: Dados da festa →</button></div>
     <button class="btn-faq-inline" onclick="openFaq()">💬 Perguntas frequentes</button>
   </div>
 
-  <!-- ETAPA 2 -->
+  <!-- ── ETAPA 2 — FESTA ── -->
   <div class="step-panel" id="panel1">
     <div class="card">
       <div class="card-title">🎉 Dados da festa</div>
       <div class="gold-accent"></div>
-      <div class="field"><label class="lbl">Nome no convite <span class="req">*</span></label><input class="inp" id="fNome" placeholder="Ex: Camila, Carlos Eduardo, Ana…"><p class="hint">Nome ou apelido que vai aparecer em destaque no convite.</p></div>
+      <div class="field"><label class="lbl">Nome no convite <span class="req">*</span></label><input class="inp" id="fNome" placeholder="Ex: Maria Eduarda"></div>
+
+      <!-- GÊNERO / IDENTIDADE -->
       <div class="field">
-        <label class="lbl">Qual é o marco? <span class="req">*</span></label>
-        <div class="marco-grid" id="marcoGrid">
-          <label class="marco-pill" id="mp_16"><input type="radio" name="marco" value="16 anos" onchange="onMarcoChange(this)"><span class="marco-num">16</span><span class="marco-label">anos</span></label>
-          <label class="marco-pill" id="mp_18"><input type="radio" name="marco" value="18 anos" onchange="onMarcoChange(this)"><span class="marco-num">18</span><span class="marco-label">anos</span></label>
-          <label class="marco-pill" id="mp_21"><input type="radio" name="marco" value="21 anos" onchange="onMarcoChange(this)"><span class="marco-num">21</span><span class="marco-label">anos</span></label>
-          <label class="marco-pill" id="mp_25"><input type="radio" name="marco" value="25 anos" onchange="onMarcoChange(this)"><span class="marco-num">25</span><span class="marco-label">anos</span></label>
-          <label class="marco-pill" id="mp_30"><input type="radio" name="marco" value="30 anos" onchange="onMarcoChange(this)"><span class="marco-num">30</span><span class="marco-label">anos</span></label>
-          <label class="marco-pill" id="mp_40"><input type="radio" name="marco" value="40 anos" onchange="onMarcoChange(this)"><span class="marco-num">40</span><span class="marco-label">anos</span></label>
-          <label class="marco-pill" id="mp_50"><input type="radio" name="marco" value="50 anos" onchange="onMarcoChange(this)"><span class="marco-num">50</span><span class="marco-label">anos</span></label>
-          <label class="marco-pill" id="mp_60"><input type="radio" name="marco" value="60 anos" onchange="onMarcoChange(this)"><span class="marco-num">60</span><span class="marco-label">anos</span></label>
-          <label class="marco-pill" id="mp_70"><input type="radio" name="marco" value="70 anos" onchange="onMarcoChange(this)"><span class="marco-num">70</span><span class="marco-label">anos</span></label>
-          <label class="marco-pill" id="mp_outro"><input type="radio" name="marco" value="outro" onchange="onMarcoChange(this)"><span class="marco-num" style="font-size:14px;">+ ✦</span><span class="marco-label">Outro</span></label>
-        </div>
-        <div id="marcoOutroWrap" style="display:none;margin-top:8px;animation:fadeIn 0.3s ease both">
-          <input class="inp" id="fMarcoOutro" placeholder="Ex: 80 anos, aniversário sem número…">
-        </div>
-      </div>
-      <div class="field">
-        <label class="lbl">Quantos aniversariantes?</label>
+        <label class="lbl">Gênero da criança <span class="req">*</span></label>
         <div class="pills">
-          <label class="pill"><input type="radio" name="qtdAniv" value="1" checked onchange="toggleAniv()"><span>1</span></label>
-          <label class="pill"><input type="radio" name="qtdAniv" value="2" onchange="toggleAniv()"><span>2</span></label>
-          <label class="pill"><input type="radio" name="qtdAniv" value="3" onchange="toggleAniv()"><span>3</span></label>
+          <label class="pill"><input type="radio" name="genero" value="Menina" checked><span>👧 Menina</span></label>
+          <label class="pill"><input type="radio" name="genero" value="Menino"><span>👦 Menino</span></label>
+          <label class="pill"><input type="radio" name="genero" value="Neutro"><span>🌈 Neutro</span></label>
         </div>
+        <p class="hint">Isso influencia cores, elementos e linguagem do convite.</p>
       </div>
-      <div id="aniv2Wrap" style="display:none"><div class="row2"><div class="field"><label class="lbl">2º nome</label><input class="inp" id="fNome2" placeholder="Nome"></div><div class="field"><label class="lbl">2º marco</label><input class="inp" id="fIdade2" placeholder="Ex: 30 anos"></div></div></div>
-      <div id="aniv3Wrap" style="display:none"><div class="row2"><div class="field"><label class="lbl">3º nome</label><input class="inp" id="fNome3" placeholder="Nome"></div><div class="field"><label class="lbl">3º marco</label><input class="inp" id="fIdade3" placeholder="Ex: 25 anos"></div></div></div>
+
       <div class="row2">
         <div class="field"><label class="lbl">Data da festa <span class="req">*</span></label><input class="inp" id="fData" type="date"></div>
         <div class="field"><label class="lbl">Horário <span class="req">*</span></label><input class="inp" id="fHorario" type="time"></div>
       </div>
-      <div class="field"><label class="lbl">Local da festa <span class="req">*</span></label><input class="inp" id="fLocal" placeholder="Ex: Buffet Villa Moderna, Casa da família…"></div>
-      <div class="field" style="margin-bottom:0"><label class="lbl">Endereço completo</label><input class="inp" id="fEndereco" placeholder="Rua, número, bairro, cidade"></div>
+      <div class="field"><label class="lbl">Local da festa <span class="req">*</span></label><input class="inp" id="fLocal" placeholder="Ex: Buffet Sonho de Criança"></div>
+      <div class="field"><label class="lbl">Endereço completo</label><input class="inp" id="fEndereco" placeholder="Rua, número, bairro, cidade"></div>
+      <div class="row2">
+        <div class="field">
+          <label class="lbl">Quantos anos?</label>
+          <select class="sel" id="fIdade">
+            <option value="">Selecione</option>
+            <option>Bebê (sem idade)</option><option>1 aninho</option><option>2 aninhos</option><option>3 aninhos</option><option>4 aninhos</option><option>5 anos</option><option>6 anos</option><option>7 anos</option><option>8 anos</option><option>9 anos</option><option>10 anos</option><option>11 anos</option><option>12 anos</option><option value="outro">Outro</option>
+          </select>
+        </div>
+        <div class="field">
+          <label class="lbl">Aniversariantes</label>
+          <div class="pills">
+            <label class="pill"><input type="radio" name="qtdAniv" value="1" checked onchange="toggleAniv()"><span>1</span></label>
+            <label class="pill"><input type="radio" name="qtdAniv" value="2" onchange="toggleAniv()"><span>2</span></label>
+            <label class="pill"><input type="radio" name="qtdAniv" value="3" onchange="toggleAniv()"><span>3</span></label>
+          </div>
+        </div>
+      </div>
+      <div id="aniv2Wrap" style="display:none"><div class="row2"><div class="field"><label class="lbl">2º nome</label><input class="inp" id="fNome2" placeholder="Nome"></div><div class="field"><label class="lbl">2º idade</label><input class="inp" id="fIdade2" placeholder="Ex: 3 anos"></div></div></div>
+      <div id="aniv3Wrap" style="display:none"><div class="row2"><div class="field"><label class="lbl">3º nome</label><input class="inp" id="fNome3" placeholder="Nome"></div><div class="field"><label class="lbl">3º idade</label><input class="inp" id="fIdade3" placeholder="Ex: 1 aninho"></div></div></div>
     </div>
     <div class="nav-row">
       <button class="btn-back" onclick="prevStep(1)">← Voltar</button>
-      <button class="btn-next" onclick="nextStep(1)">Próximo: Estilo e tema →</button>
+      <button class="btn-next" onclick="nextStep(1)">Próximo: Tipo de convite →</button>
     </div>
     <button class="btn-faq-inline" onclick="openFaq()">💬 Perguntas frequentes</button>
   </div>
 
-  <!-- ETAPA 3 -->
+  <!-- ── ETAPA 3 — CONVITE ── -->
   <div class="step-panel" id="panel2">
     <div class="card">
-      <div class="card-title">🎨 Tema e estilo visual</div>
+      <div class="card-title">🎨 Tipo de convite</div>
       <div class="gold-accent"></div>
-      <div class="field"><label class="lbl">Tema / estilo do convite <span class="req">*</span></label><input class="inp" id="fTema" placeholder="Ex: Black & Gold, Tropical, Glam, Minimalista, Boho, Art Deco…"><p class="hint">Quanto mais você descrever, mais o convite vai parecer feito exatamente para você.</p></div>
       <div class="field">
-        <label class="lbl">Tem referência visual ou inspiração?</label>
-        <div class="opts">
-          <label class="opt"><input type="radio" name="fotoRef" value="nao" checked onchange="toggleFotoHint('hintFotoRef',this)"><span class="opt-text">Não tenho referência</span></label>
-          <label class="opt"><input type="radio" name="fotoRef" value="sim" onchange="toggleFotoHint('hintFotoRef',this)"><span class="opt-text">📸 Tenho foto ou referência para enviar</span></label>
-        </div>
-        <div class="foto-whats-hint" id="hintFotoRef" style="display:none">
-          <span class="foto-whats-hint-icon">📲</span>
-          <span class="foto-whats-hint-text"><strong>Ótimo!</strong> Após enviar o briefing, mande a referência pelo WhatsApp. Print do Pinterest, post do Instagram, foto de convite que gostou — tudo ajuda a Lina a acertar o seu estilo.</span>
+        <label class="lbl">Escolha o formato <span class="req">*</span></label>
+        <div class="tipo-grid">
+          <label class="tipo-pill" id="tipo_digital"><input type="radio" name="tipoConvite" value="Digital Estático" onchange="onTipoChange(this)"><span class="tipo-pill-emoji">🖼️</span><span class="tipo-pill-label">Digital Estático</span><span class="tipo-pill-desc">Imagem PNG para envios rápidos</span><span class="tipo-pill-price">R$ 39,90</span></label>
+          <label class="tipo-pill" id="tipo_video"><input type="radio" name="tipoConvite" value="Vídeo Animado" onchange="onTipoChange(this)"><span class="tipo-pill-emoji">🎬</span><span class="tipo-pill-label">Vídeo Animado</span><span class="tipo-pill-desc">O convite ganha vida com música!</span><span class="tipo-pill-price">R$ 44,90</span></label>
+          <label class="tipo-pill" id="tipo_pdf"><input type="radio" name="tipoConvite" value="Interativo PDF" onchange="onTipoChange(this)"><span class="tipo-pill-emoji">🖱️</span><span class="tipo-pill-label">Interativo</span><span class="tipo-pill-desc">Botões GPS, Confirmação e Lista</span><span class="tipo-pill-price">R$ 49,90</span></label>
+          <label class="tipo-pill" id="tipo_infinito"><input type="radio" name="tipoConvite" value="Infinito Interativo" onchange="onTipoChange(this)"><span class="tipo-pill-emoji">✨</span><span class="tipo-pill-label">Infinito Interativo</span><span class="tipo-pill-desc">Rolagem infinita, músicas e fotos</span><span class="tipo-pill-price">R$ 59,90</span></label>
+          <label class="tipo-pill" id="tipo_cineweb" style="grid-column:1/-1"><input type="radio" name="tipoConvite" value="CineWeb" onchange="onTipoChange(this)"><span class="tipo-pill-emoji">🎭</span><span class="tipo-pill-label">CineWeb</span><span class="tipo-pill-desc">Cinema no celular! Site com abertura animada imersiva</span><span class="tipo-pill-price">R$ 79,90</span></label>
         </div>
       </div>
-      <div class="field"><label class="lbl">Cores preferidas (opcional)</label><textarea class="txa" id="fCores" style="min-height:52px" placeholder="Ex: vinho, dourado e off-white… ou deixe em branco para a Lina escolher"></textarea></div>
+
+      <!-- VÍDEO ANIMADO -->
+      <div id="videoSubWrap" style="display:none">
+        <div class="subopts-wrap">
+          <div class="subopts-title">🎬 Extras do Vídeo Animado</div>
+          <div class="opts">
+            <label class="opt"><input type="checkbox" id="videoCkBotoes" onchange="onVideoOptChange();recalc()"><span class="opt-text">📍 Botões de localização e confirmação</span><span class="opt-price">+ R$ 5,00</span></label>
+            <label class="opt"><input type="checkbox" id="videoCkPresentes" onchange="onVideoOptChange();recalc()"><span class="opt-text">🎁 Sugestão de presentes</span><span class="opt-price">+ R$ 5,00</span></label>
+          </div>
+          <div id="presentesVideoWrap" style="display:none;margin-top:10px">
+            <label class="lbl" style="margin-bottom:6px">Sugestões de presentes (até 3)</label>
+            <div class="presente-inp-wrap"><div class="presente-num">1</div><input class="inp" id="fPres1v" placeholder="Ex: roupas tamanho 4"></div>
+            <div class="presente-inp-wrap"><div class="presente-num">2</div><input class="inp" id="fPres2v" placeholder="Ex: calçado número 26"></div>
+            <div class="presente-inp-wrap"><div class="presente-num">3</div><input class="inp" id="fPres3v" placeholder="Ex: livros infantis"></div>
+            <div style="margin-top:10px">
+              <label class="lbl">💳 Receber presentes via PIX?</label>
+              <div class="opts">
+                <label class="opt"><input type="radio" name="pixVideo" value="nao" checked onchange="togglePixBlock('pixVideoBlock',false)"><span class="opt-text">Não quero informar PIX</span></label>
+                <label class="opt"><input type="radio" name="pixVideo" value="sim" onchange="togglePixBlock('pixVideoBlock',true)"><span class="opt-text">✅ Sim, incluir minha chave PIX</span></label>
+              </div>
+              <div id="pixVideoBlock" style="display:none"><div class="pix-option-block"><label class="lbl">🔑 Sua chave PIX</label><input class="inp" id="fPixVideo" placeholder="CPF, e-mail, celular ou chave aleatória"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- INTERATIVO / INFINITO -->
+      <div id="interativoSubWrap" style="display:none">
+        <div class="subopts-wrap">
+          <div class="subopts-title">🖱️ Personalize seu convite interativo</div>
+          <div class="field" style="margin-bottom:10px">
+            <label class="lbl">Sugestão de presentes</label>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="interatPresentes" value="sem" checked onchange="onInteratPresentesChange();recalc()"><span class="opt-text">Sem sugestão — entregue em PDF</span><span class="opt-price">R$ 0,00</span></label>
+              <label class="opt"><input type="radio" name="interatPresentes" value="com" onchange="onInteratPresentesChange();recalc()"><span class="opt-text">🎁 Com sugestão — entregue em site</span><span class="opt-price">+ R$ 5,00</span></label>
+            </div>
+            <div id="presentesInteratWrap" style="display:none;margin-top:10px">
+              <div class="presente-inp-wrap"><div class="presente-num">1</div><input class="inp" id="fPres1i" placeholder="Ex: roupas tamanho 4"></div>
+              <div class="presente-inp-wrap"><div class="presente-num">2</div><input class="inp" id="fPres2i" placeholder="Ex: calçado número 26"></div>
+              <div class="presente-inp-wrap"><div class="presente-num">3</div><input class="inp" id="fPres3i" placeholder="Ex: livros infantis"></div>
+              <div style="margin-top:10px">
+                <label class="lbl">💳 Receber presentes via PIX?</label>
+                <div class="opts">
+                  <label class="opt"><input type="radio" name="pixInterat" value="nao" checked onchange="togglePixBlock('pixInteratBlock',false)"><span class="opt-text">Não quero informar PIX</span></label>
+                  <label class="opt"><input type="radio" name="pixInterat" value="sim" onchange="togglePixBlock('pixInteratBlock',true)"><span class="opt-text">✅ Sim, incluir minha chave PIX</span></label>
+                </div>
+                <div id="pixInteratBlock" style="display:none"><div class="pix-option-block"><label class="lbl">🔑 Sua chave PIX</label><input class="inp" id="fPixInterat" placeholder="CPF, e-mail, celular ou chave aleatória"></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="field" style="margin-bottom:0">
+            <label class="lbl">Música</label>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="interatMusica" value="sem" checked onchange="onInteratMusicaChange();recalc()"><span class="opt-text">Sem música — entregue em PDF</span><span class="opt-price">R$ 0,00</span></label>
+              <label class="opt"><input type="radio" name="interatMusica" value="com" onchange="onInteratMusicaChange();recalc()"><span class="opt-text">🎵 Com música — entregue em site</span><span class="opt-price">+ R$ 5,00</span></label>
+            </div>
+            <div id="musicaInteratWrap" style="display:none;margin-top:10px">
+              <div class="opts">
+                <label class="opt"><input type="radio" name="interatMusicaOpt" value="lina" checked onchange="toggleMusicaUrl()"><span class="opt-text">Deixo a Lina escolher 🌟</span></label>
+                <label class="opt"><input type="radio" name="interatMusicaOpt" value="url" onchange="toggleMusicaUrl()"><span class="opt-text">Quero indicar uma música (link YouTube)</span></label>
+              </div>
+              <div id="musicaUrlWrap" style="margin-top:8px;display:none"><input class="inp" id="fMusicaUrl" placeholder="Cole aqui o link do YouTube 🎶"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CINEWEB -->
+      <div id="cinwebWrap" style="display:none;margin-top:12px">
+        <div class="field">
+          <label class="lbl">🎬 Descreva sua visão para o CineWeb <span class="req">*</span></label>
+          <textarea class="txa" id="fCineweb" style="min-height:110px" placeholder="Solte a imaginação! Descreva a cena de abertura, clima da festa, efeitos, estilo visual, cores… 🎭✨"></textarea>
+        </div>
+        <div class="subopts-wrap" style="margin-top:0">
+          <div class="subopts-title">🎁 Sugestão de presentes no CineWeb</div>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="cinwebPresentes" value="sem" checked onchange="onCinwebPresentesChange()"><span class="opt-text">Sem sugestão de presentes</span></label>
+            <label class="opt"><input type="radio" name="cinwebPresentes" value="com" onchange="onCinwebPresentesChange()"><span class="opt-text">🎁 Incluir sugestão de presentes</span></label>
+          </div>
+          <div id="presentesCinwebWrap" style="display:none;margin-top:10px">
+            <div class="presente-inp-wrap"><div class="presente-num">1</div><input class="inp" id="fPres1c" placeholder="Ex: roupas tamanho 4"></div>
+            <div class="presente-inp-wrap"><div class="presente-num">2</div><input class="inp" id="fPres2c" placeholder="Ex: calçado número 26"></div>
+            <div class="presente-inp-wrap"><div class="presente-num">3</div><input class="inp" id="fPres3c" placeholder="Ex: livros infantis"></div>
+            <div style="margin-top:10px">
+              <label class="lbl">💳 Receber presentes via PIX?</label>
+              <div class="opts">
+                <label class="opt"><input type="radio" name="pixCineweb" value="nao" checked onchange="togglePixBlock('pixCinewebBlock',false)"><span class="opt-text">Não quero informar PIX</span></label>
+                <label class="opt"><input type="radio" name="pixCineweb" value="sim" onchange="togglePixBlock('pixCinewebBlock',true)"><span class="opt-text">✅ Sim, incluir minha chave PIX</span></label>
+              </div>
+              <div id="pixCinewebBlock" style="display:none"><div class="pix-option-block"><label class="lbl">🔑 Sua chave PIX</label><input class="inp" id="fPixCineweb" placeholder="CPF, e-mail, celular ou chave aleatória"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- REFERÊNCIAS VISUAIS -->
+    <div class="card">
+      <div class="card-title">🖼️ Referências visuais</div>
+      <div class="gold-accent"></div>
+      <div class="field"><label class="lbl">Tema do convite <span class="req">*</span></label><input class="inp" id="fTema" placeholder="Ex: Safari Selvagem, Fazendinha, Princesa…"></div>
+
+      <!-- PERSONAGEM / IMAGEM DO TEMA -->
+      <div class="field">
+        <label class="lbl">Tem imagem do personagem ou tema?</label>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="fotoTema" value="nao" checked onchange="toggleFotoHint('hintFotoTema',this)"><span class="opt-text">Não tenho imagem</span></label>
+          <label class="opt"><input type="radio" name="fotoTema" value="sim" onchange="toggleFotoHint('hintFotoTema',this)"><span class="opt-text">📸 Tenho imagem do personagem / tema</span></label>
+        </div>
+        <div class="foto-whats-hint" id="hintFotoTema" style="display:none">
+          <span class="foto-whats-hint-icon">📲</span>
+          <span class="foto-whats-hint-text"><strong>Ótimo!</strong> Após enviar o briefing, mande a imagem do personagem pelo WhatsApp. Isso ajuda a Lina a captar exatamente o estilo que você quer! 🎨</span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="lbl">Cores preferidas (opcional)</label>
+        <textarea class="txa" id="fCores" placeholder="Ex: tons de rosa e dourado… ou deixe em branco para a Lina escolher" style="min-height:56px"></textarea>
+      </div>
+
+      <!-- CORES QUE NÃO QUER -->
       <div class="field" style="margin-bottom:0">
         <label class="lbl">Há alguma cor que NÃO quer no convite?</label>
         <div class="opts">
@@ -517,258 +594,155 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
           <label class="opt"><input type="radio" name="coresProib" value="sim" onchange="toggleCoresProib()"><span class="opt-text">⚠️ Sim, quero evitar algumas cores</span></label>
         </div>
         <div id="coresProibWrap" style="display:none;margin-top:8px;animation:fadeIn 0.3s ease both">
-          <input class="inp" id="fCoresProib" placeholder="Ex: verde, laranja…">
+          <input class="inp" id="fCoresProib" placeholder="Ex: verde, laranja, amarelo…">
         </div>
       </div>
     </div>
+
+    <div class="nav-row">
+      <button class="btn-back" onclick="prevStep(2)">← Voltar</button>
+      <button class="btn-next" onclick="nextStep(2)">Próximo: Personalização →</button>
+    </div>
+    <button class="btn-faq-inline" onclick="openFaq()">💬 Perguntas frequentes</button>
+  </div>
+
+  <!-- ── ETAPA 4 — EXTRAS ── -->
+  <div class="step-panel" id="panel3">
     <div class="card">
-      <div class="card-title">👔 Dress Code</div>
+      <div class="card-title">✨ Personalização</div>
       <div class="gold-accent"></div>
       <div class="field">
-        <label class="lbl">Dress code indicado</label>
-        <select class="sel" id="fDressCode" onchange="toggleDressCode()">
-          <option value="">Sem dress code / A definir</option>
-          <option>Traje Passeio</option><option>Traje Social</option><option>Esporte Fino</option>
-          <option>Black &amp; White</option><option>Black Tie</option><option>Colorido / Temático</option>
-          <option>Casual</option><option value="Personalizado">Personalizado</option>
-        </select>
-        <div id="dressCodeDescWrap" style="display:none;margin-top:8px;animation:fadeIn 0.3s ease both">
-          <textarea class="txa" id="fDressCodeDesc" placeholder="Descreva o dress code personalizado ou temático…"></textarea>
+        <label class="lbl">Frase do convite</label>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="frase" value="lina" checked onchange="toggleFrase()"><span class="opt-text">✨ Deixo a Lina escolher</span><span class="opt-price">R$ 0,00</span></label>
+          <label class="opt"><input type="radio" name="frase" value="personalizar" onchange="toggleFrase()"><span class="opt-text">✍️ Quero escrever minha frase</span></label>
+        </div>
+        <div id="fraseWrap" style="display:none;margin-top:8px"><textarea class="txa" id="fFrase" placeholder="Digite a frase que deseja no convite…"></textarea></div>
+      </div>
+      <div class="field">
+        <label class="lbl">Confirmação de presença</label>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="conf" value="whats" checked onchange="recalc()"><span class="opt-text">💬 WhatsApp</span><span class="opt-price">R$ 0,00</span></label>
+          <label class="opt"><input type="radio" name="conf" value="google" onchange="recalc()"><span class="opt-text">📋 Formulário Google</span><span class="opt-price">+ R$ 15,00</span></label>
+          <label class="opt"><input type="radio" name="conf" value="sistema" onchange="recalc()"><span class="opt-text">📊 Sistema com controle de lista</span><span class="opt-price">+ R$ 29,90</span></label>
+        </div>
+        <div style="margin-top:8px"><input class="inp" id="fNumConf" placeholder="Número para confirmação (com DDD)"></div>
+      </div>
+      <div class="field">
+        <label class="lbl">Foto da criança</label>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="foto" value="nao" checked onchange="toggleFoto();recalc()"><span class="opt-text">Sem foto</span><span class="opt-price">R$ 0,00</span></label>
+          <label class="opt"><input type="radio" name="foto" value="sim" onchange="toggleFoto();recalc()"><span class="opt-text">📸 Adicionar foto da criança</span><span class="opt-price">+ R$ 10,00</span></label>
+        </div>
+        <div id="fotoWrap" style="display:none;margin-top:8px">
+          <div class="foto-whats-hint">
+            <span class="foto-whats-hint-icon">📲</span>
+            <span class="foto-whats-hint-text"><strong>Ótimo!</strong> Após enviar o briefing, mande a foto da criança pelo WhatsApp. Prefira fotos com boa iluminação e alta resolução. 📸<br><br>🚫 <strong>Não esqueça de enviar!</strong> O convite só pode ser iniciado com a foto em mãos.</span>
+          </div>
         </div>
       </div>
       <div class="field" style="margin-bottom:0">
-        <label class="lbl">Cores proibidas para os convidados?</label>
+        <label class="lbl">📸 Filtro do Instagram</label>
         <div class="opts">
-          <label class="opt"><input type="radio" name="coresDress" value="nao" checked onchange="toggleCoresDress()"><span class="opt-text">Não há restrição de cores</span></label>
-          <label class="opt"><input type="radio" name="coresDress" value="sim" onchange="toggleCoresDress()"><span class="opt-text">⚠️ Sim, algumas cores não devem ser usadas</span></label>
-        </div>
-        <div id="coresDressWrap" style="display:none;margin-top:8px;animation:fadeIn 0.3s ease both">
-          <input class="inp" id="fCoresDress" placeholder="Ex: branco, vermelho…">
-          <p class="hint" style="margin-top:5px">Essas cores serão mencionadas no convite para orientar os convidados.</p>
-          <div class="field" style="margin-top:10px;margin-bottom:0">
-            <label class="lbl">Tem foto da paleta para enviar?</label>
-            <div class="opts" style="margin-bottom:0">
-              <label class="opt"><input type="radio" name="fotoCoresDress" value="nao" checked onchange="toggleFotoHint('hintCoresDress',this)"><span class="opt-text">Não tenho foto</span></label>
-              <label class="opt"><input type="radio" name="fotoCoresDress" value="sim" onchange="toggleFotoHint('hintCoresDress',this)"><span class="opt-text">📸 Tenho foto para enviar</span></label>
-            </div>
-            <div class="foto-whats-hint" id="hintCoresDress" style="display:none;margin-top:8px">
-              <span class="foto-whats-hint-icon">📲</span>
-              <span class="foto-whats-hint-text"><strong>Ótimo!</strong> Após enviar o briefing, mande a foto pelo WhatsApp.</span>
-            </div>
-          </div>
+          <label class="opt"><input type="radio" name="filtroInsta" value="nao" checked onchange="recalc()"><span class="opt-text">Sem filtro</span><span class="opt-price">R$ 0,00</span></label>
+          <label class="opt"><input type="radio" name="filtroInsta" value="sim" onchange="recalc()"><span class="opt-text">✨ Quero filtro personalizado</span><span class="opt-price">+ R$ 10,00</span></label>
         </div>
       </div>
     </div>
-    <div class="nav-row">
-      <button class="btn-back" onclick="prevStep(2)">← Voltar</button>
-      <button class="btn-next" onclick="nextStep(2)">Próximo: Tipo de convite →</button>
-    </div>
-    <button class="btn-faq-inline" onclick="openFaq()">💬 Perguntas frequentes</button>
-  </div>
 
-  <!-- ETAPA 4 -->
-  <div class="step-panel" id="panel3">
     <div class="card">
-      <div class="card-title">🎭 Tipo de convite</div>
-      <div class="gold-accent"></div>
-      <div class="field">
-        <label class="lbl">Escolha o formato <span class="req">*</span></label>
-        <div class="tipo-grid">
-          <label class="tipo-pill" id="tipo_digital"><input type="radio" name="tipoConvite" value="Digital Estático" onchange="onTipoChange(this)"><span class="tipo-pill-emoji">🖼️</span><span class="tipo-pill-label">Digital Estático</span><span class="tipo-pill-desc">Imagem PNG para envios rápidos</span><span class="tipo-pill-price">R$ 39,90</span></label>
-          <label class="tipo-pill" id="tipo_video"><input type="radio" name="tipoConvite" value="Vídeo Animado" onchange="onTipoChange(this)"><span class="tipo-pill-emoji">🎬</span><span class="tipo-pill-label">Vídeo Animado</span><span class="tipo-pill-desc">O convite ganha vida com música!</span><span class="tipo-pill-price">R$ 44,90</span></label>
-          <label class="tipo-pill" id="tipo_interativo"><input type="radio" name="tipoConvite" value="Interativo" onchange="onTipoChange(this)"><span class="tipo-pill-emoji">🖱️</span><span class="tipo-pill-label">Interativo</span><span class="tipo-pill-desc">Botões GPS, Confirmação e Presentes</span><span class="tipo-pill-price">R$ 49,90</span></label>
-          <label class="tipo-pill" id="tipo_infinito"><input type="radio" name="tipoConvite" value="Infinito Interativo" onchange="onTipoChange(this)"><span class="tipo-pill-emoji">✨</span><span class="tipo-pill-label">Infinito Interativo</span><span class="tipo-pill-desc">Rolagem infinita, músicas e fotos</span><span class="tipo-pill-price">R$ 59,90</span></label>
-          <label class="tipo-pill" id="tipo_cineweb" style="grid-column:1/-1"><input type="radio" name="tipoConvite" value="CineWeb" onchange="onTipoChange(this)"><span class="tipo-pill-emoji">🎭</span><span class="tipo-pill-label">CineWeb</span><span class="tipo-pill-desc">Cinema no celular — site com abertura animada e imersiva</span><span class="tipo-pill-price">R$ 79,90</span></label>
-        </div>
-      </div>
-      <div id="musicaWrap" style="display:none">
-        <div class="subopts-wrap">
-          <div class="subopts-title">🎵 Música no convite</div>
-          <div class="opts">
-            <label class="opt"><input type="radio" name="musica" value="sem" checked onchange="toggleMusica();recalc()"><span class="opt-text">Sem música</span><span class="opt-price">R$ 0,00</span></label>
-            <label class="opt"><input type="radio" name="musica" value="com" onchange="toggleMusica();recalc()"><span class="opt-text">🎵 Com música personalizada</span><span class="opt-price">+ R$ 5,00</span></label>
-          </div>
-          <div id="musicaDetalheWrap" style="display:none;margin-top:10px">
-            <div class="opts">
-              <label class="opt"><input type="radio" name="musicaOpt" value="lina" checked onchange="toggleMusicaUrl()"><span class="opt-text">Deixo a Lina escolher</span></label>
-              <label class="opt"><input type="radio" name="musicaOpt" value="indicar" onchange="toggleMusicaUrl()"><span class="opt-text">Quero indicar uma música</span></label>
-            </div>
-            <div id="musicaUrlWrap" style="display:none;margin-top:8px">
-              <input class="inp" id="fMusicaUrl" placeholder="Nome e artista ou link do YouTube">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id="presentesWrap" style="display:none">
-        <div class="subopts-wrap">
-          <div class="subopts-title">🎁 Sugestão de presentes</div>
-          <div class="opts">
-            <label class="opt"><input type="radio" name="presentes" value="sem" checked onchange="togglePresentes();recalc()"><span class="opt-text">Sem sugestão de presentes</span><span class="opt-price">R$ 0,00</span></label>
-            <label class="opt"><input type="radio" name="presentes" value="com" onchange="togglePresentes();recalc()"><span class="opt-text">🎁 Com sugestão de presentes</span><span class="opt-price">+ R$ 5,00</span></label>
-          </div>
-          <div id="presentesDetalheWrap" style="display:none;margin-top:10px">
-            <label class="lbl" style="margin-bottom:8px">Sugestões (até 5)</label>
-            <div style="display:flex;flex-direction:column;gap:7px;">
-              <input class="inp" id="fPres1" placeholder="1. Ex: perfume, vale-presente, bolsa…">
-              <input class="inp" id="fPres2" placeholder="2.">
-              <input class="inp" id="fPres3" placeholder="3.">
-              <input class="inp" id="fPres4" placeholder="4. (opcional)">
-              <input class="inp" id="fPres5" placeholder="5. (opcional)">
-            </div>
-            <div style="margin-top:12px">
-              <label class="lbl">💳 Receber presentes via PIX?</label>
-              <div class="opts">
-                <label class="opt"><input type="radio" name="pixPres" value="nao" checked onchange="togglePixPres()"><span class="opt-text">Não quero informar PIX</span></label>
-                <label class="opt"><input type="radio" name="pixPres" value="sim" onchange="togglePixPres()"><span class="opt-text">✅ Sim, incluir minha chave PIX</span></label>
-              </div>
-              <div id="pixPresBlock" style="display:none;margin-top:8px">
-                <div class="pix-option-block"><label class="lbl">🔑 Sua chave PIX</label><input class="inp" id="fPixPres" placeholder="CPF, e-mail, celular ou chave aleatória"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id="cinwebWrap" style="display:none;margin-top:12px">
-        <div class="field">
-          <label class="lbl">🎬 Descreva sua visão para o CineWeb <span class="req">*</span></label>
-          <textarea class="txa" id="fCineweb" style="min-height:110px" placeholder="Descreva a cena de abertura, clima da festa, efeitos, estilo visual, trilha sonora… ✦"></textarea>
-        </div>
-      </div>
-    </div>
-    <div class="nav-row">
-      <button class="btn-back" onclick="prevStep(3)">← Voltar</button>
-      <button class="btn-next" onclick="nextStep(3)">Próximo: Personalização →</button>
-    </div>
-    <button class="btn-faq-inline" onclick="openFaq()">💬 Perguntas frequentes</button>
-  </div>
-
-  <!-- ETAPA 5 -->
-  <div class="step-panel" id="panel4">
-    <div class="card">
-      <div class="card-title">✍️ Frase do convite</div>
-      <div class="gold-accent"></div>
-      <p class="hint" style="margin-bottom:10px">Ambas as opções são gratuitas.</p>
-      <div class="opts">
-        <label class="opt"><input type="radio" name="frase" value="lina" checked onchange="toggleFrase()"><span class="opt-text">✦ Deixo a Lina escolher a frase para mim</span></label>
-        <label class="opt"><input type="radio" name="frase" value="personalizar" onchange="toggleFrase()"><span class="opt-text">✍️ Quero escrever minha própria frase</span></label>
-      </div>
-      <div id="fraseWrap" style="display:none;margin-top:8px">
-        <textarea class="txa" id="fFrase" placeholder="Ex: Com muita alegria, convido você para celebrar comigo…"></textarea>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-title">📸 Foto do(a) aniversariante</div>
-      <div class="gold-accent"></div>
-      <div class="opts">
-        <label class="opt"><input type="radio" name="foto" value="nao" checked onchange="toggleFoto();recalc()"><span class="opt-text">Sem foto</span><span class="opt-price">R$ 0,00</span></label>
-        <label class="opt"><input type="radio" name="foto" value="sim" onchange="toggleFoto();recalc()"><span class="opt-text">📸 Adicionar foto do(a) aniversariante</span><span class="opt-price">+ R$ 10,00</span></label>
-      </div>
-      <div id="fotoWrap" style="display:none;margin-top:10px">
-        <div class="foto-whats-hint">
-          <span class="foto-whats-hint-icon">📲</span>
-          <span class="foto-whats-hint-text"><strong>Ótimo!</strong> Após enviar o briefing, mande a foto pelo WhatsApp. Prefira fotos com boa iluminação e alta resolução.<br><br>O convite só pode ser iniciado com a foto em mãos.</span>
-        </div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-title">✨ Filtro do Instagram</div>
-      <div class="gold-accent"></div>
-      <div class="opts">
-        <label class="opt"><input type="radio" name="filtroInsta" value="nao" checked onchange="recalc()"><span class="opt-text">Sem filtro do Instagram</span><span class="opt-price">R$ 0,00</span></label>
-        <label class="opt"><input type="radio" name="filtroInsta" value="sim" onchange="recalc()"><span class="opt-text">✨ Quero filtro personalizado</span><span class="opt-price">+ R$ 10,00</span></label>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-title">✅ Confirmação de Presença</div>
-      <div class="gold-accent"></div>
-      <div class="opts">
-        <label class="opt"><input type="radio" name="conf" value="whats" checked onchange="recalc()"><span class="opt-text">💬 WhatsApp</span><span class="opt-price">R$ 0,00</span></label>
-        <label class="opt"><input type="radio" name="conf" value="google" onchange="recalc()"><span class="opt-text">📋 Formulário Google</span><span class="opt-price">+ R$ 15,00</span></label>
-        <label class="opt"><input type="radio" name="conf" value="sistema" onchange="recalc()"><span class="opt-text">📊 Sistema com controle de lista</span><span class="opt-price">+ R$ 29,90</span></label>
-      </div>
-      <div style="margin-top:8px"><input class="inp" id="fNumConf" placeholder="Número para confirmação (com DDD)"></div>
-    </div>
-    <div class="card">
-      <div class="card-title">📝 Extras e prazo</div>
+      <div class="card-title">🎁 Extras e urgência</div>
       <div class="gold-accent"></div>
       <div class="field">
         <label class="lbl">Como vai usar o convite?</label>
         <div class="opts">
           <label class="opt"><input type="radio" name="usoConvite" value="whatsapp" checked><span class="opt-text">💬 Enviar pelo WhatsApp / Instagram</span></label>
-          <label class="opt"><input type="radio" name="usoConvite" value="imprimir"><span class="opt-text">🖨️ Imprimir em papel</span></label>
-          <label class="opt"><input type="radio" name="usoConvite" value="ambos"><span class="opt-text">📲 Ambos — digital e impresso</span></label>
+          <label class="opt"><input type="radio" name="usoConvite" value="imprimir"><span class="opt-text">🖨️ Imprimir (em papel)</span></label>
+          <label class="opt"><input type="radio" name="usoConvite" value="ambos"><span class="opt-text">📲🖨️ Ambos — digital e impresso</span></label>
         </div>
+        <p class="hint">Isso pode influenciar o formato de entrega do arquivo.</p>
       </div>
       <div class="field">
         <label class="lbl">Observações ou pedido especial</label>
-        <textarea class="txa" id="fObs" placeholder="Algum detalhe extra, referência, elemento especial que queira incluir…"></textarea>
+        <textarea class="txa" id="fObs" placeholder="Algum detalhe especial, personagem específico, cor favorita…"></textarea>
         <p class="hint">⚠️ Caso não seja compatível com o layout, pode não ser possível adicionar.</p>
       </div>
       <div class="field" style="margin-bottom:0">
         <label class="lbl">Prazo</label>
         <div class="opts">
           <label class="opt"><input type="radio" name="urg" value="nao" checked onchange="recalc()"><span class="opt-text">⏳ Padrão — até 3 dias úteis</span><span class="opt-price">R$ 0,00</span></label>
-          <label class="opt"><input type="radio" name="urg" value="sim" onchange="recalc()"><span class="opt-text">⚡ Urgente — entrega em até 24 horas</span><span class="opt-price">+ R$ 30,00</span></label>
+          <label class="opt"><input type="radio" name="urg" value="sim" onchange="recalc()"><span class="opt-text">⚡ Urgente — entrega em até 4 horas</span><span class="opt-price">+ R$ 10,00</span></label>
         </div>
       </div>
     </div>
+
     <div class="nav-row">
-      <button class="btn-back" onclick="prevStep(4)">← Voltar</button>
-      <button class="btn-next" onclick="nextStep(4)">Próximo: Resumo e envio →</button>
+      <button class="btn-back" onclick="prevStep(3)">← Voltar</button>
+      <button class="btn-next" onclick="nextStep(3)">Próximo: Resumo e envio →</button>
     </div>
     <button class="btn-faq-inline" onclick="openFaq()">💬 Perguntas frequentes</button>
   </div>
 
-  <!-- ETAPA 6 -->
-  <div class="step-panel" id="panel5">
+  <!-- ── ETAPA 5 — RESUMO ── -->
+  <div class="step-panel" id="panel4">
     <div class="card">
       <div class="card-title">📋 Resumo do pedido</div>
       <div class="gold-accent"></div>
       <div id="resumoContent" style="font-size:13px;color:var(--muted);line-height:1.9;"></div>
     </div>
+
     <div class="total-box">
-      <div class="t-row" id="tBaseRow"><span>✦ Convite base</span><span id="tBaseVal">—</span></div>
-      <div class="t-row hide" id="tMusicaRow"><span>🎵 Música no convite</span><span>+ R$ 5,00</span></div>
-      <div class="t-row hide" id="tPresentesRow"><span>🎁 Sugestão de presentes</span><span>+ R$ 5,00</span></div>
-      <div class="t-row hide" id="tFotoRow"><span>📸 Foto do(a) aniversariante</span><span>+ R$ 10,00</span></div>
+      <div class="t-row" id="tBaseRow"><span>🎨 Convite base</span><span id="tBaseVal">—</span></div>
+      <div class="t-row hide" id="tVideoOptRow"><span id="tVideoOptLabel">📍 Extras vídeo</span><span id="tVideoOptVal"></span></div>
+      <div class="t-row hide" id="tInteratMusicaRow"><span>🎵 Música no convite</span><span>+ R$ 5,00</span></div>
+      <div class="t-row hide" id="tInteratPresentesRow"><span>🎁 Sugestão de presentes</span><span>+ R$ 5,00</span></div>
+      <div class="t-row hide" id="tFotoRow"><span>📸 Foto da criança</span><span>+ R$ 10,00</span></div>
       <div class="t-row hide" id="tFiltroRow"><span>✨ Filtro Instagram</span><span>+ R$ 10,00</span></div>
       <div class="t-row hide" id="tGoogleRow"><span>📋 Formulário Google</span><span>+ R$ 15,00</span></div>
       <div class="t-row hide" id="tSistemaRow"><span>📊 Sistema de convidados</span><span>+ R$ 29,90</span></div>
-      <div class="t-row hide" id="tUrgRow"><span>⚡ Urgência 24h</span><span>+ R$ 30,00</span></div>
+      <div class="t-row hide" id="tUrgRow"><span>⚡ Urgência 4h</span><span>+ R$ 10,00</span></div>
       <div class="t-row final"><span>Total</span><span id="tTotal">—</span></div>
     </div>
+
     <div class="pix-box">
       <div class="pix-lbl">✦ Pagamento via PIX</div>
       <div class="pix-row"><span class="pix-k">11944457518</span><button class="cpix" onclick="copyPix()">Copiar chave</button></div>
       <div class="cpix-ok" id="cpixOk">✓ Chave copiada!</div>
-      <p style="font-size:11px;color:var(--muted);margin-top:8px;line-height:1.6;font-weight:300;">Pague após o envio e envie o comprovante pelo WhatsApp. O convite será iniciado após a confirmação.</p>
+      <p style="font-size:11px;color:var(--muted);margin-top:8px;line-height:1.6">Pague após o envio e envie o comprovante pelo WhatsApp. O convite será iniciado após a confirmação. 💜</p>
     </div>
+
+    <div class="sheets-badge" id="sheetsBadge">
+      <div class="sheets-spinner" id="sheetsSpinner"></div>
+      <span id="sheetsMsg"></span>
+    </div>
+
     <button class="btn-send" id="btnEnviar" onclick="enviar()">
       <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/><path d="M5.007 3h-.008A11.995 11.995 0 0 0 0 12c0 2.117.553 4.104 1.523 5.836L0 24l6.335-1.652A12.007 12.007 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0C9.33 0 6.879.992 5.007 3z"/></svg>
       Enviar briefing pelo WhatsApp
     </button>
-    <p class="sub-note">Todas as informações serão enviadas direto para a Lina. ✦</p>
-    <div style="margin-top:12px;text-align:center;"><button class="btn-back" style="font-size:12px;padding:8px 20px;" onclick="prevStep(5)">← Revisar</button></div>
+    <p class="sub-note">Todas as informações serão enviadas direto para a Lina. ✨</p>
+    <div style="margin-top:12px;text-align:center;"><button class="btn-back" style="font-size:12px;padding:8px 20px;" onclick="prevStep(4)">← Revisar</button></div>
   </div>
 
   <!-- SUCCESS -->
   <div class="success-screen" id="successScreen">
-    <div class="big-emoji">✦</div>
+    <div class="big-emoji">🎉</div>
     <h2>Briefing enviado!</h2>
-    <p>A Lina recebeu todas as informações e entrará em contato em breve pelo WhatsApp. Não esqueça de enviar o comprovante do PIX!</p>
+    <p>A Lina recebeu todas as informações e entrará em contato em breve pelo WhatsApp. Não esqueça de enviar o comprovante do PIX! 💜</p>
+
     <div style="margin-top:28px;display:flex;flex-direction:column;gap:12px;max-width:380px;margin-left:auto;margin-right:auto;">
-      <div style="display:flex;align-items:flex-start;gap:12px;background:rgba(255,255,255,0.04);border:1px solid var(--border-s);border-radius:14px;padding:14px 16px;text-align:left;">
+      <div style="display:flex;align-items:flex-start;gap:12px;background:#fff;border:1.5px solid rgba(155,89,208,0.25);border-radius:16px;padding:14px 16px;text-align:left;">
         <span style="font-size:24px;flex-shrink:0;">💳</span>
         <div>
-          <div style="font-size:12px;font-weight:700;color:var(--champ);margin-bottom:3px;">Envie o comprovante do PIX</div>
-          <div style="font-size:11px;color:var(--muted);line-height:1.5;font-weight:300;">Faça o pagamento para a chave <strong style="color:var(--champ)">11944457518</strong> e envie o comprovante pelo WhatsApp para a Lina iniciar seu convite.</div>
+          <div style="font-size:12px;font-weight:800;color:var(--violet-dk);margin-bottom:3px;">Envie o comprovante do PIX</div>
+          <div style="font-size:11px;color:var(--muted);line-height:1.5;">Faça o pagamento via PIX para a chave <strong>11944457518</strong> e envie o comprovante pelo WhatsApp para a Lina iniciar seu convite.</div>
         </div>
       </div>
-      <div style="display:flex;align-items:flex-start;gap:12px;background:rgba(37,211,102,0.05);border:1px solid rgba(37,211,102,0.25);border-radius:14px;padding:14px 16px;text-align:left;">
+      <div style="display:flex;align-items:flex-start;gap:12px;background:linear-gradient(135deg,rgba(37,211,102,0.07),rgba(18,140,126,0.04));border:1.5px solid rgba(37,211,102,0.3);border-radius:16px;padding:14px 16px;text-align:left;">
         <span style="font-size:24px;flex-shrink:0;">📸</span>
         <div>
-          <div style="font-size:12px;font-weight:700;color:#4ade80;margin-bottom:3px;">Não esqueça das fotos!</div>
-          <div style="font-size:11px;color:rgba(77,201,154,0.8);line-height:1.5;font-weight:300;" id="successFotoMsg">Se tiver foto do(a) aniversariante ou referência de estilo — manda pelo WhatsApp! Fotos de boa qualidade fazem toda a diferença.</div>
+          <div style="font-size:12px;font-weight:800;color:#127a52;margin-bottom:3px;">Não esqueça das fotos!</div>
+          <div style="font-size:11px;color:rgba(18,100,64,0.75);line-height:1.5;" id="successFotoMsg">Se tiver foto da criança, imagem do personagem ou referência de tema — manda pelo WhatsApp! 🎨</div>
         </div>
       </div>
     </div>
@@ -776,312 +750,361 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 </div>
 
 <script>
-const PRECOS={'Digital Estático':39.90,'Vídeo Animado':44.90,'Interativo':49.90,'Infinito Interativo':59.90,'CineWeb':79.90};
-const TOTAL_STEPS=6;
+const PRECOS={'Digital Estático':39.90,'Vídeo Animado':44.90,'Interativo PDF':49.90,'Infinito Interativo':59.90,'CineWeb':79.90};
+const TOTAL_STEPS=5;
 let currentStep=0;
 
-function showToast(t,m){document.getElementById('toastTitle').textContent=t;document.getElementById('toastMsg').textContent=m;document.getElementById('toastOverlay').classList.add('show');}
+// ── TOAST ────────────────────────────────────────────────────
+function showToast(titulo,msg){
+  document.getElementById('toastTitle').textContent=titulo;
+  document.getElementById('toastMsg').textContent=msg;
+  document.getElementById('toastOverlay').classList.add('show');
+}
 function closeToast(){document.getElementById('toastOverlay').classList.remove('show');}
 document.getElementById('toastOverlay').addEventListener('click',function(e){if(e.target===this)closeToast();});
 
+// ── PARTÍCULAS ───────────────────────────────────────────────
 (function(){
   const c=document.getElementById('particles');
-  const colors=['#c4a8f5','#9b59f5','#e8c96a','#f0e6cc','#d8c5ff','#a78bfa','#e2d0a8','#7c3aed'];
-  for(let i=0;i<45;i++){
-    const el=document.createElement('div');el.className='spark';
-    const sz=Math.random()*4+2,op=(Math.random()*0.3+0.06).toFixed(2),color=colors[Math.floor(Math.random()*colors.length)];
-    el.style.cssText=`top:${Math.random()*100}%;left:${Math.random()*100}%;width:${sz}px;height:${sz}px;background:radial-gradient(circle,${color} 0%,transparent 70%);box-shadow:0 0 ${sz*2}px ${color};--op:${op};--dur:${(Math.random()*7+4).toFixed(1)}s;--delay:-${(Math.random()*8).toFixed(1)}s;opacity:${op};`;
-    c.appendChild(el);
-  }
-  const stars=['✦','✧','⋆','·','·','✩'];
-  for(let i=0;i<22;i++){
-    const el=document.createElement('div');el.className='star-shape';
-    const sz=Math.random()*9+5,op=(Math.random()*0.28+0.07).toFixed(2),color=colors[Math.floor(Math.random()*colors.length)];
-    el.textContent=stars[Math.floor(Math.random()*stars.length)];
-    el.style.cssText=`top:${Math.random()*100}%;left:${Math.random()*100}%;font-size:${sz}px;--op:${op};--dur:${(Math.random()*5+3).toFixed(1)}s;--delay:-${(Math.random()*7).toFixed(1)}s;opacity:${op};color:${color};`;
-    c.appendChild(el);
-  }
+  const colors=['#e879a0','#c26de0','#9b59d0','#f4a261','#c9973a','#e8c06a','#6ab0f5','#4dc99a','#f5d98a','#fbb6ce','#818cf8','#67e8f9','#fff','#ffe4f0','#f0e0ff'];
+  for(let i=0;i<55;i++){const el=document.createElement('div');el.className='spark';const sz=Math.random()*5+2,op=(Math.random()*0.45+0.12).toFixed(2),color=colors[Math.floor(Math.random()*colors.length)];el.style.cssText=`top:${Math.random()*100}%;left:${Math.random()*100}%;width:${sz}px;height:${sz}px;background:radial-gradient(circle,${color} 0%,transparent 70%);box-shadow:0 0 ${sz*2}px ${color};--op:${op};--dur:${(Math.random()*6+4).toFixed(1)}s;--delay:-${(Math.random()*8).toFixed(1)}s;opacity:${op};`;c.appendChild(el);}
+  const stars=['✦','✧','⋆','✩','·','✴','🎈','⭐'];
+  for(let i=0;i<32;i++){const el=document.createElement('div');el.className='star-shape';const sz=Math.random()*10+7,op=(Math.random()*0.5+0.15).toFixed(2),color=colors[Math.floor(Math.random()*colors.length)];el.textContent=stars[Math.floor(Math.random()*stars.length)];el.style.cssText=`top:${Math.random()*100}%;left:${Math.random()*100}%;font-size:${sz}px;--op:${op};--color:${color};--dur:${(Math.random()*5+3).toFixed(1)}s;--delay:-${(Math.random()*7).toFixed(1)}s;opacity:${op};`;c.appendChild(el);}
 })();
 
-const dustColors=['#c4a8f5','#9b59f5','#e8c96a','#d8c5ff'];
-document.addEventListener('mousemove',e=>{
-  if(Math.random()>0.88){const d=document.createElement('div');d.className='cursor-dust';const color=dustColors[Math.floor(Math.random()*dustColors.length)];
-  d.style.cssText=`left:${e.clientX+(Math.random()-.5)*14}px;top:${e.clientY+(Math.random()-.5)*14}px;background:${color};box-shadow:0 0 5px ${color};width:${Math.random()*4+2}px;height:${Math.random()*4+2}px;`;
-  document.body.appendChild(d);setTimeout(()=>d.remove(),750);}
-});
+const dustColors=['#e879a0','#c26de0','#c9973a','#6ab0f5','#4dc99a','#f5d98a','#818cf8'];
+document.addEventListener('mousemove',e=>{if(Math.random()>0.82){const d=document.createElement('div');d.className='cursor-dust';const color=dustColors[Math.floor(Math.random()*dustColors.length)];d.style.cssText=`left:${e.clientX+(Math.random()-.5)*16}px;top:${e.clientY+(Math.random()-.5)*16}px;background:${color};box-shadow:0 0 6px ${color};width:${Math.random()*5+3}px;height:${Math.random()*5+3}px;`;document.body.appendChild(d);setTimeout(()=>d.remove(),750);}});
 
+// ── INIT ─────────────────────────────────────────────────────
 (function(){
   const p=new URLSearchParams(window.location.search),nome=p.get('cliente')?decodeURIComponent(p.get('cliente')):'';
-  if(nome){document.getElementById('greetingName').textContent='Olá, '+nome+' ✦';document.getElementById('greetingSub').textContent='Seu convite personalizado está sendo preparado com carinho';document.getElementById('greetingBanner').classList.add('show');}
+  if(nome){document.getElementById('greetingName').textContent='Olá, '+nome+'! ✨';document.getElementById('greetingSub').textContent='Seu convite personalizado está sendo preparado com carinho 💜';document.getElementById('greetingBanner').classList.add('show');}
 })();
 
+// ── FAQ ──────────────────────────────────────────────────────
 function openFaq(){document.getElementById('faqOverlay').classList.add('open');document.body.style.overflow='hidden';}
 function closeFaq(){document.getElementById('faqOverlay').classList.remove('open');document.body.style.overflow='';}
 function closeFaqOutside(e){if(e.target===document.getElementById('faqOverlay'))closeFaq();}
 function toggleFaqItem(btn){const item=btn.closest('.faq-item'),answer=item.querySelector('.faq-a'),isOpen=btn.classList.contains('open');document.querySelectorAll('.faq-q.open').forEach(b=>{b.classList.remove('open');b.closest('.faq-item').querySelector('.faq-a').classList.remove('open');});if(!isOpen){btn.classList.add('open');answer.classList.add('open');}}
 function toggleCalcPanel(){const panel=document.getElementById('calcPanel'),chevron=document.getElementById('calcChevron'),isOpen=panel.classList.contains('open');panel.classList.toggle('open',!isOpen);chevron.classList.toggle('open',!isOpen);}
 
+// ── STEPPER ──────────────────────────────────────────────────
 function goToStep(n){if(n>currentStep)return;setStep(n);}
-function nextStep(from){if(!validateStep(from))return;if(from===4)buildResumo();setStep(from+1);}
+function nextStep(from){if(!validateStep(from))return;if(from===3)buildResumo();setStep(from+1);}
 function prevStep(from){setStep(from-1);}
 
 function setStep(n){
   const panels=document.querySelectorAll('.step-panel'),current=document.querySelector('.step-panel.active');
   if(current){current.classList.add('leaving');setTimeout(()=>current.classList.remove('active','leaving'),220);}
   setTimeout(()=>{
-    currentStep=n;panels.forEach((p,i)=>{if(i===n)p.classList.add('active');});
+    currentStep=n;
+    panels.forEach((p,i)=>{if(i===n)p.classList.add('active');});
     document.querySelectorAll('.si-step').forEach((s,i)=>{s.classList.remove('active','done');if(i===n)s.classList.add('active');else if(i<n)s.classList.add('done');});
     document.getElementById('progBar').style.width=((n+1)/TOTAL_STEPS*100).toFixed(0)+'%';
     const sw=document.getElementById('stepperWrap'),top=sw.getBoundingClientRect().top+window.scrollY-20;
     if(window.scrollY>top+60)window.scrollTo({top,behavior:'smooth'});
-    if(n===5)recalc();
-  },230);currentStep=n;
+    if(n===4)recalc();
+  },230);
+  currentStep=n;
 }
 
+// ── VALIDAÇÃO COM TOAST ───────────────────────────────────────
 function validateStep(step){
   if(step===0){
-    if(!document.getElementById('fNomePed').value.trim()){showToast('Nome obrigatório','Por favor, informe seu nome completo para continuar.');return false;}
-    if(!document.getElementById('fWhats').value.trim()){showToast('WhatsApp obrigatório','Precisamos do seu WhatsApp para enviar o convite pronto.');return false;}
+    if(!document.getElementById('fNomePed').value.trim()){showToast('Nome obrigatório 👤','Por favor, informe seu nome completo para continuar.');return false;}
+    if(!document.getElementById('fWhats').value.trim()){showToast('WhatsApp obrigatório 📱','Precisamos do seu WhatsApp para enviar o convite pronto!');return false;}
   }
   if(step===1){
-    if(!document.getElementById('fNome').value.trim()){showToast('Nome no convite obrigatório','Informe o nome que deve aparecer no convite.');return false;}
-    if(!document.querySelector('input[name="marco"]:checked')){showToast('Marco do aniversário obrigatório','Selecione quantos anos serão comemorados.');return false;}
-    const mv=document.querySelector('input[name="marco"]:checked')?.value;
-    if(mv==='outro'&&!document.getElementById('fMarcoOutro').value.trim()){showToast('Informe o marco','Descreva qual aniversário será comemorado.');return false;}
-    if(!document.getElementById('fData').value){showToast('Data da festa obrigatória','Informe a data do grande dia.');return false;}
-    if(!document.getElementById('fHorario').value){showToast('Horário obrigatório','Informe o horário da festa.');return false;}
-    if(!document.getElementById('fLocal').value.trim()){showToast('Local da festa obrigatório','Informe onde a festa vai acontecer.');return false;}
+    if(!document.getElementById('fNome').value.trim()){showToast('Nome no convite obrigatório 🎂','Informe o nome que deve aparecer no convite.');return false;}
+    if(!document.getElementById('fData').value){showToast('Data da festa obrigatória 📅','Informe a data do grande dia para continuar!');return false;}
+    if(!document.getElementById('fHorario').value){showToast('Horário obrigatório ⏰','Informe o horário da festa para continuar.');return false;}
+    if(!document.getElementById('fLocal').value.trim()){showToast('Local da festa obrigatório 📍','Informe onde a festa vai acontecer.');return false;}
   }
-  if(step===2){if(!document.getElementById('fTema').value.trim()){showToast('Tema obrigatório','Informe o tema ou estilo desejado para o convite.');return false;}}
-  if(step===3){
-    if(!document.querySelector('input[name="tipoConvite"]:checked')){showToast('Escolha o tipo de convite','Selecione um dos formatos de convite para continuar.');return false;}
+  if(step===2){
+    if(!document.querySelector('input[name="tipoConvite"]:checked')){showToast('Escolha o tipo de convite 🎨','Selecione um dos formatos de convite para continuar.');return false;}
+    if(!document.getElementById('fTema').value.trim()){showToast('Tema obrigatório 🎭','Informe o tema da festa para que a Lina crie o convite perfeito!');return false;}
     const tipo=document.querySelector('input[name="tipoConvite"]:checked').value;
-    if(tipo==='CineWeb'&&!document.getElementById('fCineweb').value.trim()){showToast('Descreva sua visão CineWeb','Conte para a Lina como você imagina a abertura do convite.');return false;}
+    if(tipo==='CineWeb'&&!document.getElementById('fCineweb').value.trim()){showToast('Descreva sua visão CineWeb 🎬','Conta para a Lina como você imagina a abertura do convite!');return false;}
   }
   return true;
 }
 
+// ── TOGGLES ──────────────────────────────────────────────────
 function toggleFotoHint(hintId,el){document.getElementById(hintId).style.display=el.value==='sim'?'flex':'none';}
 function toggleCoresProib(){document.getElementById('coresProibWrap').style.display=document.querySelector('input[name="coresProib"]:checked').value==='sim'?'block':'none';}
-function toggleCoresDress(){document.getElementById('coresDressWrap').style.display=document.querySelector('input[name="coresDress"]:checked').value==='sim'?'block':'none';}
-function toggleDressCode(){document.getElementById('dressCodeDescWrap').style.display=document.getElementById('fDressCode').value==='Personalizado'?'block':'none';}
+function togglePixBlock(blockId,show){document.getElementById(blockId).style.display=show?'block':'none';}
 function toggleFrase(){document.getElementById('fraseWrap').style.display=document.querySelector('input[name="frase"]:checked').value==='personalizar'?'block':'none';}
 function toggleFoto(){document.getElementById('fotoWrap').style.display=document.querySelector('input[name="foto"]:checked').value==='sim'?'block':'none';}
 function toggleAniv(){const v=parseInt(document.querySelector('input[name="qtdAniv"]:checked').value);document.getElementById('aniv2Wrap').style.display=v>=2?'block':'none';document.getElementById('aniv3Wrap').style.display=v>=3?'block':'none';}
-function toggleMusicaUrl(){document.getElementById('musicaUrlWrap').style.display=document.querySelector('input[name="musicaOpt"]:checked')?.value==='indicar'?'block':'none';}
-function toggleMusica(){document.getElementById('musicaDetalheWrap').style.display=document.querySelector('input[name="musica"]:checked').value==='com'?'block':'none';}
-function togglePresentes(){document.getElementById('presentesDetalheWrap').style.display=document.querySelector('input[name="presentes"]:checked').value==='com'?'block':'none';if(document.querySelector('input[name="presentes"]:checked').value==='sem'){document.querySelector('input[name="pixPres"][value="nao"]').checked=true;document.getElementById('pixPresBlock').style.display='none';}}
-function togglePixPres(){document.getElementById('pixPresBlock').style.display=document.querySelector('input[name="pixPres"]:checked').value==='sim'?'block':'none';}
+function toggleMusicaUrl(){document.getElementById('musicaUrlWrap').style.display=document.querySelector('input[name="interatMusicaOpt"]:checked')?.value==='url'?'block':'none';}
 
-function onMarcoChange(el){
-  document.querySelectorAll('.marco-pill').forEach(p=>p.classList.remove('selected'));
-  el.closest('.marco-pill').classList.add('selected');
-  document.getElementById('marcoOutroWrap').style.display=el.value==='outro'?'block':'none';
-}
-
+// ── TIPO CONVITE ─────────────────────────────────────────────
 function onTipoChange(el){
   document.querySelectorAll('.tipo-pill').forEach(p=>p.classList.remove('selected'));
   el.closest('.tipo-pill').classList.add('selected');
   const v=el.value;
-  const hasMusica=v==='Vídeo Animado'||v==='Interativo'||v==='Infinito Interativo'||v==='CineWeb';
-  const hasPresentes=v==='Interativo'||v==='Infinito Interativo';
-  document.getElementById('musicaWrap').style.display=hasMusica?'block':'none';
-  document.getElementById('presentesWrap').style.display=hasPresentes?'block':'none';
+  document.getElementById('videoSubWrap').style.display=v==='Vídeo Animado'?'block':'none';
+  document.getElementById('interativoSubWrap').style.display=(v==='Interativo PDF'||v==='Infinito Interativo')?'block':'none';
   document.getElementById('cinwebWrap').style.display=v==='CineWeb'?'block':'none';
-  if(!hasMusica){document.querySelector('input[name="musica"][value="sem"]').checked=true;document.getElementById('musicaDetalheWrap').style.display='none';}
-  if(!hasPresentes){document.querySelector('input[name="presentes"][value="sem"]').checked=true;document.getElementById('presentesDetalheWrap').style.display='none';}
   recalc();
 }
 
-function toggleCalcRow(id,visible){const row=document.getElementById(id),wasHidden=row.classList.contains('hidden');row.classList.toggle('hidden',!visible);if(visible&&wasHidden){row.classList.add('appearing');setTimeout(()=>row.classList.remove('appearing'),400);}}
+function onVideoOptChange(){
+  document.getElementById('presentesVideoWrap').style.display=document.getElementById('videoCkPresentes').checked?'block':'none';
+  if(!document.getElementById('videoCkPresentes').checked){document.querySelector('input[name="pixVideo"][value="nao"]').checked=true;document.getElementById('pixVideoBlock').style.display='none';}
+}
+function onInteratPresentesChange(){
+  const show=document.querySelector('input[name="interatPresentes"]:checked').value==='com';
+  document.getElementById('presentesInteratWrap').style.display=show?'block':'none';
+  if(!show){document.querySelector('input[name="pixInterat"][value="nao"]').checked=true;document.getElementById('pixInteratBlock').style.display='none';}
+}
+function onInteratMusicaChange(){document.getElementById('musicaInteratWrap').style.display=document.querySelector('input[name="interatMusica"]:checked').value==='com'?'block':'none';}
+function onCinwebPresentesChange(){
+  const show=document.querySelector('input[name="cinwebPresentes"]:checked').value==='com';
+  document.getElementById('presentesCinwebWrap').style.display=show?'block':'none';
+  if(!show){document.querySelector('input[name="pixCineweb"][value="nao"]').checked=true;document.getElementById('pixCinewebBlock').style.display='none';}
+}
+
+// ── CALC ─────────────────────────────────────────────────────
+function toggleCalcRow(id,visible,labelId,labelText,valId,valText){
+  const row=document.getElementById(id),wasHidden=row.classList.contains('hidden');
+  row.classList.toggle('hidden',!visible);
+  if(visible&&wasHidden){row.classList.add('appearing');setTimeout(()=>row.classList.remove('appearing'),400);}
+  if(labelId&&labelText)document.getElementById(labelId).textContent=labelText;
+  if(valId&&valText)document.getElementById(valId).textContent=valText;
+}
 function bumpTotal(){const el=document.getElementById('calcTotal');el.classList.remove('bump');void el.offsetWidth;el.classList.add('bump');setTimeout(()=>el.classList.remove('bump'),450);}
 function fmt(n){return'R$ '+n.toFixed(2).replace('.',',');}
 
 function recalc(){
   const tipoEl=document.querySelector('input[name="tipoConvite"]:checked'),tipo=tipoEl?tipoEl.value:'',basePrice=PRECOS[tipo]||null;
-  const musica=document.querySelector('input[name="musica"]:checked')?.value==='com'?5:0;
-  const presentes=document.querySelector('input[name="presentes"]:checked')?.value==='com'?5:0;
   const foto=document.querySelector('input[name="foto"]:checked')?.value==='sim'?10:0;
   const filtro=document.querySelector('input[name="filtroInsta"]:checked')?.value==='sim'?10:0;
   const conf=document.querySelector('input[name="conf"]:checked')?.value;
   const google=conf==='google'?15:0,sistema=conf==='sistema'?29.90:0;
-  const urg=document.querySelector('input[name="urg"]:checked')?.value==='sim'?30:0;
-  const extras=musica+presentes+foto+filtro+google+sistema+urg,total=basePrice!==null?basePrice+extras:null;
+  const urg=document.querySelector('input[name="urg"]:checked')?.value==='sim'?10:0;
+  let videoOpt=0,interatPresentes=0,interatMusica=0,videoOptLabel='',videoOptValStr='';
+  if(tipo==='Vídeo Animado'){
+    const ckB=document.getElementById('videoCkBotoes'),ckP=document.getElementById('videoCkPresentes'),hB=ckB&&ckB.checked,hP=ckP&&ckP.checked;
+    if(hB&&hP){videoOpt=10;videoOptLabel='📍🎁 Botões + presentes';videoOptValStr='+ R$ 10,00';}
+    else if(hB){videoOpt=5;videoOptLabel='📍 Botões de localização';videoOptValStr='+ R$ 5,00';}
+    else if(hP){videoOpt=5;videoOptLabel='🎁 Sugestão de presentes';videoOptValStr='+ R$ 5,00';}
+  }
+  if(tipo==='Interativo PDF'||tipo==='Infinito Interativo'){
+    if(document.querySelector('input[name="interatPresentes"]:checked')?.value==='com')interatPresentes=5;
+    if(document.querySelector('input[name="interatMusica"]:checked')?.value==='com')interatMusica=5;
+  }
+  const extras=videoOpt+interatPresentes+interatMusica+foto+filtro+google+sistema+urg;
+  const total=basePrice!==null?basePrice+extras:null;
   const baseRow=document.getElementById('cr-base');
   if(basePrice!==null){baseRow.classList.remove('hidden');document.getElementById('cr-base-val').textContent=fmt(basePrice);}else{baseRow.classList.add('hidden');}
-  toggleCalcRow('cr-musica',!!musica);toggleCalcRow('cr-presentes',!!presentes);toggleCalcRow('cr-foto',!!foto);toggleCalcRow('cr-filtro',!!filtro);toggleCalcRow('cr-google',!!google);toggleCalcRow('cr-sistema',!!sistema);toggleCalcRow('cr-urg',!!urg);
+  toggleCalcRow('cr-videoOpt',!!videoOpt,'cr-videoOpt-lbl',videoOptLabel||'📍 Extras vídeo','cr-videoOpt-val',videoOptValStr);
+  toggleCalcRow('cr-interatMusica',!!interatMusica);toggleCalcRow('cr-interatPresentes',!!interatPresentes);
+  toggleCalcRow('cr-foto',!!foto);toggleCalcRow('cr-filtro',!!filtro);toggleCalcRow('cr-google',!!google);toggleCalcRow('cr-sistema',!!sistema);toggleCalcRow('cr-urg',!!urg);
   const el=document.getElementById('calcTotal'),prevText=el.textContent;
   const newText=total!==null?fmt(total):extras>0?fmt(extras):'Valor Total';
   if(newText!==prevText){el.textContent=newText;if(newText==='Valor Total')el.classList.add('placeholder');else{el.classList.remove('placeholder');bumpTotal();}}
-  document.getElementById('calcTotalNote').textContent=total!==null?'Total estimado (base + adicionais) ✦':extras>0?'Adicionais selecionados · escolha o tipo para ver o total':'Selecione o tipo de convite para ver o preço ✦';
+  document.getElementById('calcTotalNote').textContent=total!==null?'Total estimado (base + adicionais) 💜':extras>0?'Adicionais selecionados · escolha o tipo para ver o total':'Selecione o tipo de convite para ver o preço ✨';
   if(basePrice!==null){document.getElementById('tBaseVal').textContent=fmt(basePrice);document.getElementById('tBaseRow').classList.remove('hide');}else document.getElementById('tBaseRow').classList.add('hide');
-  document.getElementById('tMusicaRow').classList.toggle('hide',!musica);document.getElementById('tPresentesRow').classList.toggle('hide',!presentes);document.getElementById('tFotoRow').classList.toggle('hide',!foto);document.getElementById('tFiltroRow').classList.toggle('hide',!filtro);document.getElementById('tGoogleRow').classList.toggle('hide',!google);document.getElementById('tSistemaRow').classList.toggle('hide',!sistema);document.getElementById('tUrgRow').classList.toggle('hide',!urg);
+  document.getElementById('tVideoOptRow').classList.toggle('hide',!videoOpt);if(videoOpt){document.getElementById('tVideoOptLabel').textContent=videoOptLabel;document.getElementById('tVideoOptVal').textContent=videoOptValStr;}
+  document.getElementById('tInteratMusicaRow').classList.toggle('hide',!interatMusica);
+  document.getElementById('tInteratPresentesRow').classList.toggle('hide',!interatPresentes);
+  document.getElementById('tFotoRow').classList.toggle('hide',!foto);
+  document.getElementById('tFiltroRow').classList.toggle('hide',!filtro);
+  document.getElementById('tGoogleRow').classList.toggle('hide',!google);
+  document.getElementById('tSistemaRow').classList.toggle('hide',!sistema);
+  document.getElementById('tUrgRow').classList.toggle('hide',!urg);
   if(total!==null)document.getElementById('tTotal').textContent=fmt(total);else if(extras>0)document.getElementById('tTotal').textContent=fmt(extras)+' + convite';else document.getElementById('tTotal').textContent='—';
 }
 
-function getMarcoLabel(){const mv=document.querySelector('input[name="marco"]:checked')?.value||'';return mv==='outro'?(document.getElementById('fMarcoOutro').value.trim()||'Outro'):mv;}
-function getPresentesInfo(){
-  const v=document.querySelector('input[name="presentes"]:checked')?.value;
-  if(v!=='com') return 'Sem sugestão';
-  const itens=[document.getElementById('fPres1').value.trim(),document.getElementById('fPres2').value.trim(),document.getElementById('fPres3').value.trim(),document.getElementById('fPres4').value.trim(),document.getElementById('fPres5').value.trim()].filter(Boolean);
-  const pix=document.querySelector('input[name="pixPres"]:checked')?.value==='sim'?(document.getElementById('fPixPres').value.trim()||'Sim'):'Não';
-  return (itens.length?itens.join(' / '):'Sim')+(pix!=='Não'?' | PIX: '+pix:'');
+// ── HELPER PRESENTES ─────────────────────────────────────────
+function getPresentes(){
+  const tipo=document.querySelector('input[name="tipoConvite"]:checked')?.value;
+  let pres=[],pix='Não';
+  if(tipo==='Vídeo Animado'&&document.getElementById('videoCkPresentes')?.checked){
+    pres=[document.getElementById('fPres1v').value.trim(),document.getElementById('fPres2v').value.trim(),document.getElementById('fPres3v').value.trim()].filter(Boolean);
+    if(document.querySelector('input[name="pixVideo"]:checked')?.value==='sim'){const ch=document.getElementById('fPixVideo').value.trim();pix=ch?'Sim — '+ch:'Sim (a informar)';}
+  }
+  if((tipo==='Interativo PDF'||tipo==='Infinito Interativo')&&document.querySelector('input[name="interatPresentes"]:checked')?.value==='com'){
+    pres=[document.getElementById('fPres1i').value.trim(),document.getElementById('fPres2i').value.trim(),document.getElementById('fPres3i').value.trim()].filter(Boolean);
+    if(document.querySelector('input[name="pixInterat"]:checked')?.value==='sim'){const ch=document.getElementById('fPixInterat').value.trim();pix=ch?'Sim — '+ch:'Sim (a informar)';}
+  }
+  if(tipo==='CineWeb'&&document.querySelector('input[name="cinwebPresentes"]:checked')?.value==='com'){
+    pres=[document.getElementById('fPres1c').value.trim(),document.getElementById('fPres2c').value.trim(),document.getElementById('fPres3c').value.trim()].filter(Boolean);
+    if(document.querySelector('input[name="pixCineweb"]:checked')?.value==='sim'){const ch=document.getElementById('fPixCineweb').value.trim();pix=ch?'Sim — '+ch:'Sim (a informar)';}
+  }
+  return{lista:pres.length?pres.join(' / '):'Sem sugestão',pix};
 }
-function getMusicaInfo(){
-  const tipo=document.querySelector('input[name="tipoConvite"]:checked')?.value||'';
-  if(tipo==='Digital Estático') return 'Sem música';
-  const v=document.querySelector('input[name="musica"]:checked')?.value;
-  if(v!=='com') return 'Sem música';
-  const opt=document.querySelector('input[name="musicaOpt"]:checked')?.value;
-  if(opt==='indicar'){const url=document.getElementById('fMusicaUrl').value.trim();return url?'Com música: '+url:'Com música — a combinar';}
-  return 'Com música — escolha da Lina';
-}
+
 function getFotosAEnviar(){
   const fotos=[];
-  if(document.querySelector('input[name="foto"]:checked')?.value==='sim') fotos.push('foto do(a) aniversariante');
-  if(document.querySelector('input[name="fotoRef"]:checked')?.value==='sim') fotos.push('referência de tema/estilo');
-  if(document.querySelector('input[name="fotoCoresDress"]:checked')?.value==='sim') fotos.push('cores do dress code');
+  if(document.querySelector('input[name="foto"]:checked')?.value==='sim') fotos.push('foto da criança');
+  if(document.querySelector('input[name="fotoTema"]:checked')?.value==='sim') fotos.push('imagem do personagem/tema');
   return fotos.length?'📸 Enviar pelo WhatsApp: '+fotos.join(', '):'';
 }
 
+// ── RESUMO ────────────────────────────────────────────────────
 function buildResumo(){
   const nomePed=document.getElementById('fNomePed').value.trim(),whats=document.getElementById('fWhats').value.trim();
-  const quemPede=document.querySelector('input[name="quemPede"]:checked')?.value==='proprio'?'Próprio(a) aniversariante':'Organizador(a)';
-  const nomeC=document.getElementById('fNome').value.trim(),marco=getMarcoLabel();
+  const nomeC=document.getElementById('fNome').value.trim(),genero=document.querySelector('input[name="genero"]:checked')?.value;
   const data=document.getElementById('fData').value,horario=document.getElementById('fHorario').value;
   const local=document.getElementById('fLocal').value.trim(),endereco=document.getElementById('fEndereco').value.trim();
+  const idade=document.getElementById('fIdade').value;
+  const tipoEl=document.querySelector('input[name="tipoConvite"]:checked'),tipo=tipoEl?tipoEl.value:'—';
   const tema=document.getElementById('fTema').value.trim(),cores=document.getElementById('fCores').value.trim();
   const coresProib=document.querySelector('input[name="coresProib"]:checked')?.value==='sim'?(document.getElementById('fCoresProib').value.trim()||'Sim'):'Não';
-  const dressCode=document.getElementById('fDressCode').value,dressDesc=document.getElementById('fDressCodeDesc').value.trim();
-  const dressLabel=dressCode==='Personalizado'&&dressDesc?'Personalizado: '+dressDesc:(dressCode||'—');
-  const coresDress=document.querySelector('input[name="coresDress"]:checked')?.value==='sim'?(document.getElementById('fCoresDress').value.trim()||'Sim'):'Não';
-  const tipoEl=document.querySelector('input[name="tipoConvite"]:checked'),tipo=tipoEl?tipoEl.value:'—';
+  const fotoTema=document.querySelector('input[name="fotoTema"]:checked')?.value==='sim'?'Sim (enviará pelo WhatsApp)':'Não';
   const frase=document.querySelector('input[name="frase"]:checked')?.value,fraseT=document.getElementById('fFrase').value.trim();
   const conf=document.querySelector('input[name="conf"]:checked')?.value,confMap={whats:'WhatsApp',google:'Formulário Google (+R$15)',sistema:'Sistema com lista (+R$29,90)'};
-  const foto=document.querySelector('input[name="foto"]:checked')?.value==='sim';
-  const filtro=document.querySelector('input[name="filtroInsta"]:checked')?.value==='sim';
-  const uso=document.querySelector('input[name="usoConvite"]:checked')?.value,usoMap={whatsapp:'WhatsApp / Instagram',imprimir:'Imprimir',ambos:'Digital + Impresso'};
-  const obs=document.getElementById('fObs').value.trim();
+  const foto=document.querySelector('input[name="foto"]:checked')?.value==='sim',filtro=document.querySelector('input[name="filtroInsta"]:checked')?.value==='sim';
+  const uso=document.querySelector('input[name="usoConvite"]:checked')?.value;
+  const usoMap={whatsapp:'WhatsApp / Instagram',imprimir:'Imprimir',ambos:'Digital + Impresso'};
   const urg=document.querySelector('input[name="urg"]:checked')?.value==='sim';
   const precoBase=PRECOS[tipo]?fmt(PRECOS[tipo]):'—';
+  const presentes=getPresentes();
   const fotosInfo=getFotosAEnviar();
   let dataf=data;if(data){const[y,m,d]=data.split('-');dataf=d+'/'+m+'/'+y;}
-  const qtdAniv=parseInt(document.querySelector('input[name="qtdAniv"]:checked').value);
-  let anivExtras='';
-  if(qtdAniv>=2){const n2=document.getElementById('fNome2').value.trim(),i2=document.getElementById('fIdade2').value.trim();if(n2)anivExtras+=' + '+n2+(i2?' ('+i2+')':'');}
-  if(qtdAniv>=3){const n3=document.getElementById('fNome3').value.trim(),i3=document.getElementById('fIdade3').value.trim();if(n3)anivExtras+=' + '+n3+(i3?' ('+i3+')':'');}
   const rows=[
-    ['👤 Quem pede',nomePed+' · '+whats+' ('+quemPede+')'],
-    ['✦ Nome no convite',nomeC+anivExtras],
-    ['✦ Marco',marco],
+    ['👤 Quem pede',nomePed+' · '+whats],
+    ['🎂 Nome no convite',nomeC+(genero?' — '+genero:'')+(idade?' — '+idade:'')],
     ['📅 Data e horário',dataf+' às '+horario],
     ['📍 Local',local+(endereco?' — '+endereco:'')],
+    ['🎭 Tipo de convite',tipo+' ('+precoBase+')'],
     ['🎨 Tema',tema],
     cores?['🖌️ Cores',cores]:null,
     coresProib!=='Não'?['🚫 Cores evitar',coresProib]:null,
+    ['🖼️ Imagem do tema',fotoTema],
+    presentes.lista!=='Sem sugestão'?['🎁 Presentes',presentes.lista]:null,
+    presentes.pix!=='Não'?['💳 PIX presentes',presentes.pix]:null,
     fotosInfo?['📸 Fotos a enviar',fotosInfo]:null,
-    dressLabel!=='—'?['👔 Dress code',dressLabel]:null,
-    coresDress!=='Não'?['🚫 Cores proibidas (convidados)',coresDress]:null,
-    ['🎭 Tipo de convite',tipo+' ('+precoBase+')'],
-    ['🎵 Música',getMusicaInfo()],
-    getPresentesInfo()!=='Sem sugestão'?['🎁 Presentes',getPresentesInfo()]:null,
-    tipo==='CineWeb'?['🎬 Visão CineWeb',document.getElementById('fCineweb').value.trim()]:null,
     ['✍️ Frase',frase==='personalizar'?('"'+fraseT+'"'):'A Lina escolhe'],
-    ['📸 Foto',foto?'Sim (+R$10)':'Não'],
-    ['✨ Filtro Instagram',filtro?'Sim (+R$10)':'Não'],
     ['✅ Confirmação',confMap[conf]||'WhatsApp'],
-    ['📲 Uso',usoMap[uso]||uso],
-    obs?['📝 Obs',obs]:null,
-    ['⏳ Prazo',urg?'Urgente — 24h (+R$30)':'Padrão — 3 dias úteis'],
+    ['📸 Foto da criança',foto?'Sim (+R$10)':'Não'],
+    ['✨ Filtro Instagram',filtro?'Sim (+R$10)':'Não'],
+    ['📲 Uso do convite',usoMap[uso]||uso],
+    ['⏳ Prazo',urg?'Urgente — 4h (+R$10)':'Padrão — 3 dias úteis'],
   ].filter(Boolean);
-  document.getElementById('resumoContent').innerHTML=rows.map(([k,v])=>`<div style="display:flex;gap:8px;margin-bottom:6px;padding-bottom:6px;border-bottom:1px solid rgba(196,168,245,0.1);"><span style="font-weight:700;color:var(--lilac-lt);min-width:155px;flex-shrink:0;font-size:12px;">${k}</span><span style="font-size:12px;color:var(--text)">${v||'—'}</span></div>`).join('');
+  document.getElementById('resumoContent').innerHTML=rows.map(([k,v])=>`<div style="display:flex;gap:8px;margin-bottom:6px;padding-bottom:6px;border-bottom:1px solid rgba(180,120,220,0.12);"><span style="font-weight:700;color:var(--violet-dk);min-width:140px;flex-shrink:0;">${k}</span><span style="color:var(--text)">${v||'—'}</span></div>`).join('');
   recalc();
 }
 
+// ── COLETA DADOS ──────────────────────────────────────────────
 function coletarDados(){
   const nomePed=document.getElementById('fNomePed').value.trim(),whats=document.getElementById('fWhats').value.trim();
-  const quemPede=document.querySelector('input[name="quemPede"]:checked')?.value==='proprio'?'Próprio(a) aniversariante':'Organizador(a)';
-  const nomeC=document.getElementById('fNome').value.trim(),marco=getMarcoLabel();
+  const nomeC=document.getElementById('fNome').value.trim(),genero=document.querySelector('input[name="genero"]:checked')?.value||'—';
   const data=document.getElementById('fData').value,horario=document.getElementById('fHorario').value;
   const local=document.getElementById('fLocal').value.trim(),endereco=document.getElementById('fEndereco').value.trim();
+  const idade=document.getElementById('fIdade').value;
+  const qtdAniv=parseInt(document.querySelector('input[name="qtdAniv"]:checked').value);
+  const tipoEl=document.querySelector('input[name="tipoConvite"]:checked'),tipo=tipoEl?tipoEl.value:'Não informado';
   const tema=document.getElementById('fTema').value.trim(),cores=document.getElementById('fCores').value.trim();
   const coresProib=document.querySelector('input[name="coresProib"]:checked')?.value==='sim'?(document.getElementById('fCoresProib').value.trim()||'Sim'):'Não';
-  const dressCode=document.getElementById('fDressCode').value,dressDesc=document.getElementById('fDressCodeDesc').value.trim();
-  const dressLabel=dressCode==='Personalizado'&&dressDesc?'Personalizado: '+dressDesc:(dressCode||'Sem dress code');
-  const coresDress=document.querySelector('input[name="coresDress"]:checked')?.value==='sim'?(document.getElementById('fCoresDress').value.trim()||'Sim'):'Não';
-  const tipoEl=document.querySelector('input[name="tipoConvite"]:checked'),tipo=tipoEl?tipoEl.value:'Não informado';
+  const fotoTema=document.querySelector('input[name="fotoTema"]:checked')?.value==='sim'?'Sim (enviará pelo WhatsApp)':'Não';
   const cineweb=document.getElementById('fCineweb').value.trim();
   const frase=document.querySelector('input[name="frase"]:checked')?.value,fraseT=document.getElementById('fFrase').value.trim();
   const conf=document.querySelector('input[name="conf"]:checked')?.value,confMap={whats:'WhatsApp (grátis)',google:'Formulário Google (+R$15,00)',sistema:'Sistema com lista (+R$29,90)'};
   const numConf=document.getElementById('fNumConf').value.trim();
   const foto=document.querySelector('input[name="foto"]:checked')?.value==='sim';
   const filtro=document.querySelector('input[name="filtroInsta"]:checked')?.value==='sim';
-  const uso=document.querySelector('input[name="usoConvite"]:checked')?.value,usoMap={whatsapp:'WhatsApp / Instagram',imprimir:'Imprimir',ambos:'Digital + Impresso'};
+  const uso=document.querySelector('input[name="usoConvite"]:checked')?.value;
+  const usoMap={whatsapp:'WhatsApp / Instagram',imprimir:'Imprimir',ambos:'Digital + Impresso'};
   const obs=document.getElementById('fObs').value.trim();
   const urg=document.querySelector('input[name="urg"]:checked')?.value==='sim';
   const precoBase=PRECOS[tipo]?fmt(PRECOS[tipo]):'—';
-  const totalT=document.getElementById('tTotal').textContent;
+  const presentes=getPresentes();
+  const fotosAEnviar=getFotosAEnviar();
   let dataf=data;if(data){const[y,m,d]=data.split('-');dataf=d+'/'+m+'/'+y;}
-  const qtdAniv=parseInt(document.querySelector('input[name="qtdAniv"]:checked').value);
-  let anivExtras='';
-  if(qtdAniv>=2){const n2=document.getElementById('fNome2').value.trim(),i2=document.getElementById('fIdade2').value.trim();if(n2)anivExtras+=' + '+n2+(i2?' ('+i2+')':'');}
-  if(qtdAniv>=3){const n3=document.getElementById('fNome3').value.trim(),i3=document.getElementById('fIdade3').value.trim();if(n3)anivExtras+=' + '+n3+(i3?' ('+i3+')':'');}
-  const fotosInfo=getFotosAEnviar();
-  return{nomePedido:nomePed,whatsapp:whats,quemPede,nomeConvite:nomeC+(anivExtras?anivExtras:''),marco,dataFesta:dataf,horario,local,endereco,tema,cores,coresProibidas:coresProib,dressCode:dressLabel,coresDress,fotosAEnviar:fotosInfo,tipoConvite:tipo,precoBase,musica:getMusicaInfo(),presentes:getPresentesInfo(),visaoCineweb:cineweb,frase:frase==='personalizar'?'"'+fraseT+'"':'A Lina escolhe',foto:foto?'Sim (+R$10)':'Não',filtroInstagram:filtro?'Sim (+R$10)':'Não',confirmacao:confMap[conf]||conf,numConfirmacao:numConf,usoConvite:usoMap[uso]||uso,observacoes:obs,prazo:urg?'Urgente — 24h (+R$30)':'Padrão — 3 dias úteis',totalEstimado:totalT};
+  let aniv2='',aniv3='';
+  if(qtdAniv>=2){const n2=document.getElementById('fNome2').value.trim(),i2=document.getElementById('fIdade2').value.trim();aniv2=n2+(i2?' ('+i2+')':'');}
+  if(qtdAniv>=3){const n3=document.getElementById('fNome3').value.trim(),i3=document.getElementById('fIdade3').value.trim();aniv3=n3+(i3?' ('+i3+')':'');}
+  const totalT=document.getElementById('tTotal').textContent;
+  return{
+    nomePedido:nomePed,whatsapp:whats,
+    nomeConvite:nomeC,genero,idade,qtdAniversariantes:qtdAniv,aniv2,aniv3,
+    dataFesta:dataf,horario,local,endereco,
+    tipoConvite:tipo,precoBase,
+    visaoCineweb:cineweb,
+    tema,cores,coresProibidas:coresProib,fotoTema,
+    listaPresentes:presentes.lista,pixPresentes:presentes.pix,
+    fotosAEnviar,
+    frase:frase==='personalizar'?'"'+fraseT+'"':'A Lina escolhe',
+    confirmacao:confMap[conf]||conf,numConfirmacao:numConf,
+    foto:foto?'Sim (+R$10)':'Não',
+    filtroInstagram:filtro?'Sim (+R$10)':'Não',
+    usoConvite:usoMap[uso]||uso,
+    observacoes:obs,
+    prazo:urg?'Urgente — 4h (+R$10)':'Padrão — 3 dias úteis',
+    totalEstimado:totalT
+  };
 }
 
+// ── WHATSAPP ──────────────────────────────────────────────────
 function montarWhatsApp(d){
   const linhas=[
-    '✦ *BRIEFING DE CONVITE — LINA CONVITES · ANIVERSÁRIOS*','',
-    '✦ *Nome no convite:* '+d.nomeConvite,
-    '✦ *Marco:* '+d.marco,
+    '✨ *BRIEFING DE CONVITE — LINA CONVITES*','',
     '🎨 *Tema:* '+d.tema,
     '🎭 *Tipo de convite:* '+d.tipoConvite+' ('+d.precoBase+')',
+    d.listaPresentes!=='Sem sugestão'?'🎁 *Presentes:* '+d.listaPresentes:'',
+    d.pixPresentes!=='Não'?'💳 *PIX p/ presentes:* '+d.pixPresentes:'',
+    d.visaoCineweb?'🎬 *Visão CineWeb:* '+d.visaoCineweb:'',
     '','👤 *Cliente:* '+d.nomePedido,
     '📱 *WhatsApp:* '+d.whatsapp,
-    '👥 *Pedido por:* '+d.quemPede,
+    '🎂 *Nome no convite:* '+d.nomeConvite,
+    '👧 *Gênero:* '+d.genero,
+    d.idade?'🎈 *Idade:* '+d.idade:'',
+    d.aniv2?'👦 *2º aniversariante:* '+d.aniv2:'',
+    d.aniv3?'👦 *3º aniversariante:* '+d.aniv3:'',
     '📅 *Data:* '+d.dataFesta+' às '+d.horario,
     '📍 *Local:* '+d.local,
     d.endereco?'🗺️ *Endereço:* '+d.endereco:'',
-    '',
-    d.cores?'🖌️ *Cores preferidas:* '+d.cores:'',
+    d.cores?'🎨 *Cores:* '+d.cores:'',
     d.coresProibidas!=='Não'?'🚫 *Cores a evitar:* '+d.coresProibidas:'',
-    d.fotosAEnviar?''+d.fotosAEnviar:'',
-    d.dressCode&&d.dressCode!=='Sem dress code'?'👔 *Dress code:* '+d.dressCode:'',
-    d.coresDress!=='Não'?'🚫 *Cores proibidas (convidados):* '+d.coresDress:'',
-    '',
-    '🎵 *Música:* '+d.musica,
-    d.presentes!=='Sem sugestão'?'🎁 *Presentes:* '+d.presentes:'',
-    d.visaoCineweb?'🎬 *Visão CineWeb:* '+d.visaoCineweb:'',
-    '',
-    '✍️ *Frase:* '+d.frase,
-    '📸 *Foto do(a) aniversariante:* '+d.foto,
-    '✨ *Filtro Instagram:* '+d.filtroInstagram,
+    '🖼️ *Imagem do tema:* '+d.fotoTema,
+    '','✍️ *Frase:* '+d.frase,
     '✅ *Confirmação:* '+d.confirmacao,
     d.numConfirmacao?'📞 *Número confirmação:* '+d.numConfirmacao:'',
+    '📸 *Foto da criança:* '+d.foto,
+    '✨ *Filtro Instagram:* '+d.filtroInstagram,
     '📲 *Uso do convite:* '+d.usoConvite,
-    d.observacoes?'\n📝 *Obs:* '+d.observacoes:'',
+    d.observacoes?'📝 *Obs:* '+d.observacoes:'',
     '',''+d.prazo,
     '','💰 *Total:* '+d.totalEstimado,
     '💳 *PIX (pagamento):* 11944457518',
-    '','_Enviarei o comprovante em seguida._ ✦',
-    '','━━━━━━━━━━━━━━━━━━━━━━',
+    '','_Enviarei o comprovante em seguida._ 💜',
+    '',
+    '━━━━━━━━━━━━━━━━━━━━━━',
     '📸 *NÃO ESQUEÇA DE ENVIAR AS FOTOS!*',
-    d.fotosAEnviar?'Você indicou: '+d.fotosAEnviar.replace('📸 Enviar pelo WhatsApp: ',''):'Se tiver foto do(a) aniversariante ou referência de estilo, manda aqui! 🎨',
-    '_Fotos de boa qualidade garantem o melhor resultado._ ✦'
+    d.fotosAEnviar
+      ? 'Você indicou: '+d.fotosAEnviar.replace('📸 Enviar pelo WhatsApp: ','')
+      : 'Se tiver foto da criança ou do personagem/tema, manda aqui! Ajuda muito a Lina a criar o convite perfeito. 🎨',
+    '_Fotos de boa qualidade garantem o melhor resultado._ 💜'
   ].filter(l=>l!==null&&l!=='').join('\n');
   return 'https://wa.me/5511953520254?text='+encodeURIComponent(linhas);
 }
 
-function enviar(){
+// ── ENVIO ─────────────────────────────────────────────────────
+async function enviar(){
   const btn=document.getElementById('btnEnviar');
   btn.disabled=true;
-  btn.innerHTML='<div style="width:16px;height:16px;border:2.5px solid rgba(255,255,255,0.3);border-top-color:#fff;border-radius:50%;animation:spin 0.7s linear infinite;margin:0 auto"></div>';
+  btn.innerHTML='<div class="sheets-spinner" style="width:16px;height:16px;border-color:rgba(255,255,255,0.3);border-top-color:#fff;margin:0 auto"></div>';
   const dados=coletarDados();
+
+  // 1. Abre WhatsApp
   window.open(montarWhatsApp(dados),'_blank');
+
+  // 2. Personaliza mensagem de fotos na tela de sucesso
   const fotoMsgEl=document.getElementById('successFotoMsg');
-  if(fotoMsgEl&&dados.fotosAEnviar){const lista=dados.fotosAEnviar.replace('📸 Enviar pelo WhatsApp: ','');fotoMsgEl.innerHTML='Você indicou que tem fotos para enviar: <strong style="color:#4ade80">'+lista+'</strong>. Manda agora pelo WhatsApp para a Lina já começar!';}
-  setTimeout(()=>{document.querySelector('.step-panel.active').style.display='none';document.getElementById('successScreen').classList.add('show');window.scrollTo({top:0,behavior:'smooth'});},600);
+  if(fotoMsgEl&&dados.fotosAEnviar){
+    const lista=dados.fotosAEnviar.replace('📸 Enviar pelo WhatsApp: ','');
+    fotoMsgEl.innerHTML='Você indicou que tem fotos para enviar: <strong>'+lista+'</strong>. Manda agora pelo WhatsApp para a Lina já começar! 🎨';
+  }
+
+  // 3. Tela de sucesso
+  setTimeout(()=>{
+    document.querySelector('.step-panel.active').style.display='none';
+    document.getElementById('successScreen').classList.add('show');
+    window.scrollTo({top:0,behavior:'smooth'});
+  },600);
 }
 
 function copyPix(){navigator.clipboard.writeText('11944457518').then(()=>{const ok=document.getElementById('cpixOk');ok.style.display='block';setTimeout(()=>ok.style.display='none',2500);});}
