@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Super Lorenzo</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body, html { width: 100%; height: 100%; overflow: hidden; background: #000; display: flex; justify-content: center; align-items: center; }
+        
+        #main-container { width: 1080px; height: 1920px; position: relative; transform-origin: center center; flex-shrink: 0; }
+        .screen { position: absolute; inset: 0; width: 100%; height: 100%; display: none; }
+
+        /* CAPA */
+        #screen-capa { z-index: 100; cursor: pointer; display: block; }
+        #screen-capa img { width: 100%; height: 100%; object-fit: cover; }
+        #capa-hint {
+            position: absolute; bottom: 150px; left: 50%;
+            transform: translateX(-50%); color: #fff;
+            font-family: 'Cinzel Decorative', cursive; font-size: 35px;
+            text-shadow: 2px 2px 10px #000;
+            animation: pulse 1.5s infinite; white-space: nowrap;
+        }
+
+        /* VIDEO */
+        #screen-video { z-index: 200; background: #000; }
+        #video-main { width: 100%; height: 100%; object-fit: cover; }
+
+        /* CONVITE */
+        #screen-convite { z-index: 300; }
+        .bg-convite { width: 100%; height: 100%; object-fit: cover; }
+
+        /* BOTÃO MÚSICA */
+        #btn-music {
+            position: absolute; top: 40px; left: 40px; z-index: 400;
+            background: rgba(255, 255, 255, 0.3); border: none;
+            width: 80px; height: 80px; cursor: pointer; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+        .icon-pause div { width: 8px; height: 35px; background: #fff; margin: 0 4px; border-radius: 2px; }
+        .icon-play { border-top: 15px solid transparent; border-bottom: 15px solid transparent; border-left: 25px solid #fff; margin-left: 8px; }
+
+        /* BOTÕES DE INTERAÇÃO */
+        .invite-btn { position: absolute; background: rgba(255,0,0,0); border: none; cursor: pointer; }
+
+        #pix-toast {
+            position: absolute; bottom: 100px; left: 50%; transform: translateX(-50%);
+            background: #fbd000; color: #000; padding: 20px 50px; border-radius: 50px;
+            font-family: 'Cinzel Decorative', cursive; font-size: 30px; font-weight: bold;
+            z-index: 1000; opacity: 0; transition: 0.4s; border: 3px solid #000;
+        }
+        #pix-toast.show { opacity: 1; }
+
+        @keyframes pulse { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+<audio id="audio-bg" loop>
+    <source src="musicamarioworld.mp3" type="audio/mpeg">
+</audio>
+
+<div id="main-container">
+
+    <div id="screen-capa" class="screen" onclick="iniciar()">
+        <img src="https://i.ibb.co/k23ChqwS/capa.jpg" alt="Capa Mario">
+    </div>
+
+    <div id="screen-video" class="screen">
+        <video id="video-main" playsinline webkit-playsinline muted>
+            <source src="https://res.cloudinary.com/dltj3jhe6/video/upload/v1783032505/video_lorenzo_w18ghs.mp4">
+        </video>
+    </div>
+
+    <div id="screen-convite" class="screen">
+        <img class="bg-convite" src="https://i.ibb.co/5g4CBk3y/convite.jpg" alt="Convite Mario">
+        
+        <button id="btn-music" onclick="toggleMusica()">
+            <div id="music-icon" class="icon-pause"><div style="display:inline-block"></div><div style="display:inline-block"></div></div>
+        </button>
+
+        <button class="invite-btn" onclick="abrirLink('https://share.google/qFyDMvB9E8UPvf3lf')" style="left:25%; top:61%; width:13.5%; height:7%;"></button>
+        
+        <button class="invite-btn" onclick="abrirLink('https://wa.me/5511940739275?text=Confirmado!%20Let%27s%20Go!')" style="left:44.4%; top:61%; width:14%; height:7%;"></button>
+        
+        <button class="invite-btn" onclick="abrirPresentes()" style="left:64.3%; top:61%; width:13.8%; height:7%;"></button>
+    </div>
+
+    <div id="screen-presentes" class="screen">
+        <img class="bg-convite" src="https://i.ibb.co/NgBCsJRW/presentes.jpg" alt="Presentes">
+        <button class="invite-btn" onclick="voltarConvite()" style="left:42.2%; top:69.5%; width:17.4%; height:10.3%;"></button>
+    </div>
+
+    <div id="pix-toast">✓ PIX COPIADO!</div>
+
+</div>
+
+<script>
+    const audio = document.getElementById('audio-bg');
+    const video = document.getElementById('video-main');
+    const container = document.getElementById('main-container');
+
+    function ajustarTela() {
+        const s = Math.min(window.innerWidth / 1080, window.innerHeight / 1920);
+        container.style.transform = `scale(${s})`;
+    }
+    window.addEventListener('resize', ajustarTela);
+    ajustarTela();
+
+    function iniciar() {
+        document.getElementById('screen-capa').style.display = 'none';
+        document.getElementById('screen-video').style.display = 'block';
+        audio.play().catch(e => console.log(e));
+        video.play().catch(e => irParaConvite());
+    }
+
+    video.addEventListener('ended', irParaConvite);
+
+    function irParaConvite() {
+        video.pause();
+        document.getElementById('screen-video').style.display = 'none';
+        document.getElementById('screen-convite').style.display = 'block';
+        if (audio.paused) audio.play();
+    }
+
+    function toggleMusica() {
+        const icon = document.getElementById('music-icon');
+        if (audio.paused) {
+            audio.play();
+            icon.className = 'icon-pause';
+            icon.innerHTML = '<div style="display:inline-block"></div><div style="display:inline-block"></div>';
+        } else {
+            audio.pause();
+            icon.className = 'icon-play';
+            icon.innerHTML = '';
+        }
+    }
+
+    function abrirLink(url) { window.location.href = url; }
+
+    function abrirPresentes() {
+        document.getElementById('screen-convite').style.display = 'none';
+        document.getElementById('screen-presentes').style.display = 'block';
+    }
+
+    function voltarConvite() {
+        document.getElementById('screen-presentes').style.display = 'none';
+        document.getElementById('screen-convite').style.display = 'block';
+    }
+    
+    function copiarPix(chave) {
+        navigator.clipboard.writeText(chave);
+        const t = document.getElementById('pix-toast');
+        t.classList.add('show');
+        setTimeout(() => t.classList.remove('show'), 2500);
+    }
+</script>
+
+</body>
+</html>
