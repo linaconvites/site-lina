@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Gemeas - 3 anos!</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Baloo+2:wght@700;800&display=swap');
 
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body, html { width: 100%; height: 100%; overflow: hidden; background: #000; display: flex; justify-content: center; align-items: center; }
@@ -44,6 +44,18 @@
         .icon-pause div { width: 8px; height: 35px; background: #fff; margin: 0 4px; border-radius: 2px; }
         .icon-play { border-top: 15px solid transparent; border-bottom: 15px solid transparent; border-left: 25px solid #fff; margin-left: 8px; }
 
+        /* BOTAO PULAR ABERTURA (espelhado do botao de musica) */
+        #btn-pular {
+            position: absolute; bottom: 40px; right: 40px; z-index: 400;
+            background: rgba(0, 0, 0, 0.45); border: 2px solid rgba(255,255,255,0.8);
+            padding: 0 28px; height: 80px; cursor: pointer; border-radius: 40px;
+            display: none; align-items: center; justify-content: center;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+            color: #fff; font-family: 'Baloo 2', cursive; font-weight: 800; font-size: 30px;
+            white-space: nowrap;
+        }
+
         /* BOTOES DE INTERACAO */
         .invite-btn { position: absolute; background: rgba(255,0,0,0); border: none; cursor: pointer; }
 
@@ -66,6 +78,7 @@
         <video id="video-main" playsinline webkit-playsinline muted>
             <source src="https://res.cloudinary.com/dltj3jhe6/video/upload/v1785532210/video_rjcrcx.mp4">
         </video>
+        <button id="btn-pular" onclick="irParaConvite()">PULAR ABERTURA</button>
     </div>
 
     <div id="screen-convite" class="screen">
@@ -116,6 +129,15 @@
     }
 
     video.addEventListener('ended', irParaConvite);
+
+    const btnPular = document.getElementById('btn-pular');
+    video.addEventListener('timeupdate', () => {
+        if (video.currentTime >= 10 && video.currentTime < 25) {
+            btnPular.style.display = 'flex';
+        } else {
+            btnPular.style.display = 'none';
+        }
+    });
 
     audio.addEventListener('ended', () => {
         audio.currentTime = 0;
